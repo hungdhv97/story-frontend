@@ -21,5 +21,13 @@ jobs:
           REMOTE_USER: ${{ secrets.REMOTE_USER }}
           TARGET: ${{ secrets.DEPLOY_DIR }}
 
+      - name: Setup SSH Key
+        run: |
+          mkdir -p ~/.ssh
+          echo "$EC2_SSH_KEY" > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+
       - name: Install Dependencies
-        run: ssh -i ${{ secrets.EC2_SSH_KEY }} ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }} "cd ${{ secrets.DEPLOY_DIR }} && npm i"
+        run: ssh -i ~/.ssh/deploy_key ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }} "cd ${{ secrets.DEPLOY_DIR }} && npm i"
+        env:
+          EC2_SSH_KEY: ${{ secrets.EC2_SSH_KEY }}
