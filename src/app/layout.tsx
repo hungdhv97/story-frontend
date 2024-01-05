@@ -7,7 +7,7 @@ import { lusitana } from '@/fonts';
 
 
 export const metadata: Metadata = {
-    title: 'Home page',
+    title: 'Home page test',
     description: 'Website description',
 };
 
