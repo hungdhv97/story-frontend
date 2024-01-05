@@ -4,7 +4,7 @@ export default function HeaderPage() {
     return (
         <header className="bg-blue-600 text-white py-4">
             <div className="container mx-auto flex justify-between items-center px-6">
-                <h1 className="text-xl font-bold">YourSite Test</h1>
+                <h1 className="text-xl font-bold">YourSite</h1>
                 <nav>
                     <ul className="flex space-x-4">
                         <li>
