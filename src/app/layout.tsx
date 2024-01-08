@@ -1,20 +1,32 @@
-import type { Metadata } from 'next';
-import React from 'react';
+import { Inter as FontSans } from 'next/font/google';
+import { ReactNode } from 'react';
 
 import '@/styles/globals.css';
 
-import { lusitana } from '@/fonts';
+import { cn } from '@/lib/utils';
 
 
-export const metadata: Metadata = {
-    title: 'Home page test',
-    description: 'Website description',
-};
+const fontSans = FontSans({
+    subsets: ['latin'],
+    variable: '--font-sans',
+});
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+interface RootLayoutProps {
+    children: ReactNode;
+}
+
+export default function RootLayout({ children }: RootLayoutProps) {
     return (
-        <html lang="en">
-        <body className={lusitana.className}>{children}</body>
+        <html lang="en" suppressHydrationWarning>
+        <head />
+        <body
+            className={cn(
+                'min-h-screen bg-background font-sans antialiased',
+                fontSans.variable,
+            )}
+        >
+        {children}
+        </body>
         </html>
     );
 }
