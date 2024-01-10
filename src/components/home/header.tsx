@@ -8,7 +8,7 @@ import ThemeSwitcher from '@/components/home/theme-switcher';
 import { Button } from '@/components/ui/button';
 
 import { IRouter } from '@/interfaces/common';
-import { Genre } from '@/interfaces/services/responses';
+import { IGenre } from '@/interfaces/services/responses';
 
 
 const listFilterStories: IRouter[] = [
@@ -61,7 +61,7 @@ export default function Header() {
         const fetchAndSetGenres = async () => {
             try {
                 const genres = await fetchGenres();
-                setListFilterGenres(genres.map((genre: Genre) => ({
+                setListFilterGenres(genres.map((genre: IGenre) => ({
                     id: genre.id,
                     title: genre.name,
                     href: '/' + genre.slug,
