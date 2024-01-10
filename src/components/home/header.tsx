@@ -16,20 +16,14 @@ export default function Header() {
     const [genreRouters, setGenreRouters] = useState([]);
 
     useEffect(() => {
-        const fetchAndSetGenres = async () => {
-            try {
-                const genres = await fetchGenres();
-                setGenreRouters(genres.map((genre: IGenre) => ({
-                    id: genre.id,
-                    title: genre.name,
-                    href: '/' + genre.slug,
+        fetchGenres()
+            .then(genres => {
+                setGenreRouters(genres.map(({ id, name, slug }: IGenre) => ({
+                    id,
+                    title: name,
+                    href: `/${slug}`,
                 })));
-            } catch (error) {
-                console.error('Failed to fetch genres', error);
-            }
-        };
-
-        fetchAndSetGenres();
+            });
     }, []);
 
     return (
