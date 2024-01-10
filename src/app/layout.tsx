@@ -15,18 +15,21 @@ const fontSans = FontSans({
 
 export default function RootLayout({ children }: IRootLayoutProps) {
     return (
-        <html lang="en" suppressHydrationWarning>
-        <head />
-        <body
-            className={cn(
-                'min-h-screen bg-background font-sans antialiased',
-                fontSans.variable,
-            )}
+        <html
+            lang="en"
+            suppressHydrationWarning
         >
-        <Providers>
-            {children}
-        </Providers>
-        </body>
+            <head />
+            <body
+                className={cn(
+                    'min-h-screen bg-background font-sans antialiased',
+                    fontSans.variable,
+                )}
+            >
+                <Providers>
+                    {children}
+                </Providers>
+            </body>
         </html>
     );
 }

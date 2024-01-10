@@ -9,16 +9,24 @@ export default function Footer() {
             <p>© {new Date().getFullYear()} [Story Name]</p>
             <p className="my-2">[Story Name] là website đọc truyện tranh miễn phí</p>
             <div className="flex space-x-4">
-                <Link href="https://github.com/hungdhv97/story-frontend" passHref
-                      className="flex items-center gap-2" target="_blank"
-                      rel="noopener noreferrer">
+                <Link
+                    href="https://github.com/hungdhv97/story-frontend"
+                    passHref
+                    className="flex items-center gap-2"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
                     <Button variant="outline">
                         <Github className="w-5 h-5" /> GitHub
                     </Button>
                 </Link>
-                <Link href="https://facebook.com/hungdhv97" passHref
-                      className="flex items-center gap-2" target="_blank"
-                      rel="noopener noreferrer">
+                <Link
+                    href="https://facebook.com/hungdhv97"
+                    passHref
+                    className="flex items-center gap-2"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
                     <Button variant="outline">
                         <Facebook className="w-5 h-5" /> Facebook
                     </Button>

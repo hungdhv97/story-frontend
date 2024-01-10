@@ -24,9 +24,13 @@ export default function Header() {
     return (
         <header className="border-b dark:bg-slate-700 bg-slate-300">
             <div className="flex h-16 items-center px-4">
-                <Link href="/" className="mr-6 ml-2">
+                <Link
+                    href="/"
+                    className="mr-6 ml-2"
+                >
                     <Button variant="outline">
-                        <BookOpenText /><span className="ml-2">[Story Name]</span>
+                        <BookOpenText />
+                        <span className="ml-2">[Story Name]</span>
                     </Button>
                 </Link>
                 <HomeNavigationMenu
