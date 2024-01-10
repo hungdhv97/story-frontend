@@ -5,7 +5,7 @@ import '@/styles/globals.css';
 
 import { cn } from '@/lib/utils';
 
-import { ThemeProvider } from '@/components/theme-provider';
+import { Providers } from '@/app/providers';
 
 
 const fontSans = FontSans({
@@ -28,14 +28,9 @@ export default function RootLayout({ children }: RootLayoutProps) {
                 fontSans.variable,
             )}
         >
-        <ThemeProvider
-            attribute="class"
-            defaultTheme="dark"
-            enableSystem
-            disableTransitionOnChange
-        >
+        <Providers>
             {children}
-        </ThemeProvider>
+        </Providers>
         </body>
         </html>
     );

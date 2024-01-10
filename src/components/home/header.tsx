@@ -1,9 +1,9 @@
 import { BookOpenText } from 'lucide-react';
 import Link from 'next/link';
 
-import ChangeTheme from '@/components/home/change-theme';
 import { HomeNavigationMenu } from '@/components/home/main-nav';
 import { Search } from '@/components/home/search';
+import ThemeSwitcher from '@/components/home/theme-switcher';
 import { Button } from '@/components/ui/button';
 
 export default function Header() {
@@ -17,7 +17,7 @@ export default function Header() {
                 </Link>
                 <HomeNavigationMenu />
                 <div className="ml-auto flex items-center space-x-4">
-                    <ChangeTheme />
+                    <ThemeSwitcher />
                     <Search />
                 </div>
             </div>

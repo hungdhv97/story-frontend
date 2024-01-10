@@ -1,16 +1,21 @@
-import { Moon, Sun } from 'lucide-react';
+import { LoaderIcon, Moon, Sun } from 'lucide-react';
 import { useTheme } from 'next-themes';
 import React, { useEffect, useState } from 'react';
 
 import { Button } from '@/components/ui/button';
 
-export default function ChangeTheme() {
+export default function ThemeSwitcher() {
+    const [mounted, setMounted] = useState(false);
     const { theme, setTheme } = useTheme();
     const [isDarkMode, setIsDarkMode] = useState(theme === 'dark');
 
     useEffect(() => {
         setTheme(isDarkMode ? 'dark' : 'light');
     }, [isDarkMode, setTheme]);
+
+    useEffect(() => {
+        setMounted(true);
+    }, []);
 
     const toggleTheme = () => {
         setIsDarkMode(!isDarkMode);
@@ -19,12 +24,15 @@ export default function ChangeTheme() {
     return (
         <div>
             <Button variant="outline" size="icon" onClick={toggleTheme}>
-                {isDarkMode ? (
-                    <Sun className="h-[1.2rem] w-[1.2rem]" />
+                {mounted ? (
+                    isDarkMode ? (
+                        <Sun className="h-[1.2rem] w-[1.2rem]" />
+                    ) : (
+                        <Moon className="h-[1.2rem] w-[1.2rem]" />
+                    )
                 ) : (
-                    <Moon className="h-[1.2rem] w-[1.2rem]" />
+                    <LoaderIcon className="animate-spin" />
                 )}
-                <span className="sr-only">Toggle theme</span>
             </Button>
         </div>
     );
