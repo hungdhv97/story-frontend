@@ -27,7 +27,7 @@ export function HomeNavigationMenu({
                 <NavigationMenuItem>
                     <NavigationMenuTrigger>Danh sách</NavigationMenuTrigger>
                     <NavigationMenuContent>
-                        <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
+                        <ul className="grid w-[200px] gap-2 p-2 md:w-[200px] md:grid-cols-1 lg:w-[200px] ">
                             {storyRouters.map((router) => (
                                 <ListItem
                                     key={router.title}
@@ -39,11 +39,10 @@ export function HomeNavigationMenu({
                         </ul>
                     </NavigationMenuContent>
                 </NavigationMenuItem>
-
                 <NavigationMenuItem>
                     <NavigationMenuTrigger>Thể loại</NavigationMenuTrigger>
                     <NavigationMenuContent>
-                        <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
+                        <ul className="grid w-[300px] gap-2 p-2 md:w-[300px] md:grid-cols-2 lg:w-[300px] ">
                             {genreRouters.map((router) => (
                                 <ListItem
                                     key={router.title}
@@ -58,7 +57,7 @@ export function HomeNavigationMenu({
                 <NavigationMenuItem>
                     <NavigationMenuTrigger>Phân loại theo chương</NavigationMenuTrigger>
                     <NavigationMenuContent>
-                        <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
+                        <ul className="grid w-[200px] gap-2 p-2 md:w-[200px] md:grid-cols-1 lg:w-[200px] ">
                             {chapterRouters.map((router) => (
                                 <ListItem
                                     key={router.title}
