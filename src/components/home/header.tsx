@@ -1,6 +1,7 @@
 import { BookOpenText } from 'lucide-react';
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
+
+import { useGetGenres } from '@/data/hooks';
 
 import { HomeNavigationMenu } from '@/components/home/main-nav';
 import { Search } from '@/components/home/search';
@@ -9,22 +10,16 @@ import { Button } from '@/components/ui/button';
 
 import { chapterRouters, storyRouters } from '@/constants';
 import { IGenre } from '@/interfaces/services/responses';
-import { fetchGenres } from '@/services';
 
 
 export default function Header() {
-    const [genreRouters, setGenreRouters] = useState([]);
+    const { data } = useGetGenres();
 
-    useEffect(() => {
-        fetchGenres()
-            .then(genres => {
-                setGenreRouters(genres.map(({ id, name, slug }: IGenre) => ({
-                    id,
-                    title: name,
-                    href: `/${slug}`,
-                })));
-            });
-    }, []);
+    const genreRouters = data ? data.map(({ id, name, slug }: IGenre) => ({
+        id,
+        title: name,
+        href: `/${slug}`,
+    })) : [];
 
     return (
         <header className="border-b dark:bg-slate-700 bg-slate-300">
