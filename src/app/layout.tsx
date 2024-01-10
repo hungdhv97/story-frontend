@@ -1,12 +1,11 @@
 import { Inter as FontSans } from 'next/font/google';
-import { ReactNode } from 'react';
 
 import '@/styles/globals.css';
 
 import { cn } from '@/lib/utils';
 
 import { Providers } from '@/app/providers';
-
+import { IRootLayoutProps } from '@/interfaces/components/props';
 
 const fontSans = FontSans({
     subsets: ['latin'],
@@ -14,11 +13,7 @@ const fontSans = FontSans({
     weight: ['700'],
 });
 
-interface RootLayoutProps {
-    children: ReactNode;
-}
-
-export default function RootLayout({ children }: RootLayoutProps) {
+export default function RootLayout({ children }: IRootLayoutProps) {
     return (
         <html lang="en" suppressHydrationWarning>
         <head />

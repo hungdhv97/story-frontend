@@ -7,8 +7,11 @@ import { Search } from '@/components/home/search';
 import ThemeSwitcher from '@/components/home/theme-switcher';
 import { Button } from '@/components/ui/button';
 
+import { IRouter } from '@/interfaces/common';
+import { Genre } from '@/interfaces/services/responses';
 
-const listFilterStories: { title: string; href: string; }[] = [
+
+const listFilterStories: IRouter[] = [
     {
         title: 'Truyện Hot',
         href: '/hot-stories',
@@ -23,7 +26,7 @@ const listFilterStories: { title: string; href: string; }[] = [
     },
 ];
 
-const listFilterChapters: { title: string; href: string; }[] = [
+const listFilterChapters: IRouter[] = [
     {
         title: 'Dưới 100',
         href: '/top-stories/lower-100',
@@ -50,11 +53,6 @@ async function fetchGenres() {
     return res.json();
 }
 
-interface Genre {
-    id: number;
-    name: string;
-    slug: string;
-}
 
 export default function Header() {
     const [listFilterGenres, setListFilterGenres] = useState([]);

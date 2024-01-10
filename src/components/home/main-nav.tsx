@@ -13,22 +13,14 @@ import {
     NavigationMenuTrigger,
 } from '@/components/ui/navigation-menu';
 
-interface Filter {
-    title: string;
-    href: string;
-}
+import { IHomeNavigationMenuProps } from '@/interfaces/components/props';
 
-interface HomeNavigationMenuProps {
-    listFilterStories: Filter[];
-    listFilterGenres: Filter[];
-    listFilterChapters: Filter[];
-}
 
 export function HomeNavigationMenu({
                                        listFilterStories,
                                        listFilterGenres,
                                        listFilterChapters,
-                                   }: HomeNavigationMenuProps) {
+                                   }: IHomeNavigationMenuProps) {
     return (
         <NavigationMenu>
             <NavigationMenuList>
