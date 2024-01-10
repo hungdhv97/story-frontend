@@ -13,77 +13,22 @@ import {
     NavigationMenuTrigger,
 } from '@/components/ui/navigation-menu';
 
-const listFilterGenres: { title: string; href: string; }[] = [
-    {
-        title: 'Tiên Hiệp',
-        href: '/genres/tien-hiep',
-    },
-    {
-        title: 'Tiên Hiệp',
-        href: '/genres/tien-hiep',
-    },
-    {
-        title: 'Tiên Hiệp',
-        href: '/genres/tien-hiep',
-    },
-    {
-        title: 'Tiên Hiệp',
-        href: '/genres/tien-hiep',
-    },
-    {
-        title: 'Tiên Hiệp',
-        href: '/genres/tien-hiep',
-    },
-    {
-        title: 'Tiên Hiệp',
-        href: '/genres/tien-hiep',
-    },
-    {
-        title: 'Tiên Hiệp',
-        href: '/genres/tien-hiep',
-    },
-    {
-        title: 'Tiên Hiệp',
-        href: '/genres/tien-hiep',
-    },
-];
+interface Filter {
+    title: string;
+    href: string;
+}
 
-const listFilterStories: { title: string; href: string; }[] = [
-    {
-        title: 'Truyện Hot',
-        href: '/hot-stories',
-    },
-    {
-        title: 'Truyện Full',
-        href: '/full-stories',
-    },
-    {
-        title: 'Truyện mới cập nhật',
-        href: '/updated-stories',
-    },
-];
+interface HomeNavigationMenuProps {
+    listFilterStories: Filter[];
+    listFilterGenres: Filter[];
+    listFilterChapters: Filter[];
+}
 
-const listFilterChapters: { title: string; href: string; }[] = [
-    {
-        title: 'Dưới 100',
-        href: '/top-stories/lower-100',
-    },
-    {
-        title: 'Từ 100 đến 500',
-        href: '/top-stories/100-to-500',
-    },
-    {
-        title: 'Từ 500 đến 1000',
-        href: '/top-stories/500-to-1000',
-    },
-    {
-        title: 'Trên 1000',
-        href: '/top-stories/more-than-1000',
-    },
-];
-
-
-export function HomeNavigationMenu() {
+export function HomeNavigationMenu({
+                                       listFilterStories,
+                                       listFilterGenres,
+                                       listFilterChapters,
+                                   }: HomeNavigationMenuProps) {
     return (
         <NavigationMenu>
             <NavigationMenuList>
