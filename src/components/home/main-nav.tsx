@@ -17,9 +17,9 @@ import { IHomeNavigationMenuProps } from '@/interfaces/components/props';
 
 
 export function HomeNavigationMenu({
-                                       listFilterStories,
-                                       listFilterGenres,
-                                       listFilterChapters,
+                                       storyRouters,
+                                       genreRouters,
+                                       chapterRouters,
                                    }: IHomeNavigationMenuProps) {
     return (
         <NavigationMenu>
@@ -28,11 +28,11 @@ export function HomeNavigationMenu({
                     <NavigationMenuTrigger>Danh sách</NavigationMenuTrigger>
                     <NavigationMenuContent>
                         <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
-                            {listFilterStories.map((item) => (
+                            {storyRouters.map((router) => (
                                 <ListItem
-                                    key={item.title}
-                                    title={item.title}
-                                    href={item.href}
+                                    key={router.title}
+                                    title={router.title}
+                                    href={router.href}
                                 >
                                 </ListItem>
                             ))}
@@ -44,11 +44,11 @@ export function HomeNavigationMenu({
                     <NavigationMenuTrigger>Thể loại</NavigationMenuTrigger>
                     <NavigationMenuContent>
                         <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
-                            {listFilterGenres.map((item) => (
+                            {genreRouters.map((router) => (
                                 <ListItem
-                                    key={item.title}
-                                    title={item.title}
-                                    href={item.href}
+                                    key={router.title}
+                                    title={router.title}
+                                    href={router.href}
                                 >
                                 </ListItem>
                             ))}
@@ -59,11 +59,11 @@ export function HomeNavigationMenu({
                     <NavigationMenuTrigger>Phân loại theo chương</NavigationMenuTrigger>
                     <NavigationMenuContent>
                         <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
-                            {listFilterChapters.map((item) => (
+                            {chapterRouters.map((router) => (
                                 <ListItem
-                                    key={item.title}
-                                    title={item.title}
-                                    href={item.href}
+                                    key={router.title}
+                                    title={router.title}
+                                    href={router.href}
                                 >
                                 </ListItem>
                             ))}

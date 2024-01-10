@@ -7,8 +7,8 @@ export interface IRootLayoutProps {
 }
 
 export interface IHomeNavigationMenuProps {
-    listFilterStories: IRouter[];
-    listFilterGenres: IRouter[];
-    listFilterChapters: IRouter[];
+    storyRouters: IRouter[];
+    genreRouters: IRouter[];
+    chapterRouters: IRouter[];
 }
 
