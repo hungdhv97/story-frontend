@@ -32,7 +32,7 @@ export default function Header() {
                         className="lg:hidden cursor-pointer"
                         onClick={() => {}}
                     />
-                    <Link href="/public" className="mr-6 ml-2">
+                    <Link href="/" className="mr-6 ml-2">
                         <Button variant="outline">
                             <BookOpenText />
                             <span className="ml-2">[Story Name]</span>
