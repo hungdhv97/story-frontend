@@ -9,13 +9,13 @@ import ThemeSwitcher from '@/components/home/header/theme-switcher';
 import { Button } from '@/components/ui/button';
 
 import { chapterRouters, storyRouters } from '@/constants';
-import { IGenre } from '@/interfaces/services/responses';
+import { IGenreResponse } from '@/interfaces/services/responses';
 
 
 export default function Header() {
     const { data } = useGetGenres();
 
-    const genreRouters = data ? data.map(({ id, name, slug }: IGenre) => ({
+    const genreRouters = data ? data.map(({ id, name, slug }: IGenreResponse) => ({
         id,
         title: name,
         href: `/${slug}`,

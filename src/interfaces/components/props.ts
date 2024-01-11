@@ -12,3 +12,10 @@ export interface IHomeNavigationMenuProps {
     chapterRouters: IRouter[];
 }
 
+
+export interface IHotStoryProps {
+    id: number;
+    cover_photo: string;
+    title: string;
+    slug: string;
+}
