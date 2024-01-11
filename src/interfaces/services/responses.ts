@@ -3,13 +3,11 @@ export interface IAuthorResponse {
     name: string;
 }
 
-
 export interface IGenreResponse {
     id: number;
     name: string;
     slug: string;
 }
-
 
 export interface IChapterDetail {
     id: number;

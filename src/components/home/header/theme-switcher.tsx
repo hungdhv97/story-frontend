@@ -23,11 +23,7 @@ export default function ThemeSwitcher() {
 
     return (
         <div>
-            <Button
-                variant="outline"
-                size="icon"
-                onClick={toggleTheme}
-            >
+            <Button variant="outline" size="icon" onClick={toggleTheme}>
                 {mounted ? (
                     isDarkMode ? (
                         <Sun className="h-[1.2rem] w-[1.2rem]" />

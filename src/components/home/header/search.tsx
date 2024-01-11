@@ -12,7 +12,6 @@ export function Search() {
                 placeholder="Tìm truyện..."
                 className="hidden md:block md:w-[100px] lg:w-[300px]"
             />
-
             <Button
                 className="md:hidden"
                 variant="outline"

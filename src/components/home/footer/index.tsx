@@ -8,7 +8,9 @@ export default function Footer() {
         <div>
             <div className="flex flex-col items-center justify-center p-4 border-t dark:bg-slate-700 bg-slate-300">
                 <p>© {new Date().getFullYear()} [Story Name]</p>
-                <p className="my-2">[Story Name] là website đọc truyện tranh miễn phí</p>
+                <p className="my-2">
+                    [Story Name] là website đọc truyện tranh miễn phí
+                </p>
                 <div className="flex space-x-4">
                     <Link
                         href="https://github.com/hungdhv97/story-frontend"

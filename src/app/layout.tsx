@@ -15,10 +15,7 @@ const fontSans = FontSans({
 
 export default function RootLayout({ children }: IRootLayoutProps) {
     return (
-        <html
-            lang="en"
-            suppressHydrationWarning
-        >
+        <html lang="en" suppressHydrationWarning>
             <head />
             <body
                 className={cn(
@@ -26,9 +23,7 @@ export default function RootLayout({ children }: IRootLayoutProps) {
                     fontSans.variable,
                 )}
             >
-                <Providers>
-                    {children}
-                </Providers>
+                <Providers>{children}</Providers>
             </body>
         </html>
     );
