@@ -1,4 +1,4 @@
-import { BookOpenText } from 'lucide-react';
+import { BookOpenText, Menu } from 'lucide-react';
 import Link from 'next/link';
 
 import { useGetGenres } from '@/data/hooks';
@@ -11,35 +11,43 @@ import { Button } from '@/components/ui/button';
 import { chapterRouters, storyRouters } from '@/constants';
 import { IGenreResponse } from '@/interfaces/services/responses';
 
+import MyProfile from './my-profile';
 
 export default function Header() {
     const { data } = useGetGenres();
 
-    const genreRouters = data ? data.map(({ id, name, slug }: IGenreResponse) => ({
-        id,
-        title: name,
-        href: `/${slug}`,
-    })) : [];
+    const genreRouters = data
+        ? data.map(({ id, name, slug }: IGenre) => ({
+              id,
+              title: name,
+              href: `/${slug}`,
+          }))
+        : [];
 
     return (
-        <header className="border-b dark:bg-slate-700 bg-slate-300">
-            <div className="flex h-16 items-center px-4">
-                <Link
-                    href="/public"
-                    className="mr-6 ml-2"
-                >
-                    <Button variant="outline">
-                        <BookOpenText />
-                        <span className="ml-2">[Story Name]</span>
-                    </Button>
-                </Link>
+        <header className="border-b dark:bg-slate-700 bg-slate-300 h-[6.25rem]">
+            <div className="mx-auto flex h-full w-full items-center px-[10px] justify-between lg:space-x-0 md:max-w-[644px] lg:max-w-[1200px]">
+                <div className="flex items-center space-x-4">
+                    <Menu
+                        className="lg:hidden cursor-pointer"
+                        onClick={() => {}}
+                    />
+                    <Link href="/public" className="mr-6 ml-2">
+                        <Button variant="outline">
+                            <BookOpenText />
+                            <span className="ml-2">[Story Name]</span>
+                        </Button>
+                    </Link>
+                </div>
+
                 <HomeNavigationMenu
                     storyRouters={storyRouters}
                     genreRouters={genreRouters}
                     chapterRouters={chapterRouters}
                 />
-                <div className="ml-auto flex items-center space-x-4">
+                <div className="flex space-x-2">
                     <ThemeSwitcher />
+                    <MyProfile />
                     <Search />
                 </div>
             </div>
