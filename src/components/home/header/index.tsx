@@ -17,11 +17,11 @@ export default function Header() {
     const { data } = useGetGenres();
 
     const genreRouters = data
-        ? data.map(({ id, name, slug }: IGenre) => ({
-              id,
-              title: name,
-              href: `/${slug}`,
-          }))
+        ? data.map(({ id, name, slug }: IGenreResponse) => ({
+            id,
+            title: name,
+            href: `/${slug}`,
+        }))
         : [];
 
     return (
@@ -30,16 +30,19 @@ export default function Header() {
                 <div className="flex items-center space-x-4">
                     <Menu
                         className="lg:hidden cursor-pointer"
-                        onClick={() => {}}
+                        onClick={() => {
+                        }}
                     />
-                    <Link href="/public" className="mr-6 ml-2">
+                    <Link
+                        href="/public"
+                        className="mr-6 ml-2"
+                    >
                         <Button variant="outline">
                             <BookOpenText />
                             <span className="ml-2">[Story Name]</span>
                         </Button>
                     </Link>
                 </div>
-
                 <HomeNavigationMenu
                     storyRouters={storyRouters}
                     genreRouters={genreRouters}
