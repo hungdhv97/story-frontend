@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 import { useGetHotStories } from '@/data/hooks';
 
 import HotStory from '@/components/home/main/hot_stories/hot-story';
@@ -17,17 +19,16 @@ export function HotStories() {
             <div className="container">
                 <div className="flex flex-wrap">
                     {stories.results.map((story: IStory) => (
-                        <div
+                        <Link
                             key={story.id}
-                            className="w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5"
+                            className="m-4 p-2 rounded-2xl bg-secondary border border-teal-100 hover:border-teal-900 shadow-md w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5"
+                            href={story.slug}
                         >
                             <HotStory
-                                id={story.id}
-                                slug={story.slug}
                                 title={story.title}
                                 cover_photo={story.cover_photo}
                             />
-                        </div>
+                        </Link>
                     ))}
                 </div>
             </div>
