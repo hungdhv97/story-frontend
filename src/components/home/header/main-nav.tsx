@@ -15,7 +15,6 @@ import {
 
 import { IHomeNavigationMenuProps } from '@/interfaces/components/props';
 
-
 function onNavChange() {
     setTimeout(() => {
         const triggers = document.querySelectorAll(
@@ -34,15 +33,17 @@ function onNavChange() {
 }
 
 export function HomeNavigationMenu({
-                                       storyRouters,
-                                       genreRouters,
-                                       chapterRouters,
-                                   }: IHomeNavigationMenuProps) {
+    storyRouters,
+    genreRouters,
+    chapterRouters,
+}: IHomeNavigationMenuProps) {
     return (
         <NavigationMenu onValueChange={onNavChange}>
             <NavigationMenuList>
                 <NavigationMenuItem>
-                    <NavigationMenuTrigger className="submenu-trigger">Danh sách</NavigationMenuTrigger>
+                    <NavigationMenuTrigger className="submenu-trigger">
+                        Danh sách
+                    </NavigationMenuTrigger>
                     <NavigationMenuContent>
                         <ul className="grid w-[200px] gap-2 p-2 md:w-[200px] md:grid-cols-1 lg:w-[200px] ">
                             {storyRouters.map((router) => (
@@ -50,14 +51,15 @@ export function HomeNavigationMenu({
                                     key={router.title}
                                     title={router.title}
                                     href={router.href}
-                                >
-                                </ListItem>
+                                ></ListItem>
                             ))}
                         </ul>
                     </NavigationMenuContent>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
-                    <NavigationMenuTrigger className="submenu-trigger">Thể loại</NavigationMenuTrigger>
+                    <NavigationMenuTrigger className="submenu-trigger">
+                        Thể loại
+                    </NavigationMenuTrigger>
                     <NavigationMenuContent>
                         <ul className="grid w-[300px] gap-2 p-2 md:w-[300px] md:grid-cols-2 lg:w-[300px] ">
                             {genreRouters.map((router) => (
@@ -65,14 +67,15 @@ export function HomeNavigationMenu({
                                     key={router.title}
                                     title={router.title}
                                     href={router.href}
-                                >
-                                </ListItem>
+                                ></ListItem>
                             ))}
                         </ul>
                     </NavigationMenuContent>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
-                    <NavigationMenuTrigger className="submenu-trigger">Phân loại theo chương</NavigationMenuTrigger>
+                    <NavigationMenuTrigger className="submenu-trigger">
+                        Phân loại theo chương
+                    </NavigationMenuTrigger>
                     <NavigationMenuContent>
                         <ul className="grid w-[200px] gap-2 p-2 md:w-[200px] md:grid-cols-1 lg:w-[200px] ">
                             {chapterRouters.map((router) => (
@@ -80,8 +83,7 @@ export function HomeNavigationMenu({
                                     key={router.title}
                                     title={router.title}
                                     href={router.href}
-                                >
-                                </ListItem>
+                                ></ListItem>
                             ))}
                         </ul>
                     </NavigationMenuContent>
@@ -106,7 +108,9 @@ const ListItem = React.forwardRef<
                     )}
                     {...props}
                 >
-                    <div className="text-sm font-medium leading-none">{title}</div>
+                    <div className="text-sm font-medium leading-none">
+                        {title}
+                    </div>
                     <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
                         {children}
                     </p>
