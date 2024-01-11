@@ -16,16 +16,33 @@ import {
 import { IHomeNavigationMenuProps } from '@/interfaces/components/props';
 
 
+function onNavChange() {
+    setTimeout(() => {
+        const triggers = document.querySelectorAll(
+            '.submenu-trigger[data-state="open"]',
+        );
+        if (triggers.length === 0) return;
+
+        const firstTrigger = triggers[0] as HTMLElement;
+        const viewports = document.getElementsByClassName('submenu-viewport');
+
+        if (viewports.length > 0) {
+            const viewport = viewports[0] as HTMLElement;
+            viewport.style.left = `${firstTrigger.offsetLeft}px`;
+        }
+    });
+}
+
 export function HomeNavigationMenu({
                                        storyRouters,
                                        genreRouters,
                                        chapterRouters,
                                    }: IHomeNavigationMenuProps) {
     return (
-        <NavigationMenu>
+        <NavigationMenu onValueChange={onNavChange}>
             <NavigationMenuList>
                 <NavigationMenuItem>
-                    <NavigationMenuTrigger>Danh sách</NavigationMenuTrigger>
+                    <NavigationMenuTrigger className="submenu-trigger">Danh sách</NavigationMenuTrigger>
                     <NavigationMenuContent>
                         <ul className="grid w-[200px] gap-2 p-2 md:w-[200px] md:grid-cols-1 lg:w-[200px] ">
                             {storyRouters.map((router) => (
@@ -40,7 +57,7 @@ export function HomeNavigationMenu({
                     </NavigationMenuContent>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
-                    <NavigationMenuTrigger>Thể loại</NavigationMenuTrigger>
+                    <NavigationMenuTrigger className="submenu-trigger">Thể loại</NavigationMenuTrigger>
                     <NavigationMenuContent>
                         <ul className="grid w-[300px] gap-2 p-2 md:w-[300px] md:grid-cols-2 lg:w-[300px] ">
                             {genreRouters.map((router) => (
@@ -55,7 +72,7 @@ export function HomeNavigationMenu({
                     </NavigationMenuContent>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
-                    <NavigationMenuTrigger>Phân loại theo chương</NavigationMenuTrigger>
+                    <NavigationMenuTrigger className="submenu-trigger">Phân loại theo chương</NavigationMenuTrigger>
                     <NavigationMenuContent>
                         <ul className="grid w-[200px] gap-2 p-2 md:w-[200px] md:grid-cols-1 lg:w-[200px] ">
                             {chapterRouters.map((router) => (
