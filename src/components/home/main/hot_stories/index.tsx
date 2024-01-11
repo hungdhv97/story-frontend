@@ -1,5 +1,7 @@
 import { useGetHotStories } from '@/data/hooks';
+
 import HotStory from '@/components/home/main/hot_stories/hot-story';
+
 import { IStory } from '@/interfaces/services/responses';
 
 export function HotStories() {
@@ -13,11 +15,11 @@ export function HotStories() {
                 Truyện Hot
             </h1>
             <div className="container">
-                <div className="flex flex-wrap -mx-2">
+                <div className="flex flex-wrap">
                     {stories.results.map((story: IStory) => (
                         <div
                             key={story.id}
-                            className="p-2 w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5"
+                            className="w-1/2 sm:w-1/3 md:w-1/4 lg:w-1/5"
                         >
                             <HotStory
                                 id={story.id}
