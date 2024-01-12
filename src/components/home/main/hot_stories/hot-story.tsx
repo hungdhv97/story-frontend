@@ -16,21 +16,21 @@ export default function HotStory(story: IHotStoryProps) {
                     <Status
                         label="Hot"
                         link="/filter/stories/hot"
-                        color="red"
+                        className="bg-red-500 hover:bg-red-700"
                     />
                 )}
                 {story.is_new && (
                     <Status
                         label="New"
                         link="/filter/stories/new"
-                        color="green"
+                        className="bg-green-500 hover:bg-green-700"
                     />
                 )}
                 {story.full && (
                     <Status
                         label="Full"
                         link="/filter/stories/full"
-                        color="blue"
+                        className="bg-blue-500 hover:bg-blue-700"
                     />
                 )}
             </div>

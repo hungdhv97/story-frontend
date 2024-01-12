@@ -5,16 +5,13 @@ import { Button } from '@/components/ui/button';
 export interface IStatusProps {
     label: string;
     link: string;
-    color: string;
+    className: string;
 }
 
-export default function Status({ label, link, color }: IStatusProps) {
+export default function Status({ label, link, className }: IStatusProps) {
     return (
         <Link href={link}>
-            <Button
-                variant="outline"
-                className={`bg-${color}-500 hover:bg-${color}-700`}
-            >
+            <Button variant="outline" className={className}>
                 {label}
             </Button>
         </Link>
