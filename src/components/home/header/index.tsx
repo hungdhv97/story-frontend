@@ -11,8 +11,6 @@ import { Button } from '@/components/ui/button';
 import { chapterRouters, storyRouters } from '@/constants';
 import { IGenreResponse } from '@/interfaces/services/responses';
 
-import MyProfile from './my-profile';
-
 export default function Header() {
     const { data } = useGetGenres();
 
@@ -20,7 +18,7 @@ export default function Header() {
         ? data.map(({ id, name, slug }: IGenreResponse) => ({
               id,
               title: name,
-              href: `/${slug}`,
+              href: `/filter/genres/${slug}`,
           }))
         : [];
 
@@ -46,7 +44,6 @@ export default function Header() {
                 />
                 <div className="flex space-x-2">
                     <ThemeSwitcher />
-                    <MyProfile />
                     <Search />
                 </div>
             </div>

@@ -15,4 +15,7 @@ export interface IHomeNavigationMenuProps {
 export interface IHotStoryProps {
     cover_photo: string;
     title: string;
+    full: boolean;
+    is_new: boolean;
+    is_hot: boolean;
 }
