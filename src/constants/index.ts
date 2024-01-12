@@ -11,6 +11,10 @@ export const storyRouters: IRouter[] = [
     },
     {
         title: 'Truyện mới cập nhật',
+        href: '/filter/stories/updated',
+    },
+    {
+        title: 'Truyện mới',
         href: '/filter/stories/new',
     },
 ];
