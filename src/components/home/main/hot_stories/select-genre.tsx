@@ -1,3 +1,4 @@
+import { useAtom } from 'jotai/index';
 import * as React from 'react';
 
 import { useGetGenres } from '@/data/hooks';
@@ -11,19 +12,17 @@ import {
     SelectValue,
 } from '@/components/ui/select';
 
+import { selectedGenreAtom } from '@/atoms/selectedGenreAtom';
 import { IGenreResponse } from '@/interfaces/services/responses';
 
-interface ISelectGenreProps {
-    handleSelectGenre: (e: string) => unknown;
-}
-
-export function SelectGenre({ handleSelectGenre }: ISelectGenreProps) {
+export function SelectGenre() {
     const { data: genres, isLoading, error } = useGetGenres();
+    const [, setSelectedGenre] = useAtom(selectedGenreAtom);
     if (isLoading) return <div>Loading....</div>;
     if (error) return <div>Error....</div>;
 
     return (
-        <Select onValueChange={handleSelectGenre}>
+        <Select onValueChange={(e) => setSelectedGenre(e)}>
             <SelectTrigger className="w-[180px]">
                 <SelectValue placeholder="Tất cả" />
             </SelectTrigger>
