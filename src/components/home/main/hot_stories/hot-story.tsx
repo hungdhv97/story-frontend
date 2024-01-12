@@ -1,6 +1,4 @@
-import Link from 'next/link';
-
-import { Button } from '@/components/ui/button';
+import Status from '@/components/home/main/hot_stories/status';
 
 import { IHotStoryProps } from '@/interfaces/components/props';
 
@@ -15,34 +13,25 @@ export default function HotStory(story: IHotStoryProps) {
             />
             <div className="flex">
                 {story.is_hot && (
-                    <Link href="/filter/stories/hot">
-                        <Button
-                            variant="outline"
-                            className="bg-red-500 hover:bg-red-700"
-                        >
-                            Hot
-                        </Button>
-                    </Link>
+                    <Status
+                        label="Hot"
+                        link="/filter/stories/hot"
+                        color="red"
+                    />
                 )}
                 {story.is_new && (
-                    <Link href="/filter/stories/new">
-                        <Button
-                            variant="outline"
-                            className="bg-green-500 hover:bg-green-700"
-                        >
-                            New
-                        </Button>
-                    </Link>
+                    <Status
+                        label="New"
+                        link="/filter/stories/new"
+                        color="green"
+                    />
                 )}
                 {story.full && (
-                    <Link href="/filter/stories/full">
-                        <Button
-                            variant="outline"
-                            className="bg-blue-500 hover:bg-blue-700"
-                        >
-                            Full
-                        </Button>
-                    </Link>
+                    <Status
+                        label="Full"
+                        link="/filter/stories/full"
+                        color="blue"
+                    />
                 )}
             </div>
         </div>
