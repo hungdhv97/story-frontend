@@ -8,7 +8,21 @@ export const useGetGenres = () => {
 
 export const useGetHotStories = () => {
     return useSWR(
-        'http://18.141.25.103:8000/api/stories/?is_hot=true&limit=50',
+        'http://18.141.25.103:8000/api/stories/?is_hot=true',
+        getData,
+    );
+};
+
+export const useGetUpdatedStories = () => {
+    return useSWR(
+        'http://18.141.25.103:8000/api/stories/?is_new=true',
+        getData,
+    );
+};
+
+export const useGetFullStories = () => {
+    return useSWR(
+        'http://18.141.25.103:8000/api/stories/?status=completed',
         getData,
     );
 };
