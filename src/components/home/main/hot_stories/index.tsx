@@ -2,6 +2,7 @@ import Link from 'next/link';
 
 import { useGetHotStories } from '@/data/hooks';
 
+import H1 from '@/components/common/custom';
 import HotStory from '@/components/home/main/hot_stories/hot-story';
 
 import { IStory } from '@/interfaces/services/responses';
@@ -13,9 +14,7 @@ export function HotStories() {
     if (error) return <div>Error....</div>;
     return (
         <div>
-            <h1 className="scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl">
-                Truyện Hot
-            </h1>
+            <H1 href="/filter/stories/hot">Truyện Hot</H1>
             <div className="container">
                 <div className="flex flex-wrap">
                     {stories.results.map((story: IStory) => (
