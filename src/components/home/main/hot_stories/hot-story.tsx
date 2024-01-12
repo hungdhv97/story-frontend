@@ -9,7 +9,7 @@ export default function HotStory(story: IHotStoryProps) {
             <img
                 src={story.cover_photo}
                 alt={story.title}
-                className="h-100 object-cover shadow-md rounded-md"
+                className="object-cover shadow-md rounded-md"
             />
             <div className="flex">
                 {story.is_hot && (

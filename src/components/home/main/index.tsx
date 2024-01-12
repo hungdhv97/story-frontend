@@ -4,7 +4,7 @@ import { NewChapterStories } from '@/components/home/main/new_chapter_stories';
 
 export default function MainContent() {
     return (
-        <div className="flex flex-1 flex-col mx-auto my-0 justify-between">
+        <div className="flex flex-col container px-30">
             <HotStories />
             <NewChapterStories />
             <CompletedStories />
