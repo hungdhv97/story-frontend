@@ -8,16 +8,16 @@ import HotStory from '@/components/home/main/hot_stories/hot-story';
 import { SelectGenre } from '@/components/home/main/hot_stories/select-genre';
 
 import { selectedGenreAtom } from '@/atoms/selectedGenreAtom';
-import { IStory } from '@/interfaces/services/responses';
+import { IStoryResponse } from '@/interfaces/services/responses';
 
 export function HotStories() {
     const { data: stories, isLoading, error } = useGetHotStories();
     const [selectedGenre] = useAtom(selectedGenreAtom);
 
     function filterStories(genreSlug: string) {
-        let filteredStories = stories.results;
+        let filteredStories: IStoryResponse[] = stories;
         if (genreSlug !== 'all') {
-            filteredStories = filteredStories.filter((story: IStory) =>
+            filteredStories = filteredStories.filter((story: IStoryResponse) =>
                 story.genres.some((genre) => genre.slug === selectedGenre),
             );
         }
@@ -34,7 +34,7 @@ export function HotStories() {
                 <SelectGenre />
             </div>
             <div className="grid gap-8 grid-cols-5">
-                {filterStories(selectedGenre).map((story: IStory) => (
+                {filterStories(selectedGenre).map((story: IStoryResponse) => (
                     <div
                         key={story.id}
                         className="min-h-[300px] rounded-2xl bg-secondary border border-teal-100 hover:border-teal-900 shadow-md"

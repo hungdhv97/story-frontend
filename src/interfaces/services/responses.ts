@@ -27,7 +27,7 @@ export interface IMeta {
     pagination: IPagination;
 }
 
-export interface IStory {
+export interface IStoryResponse {
     id: number;
     title: string;
     description: string;
@@ -46,9 +46,9 @@ export interface IStory {
     latest_chapter: IChapterDetail;
 }
 
-export interface IStoryResponse {
+export interface IStoryPaginationResponse {
     meta: IMeta;
-    results: IStory[];
+    results: IStoryResponse[];
 }
 
 export interface IStoryDetail {
