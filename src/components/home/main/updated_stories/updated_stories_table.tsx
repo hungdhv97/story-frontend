@@ -1,6 +1,7 @@
 import { useAtom } from 'jotai';
 import Link from 'next/link';
 
+import Status from '@/components/home/main/hot_stories/status';
 import {
     Table,
     TableBody,
@@ -22,10 +23,10 @@ export function UpdatedStoriesTable() {
         <Table>
             <TableHeader>
                 <TableRow>
-                    <TableHead className="w-1/4">Tiêu Đề</TableHead>
+                    <TableHead>Tiêu Đề</TableHead>
                     <TableHead className="w-1/4">Thể Loại</TableHead>
-                    <TableHead className="w-1/4">Chương Cuối</TableHead>
-                    <TableHead className="w-1/4">Cập Nhật</TableHead>
+                    <TableHead className="w-1/6">Chương Cuối</TableHead>
+                    <TableHead className="w-1/6">Cập Nhật</TableHead>
                 </TableRow>
             </TableHeader>
             <TableBody className="font-serif">
@@ -39,6 +40,27 @@ export function UpdatedStoriesTable() {
                             >
                                 {story.title}
                             </Link>
+                            {story.is_hot && (
+                                <Status
+                                    label="Hot"
+                                    link="/filter/stories/hot"
+                                    className="px-1 mx-1 border-2 hover:font-bold text-red-500 hover:text-red-500 border-red-500 hover:border-red-500 rounded-none h-1/2"
+                                />
+                            )}
+                            {story.is_new && (
+                                <Status
+                                    label="New"
+                                    link="/filter/stories/new"
+                                    className="px-1 mx-1 border-2 hover:font-bold text-green-500 hover:text-green-500 border-green-500 hover:border-green-500 rounded-none h-1/2"
+                                />
+                            )}
+                            {story.status === 'completed' && (
+                                <Status
+                                    label="Full"
+                                    link="/filter/stories/full"
+                                    className="px-1 mx-1 border-2 hover:font-bold text-blue-500 hover:text-blue-500 border-blue-500 hover:border-blue-500 rounded-none h-1/2"
+                                />
+                            )}
                         </TableCell>
                         <TableCell>
                             {story.genres.map(
