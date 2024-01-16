@@ -2,6 +2,8 @@ import useSWR from 'swr';
 
 import { getData } from '@/data/server';
 
+import { IStoryResponse } from '@/interfaces/services/responses';
+
 export const useGetGenres = () => {
     return useSWR('http://18.141.25.103:8000/api/genres/', getData);
 };
@@ -42,7 +44,7 @@ export const useGetChaptersByStorySlug = (storySlug: string) => {
 };
 
 export const useGetStoryByStorySlug = (storySlug: string) => {
-    return useSWR(
+    return useSWR<IStoryResponse>(
         `http://18.141.25.103:8000/api/stories/${storySlug}/`,
         getData,
     );
