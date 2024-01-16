@@ -19,3 +19,10 @@ export interface IHotStoryProps {
     is_new: boolean;
     is_hot: boolean;
 }
+
+export interface IFullStoryProps {
+    cover_photo: string;
+    title: string;
+    full: boolean;
+    totalChapter: number;
+}
