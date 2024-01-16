@@ -32,7 +32,7 @@ export function FullStories() {
                                         title={story.title}
                                         cover_photo={story.cover_photo}
                                         full={story.status === 'completed'}
-                                        totalChapter={123}
+                                        totalChapter={story.total_chapters}
                                     />
                                 </Link>
                             </div>
