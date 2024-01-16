@@ -33,3 +33,10 @@ export const useGetChapterById = (chapterId: string) => {
         getData,
     );
 };
+
+export const useGetChaptersByStorySlug = (chapterId: string) => {
+    return useSWR(
+        `http://18.141.25.103:8000/api/stories/${chapterId}/chapters/`,
+        getData,
+    );
+};
