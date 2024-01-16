@@ -21,7 +21,7 @@ export default function StoryPage({
     return (
         <div className="container">
             <Breadcrumb paths={paths} />
-            <div>Thông tin truyện</div.>
+            <div>Thông tin truyện</div>
         </div>
     );
 }
