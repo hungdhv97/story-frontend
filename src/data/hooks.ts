@@ -26,3 +26,10 @@ export const useGetFullStories = () => {
         getData,
     );
 };
+
+export const useGetChapterById = (chapterId: string) => {
+    return useSWR(
+        `http://18.141.25.103:8000/api/chapters/${chapterId}/`,
+        getData,
+    );
+};

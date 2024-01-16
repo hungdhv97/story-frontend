@@ -56,7 +56,7 @@ export interface IStoryDetail {
     slug: string;
 }
 
-export interface IChapter {
+export interface IChapterResponse {
     id: number;
     story: IStoryDetail;
     title: string;
