@@ -1,8 +1,14 @@
+'use client';
+
 import { Inter as FontSans } from 'next/font/google';
+import React from 'react';
 
 import '@/styles/globals.css';
 
 import { cn } from '@/lib/utils';
+
+import Footer from '@/components/home/footer';
+import Header from '@/components/home/header';
 
 import { Providers } from '@/app/providers';
 import { IRootLayoutProps } from '@/interfaces/components/props';
@@ -23,7 +29,11 @@ export default function RootLayout({ children }: IRootLayoutProps) {
                     fontSans.variable,
                 )}
             >
-                <Providers>{children}</Providers>
+                <Providers>
+                    <Header />
+                    {children}
+                    <Footer />
+                </Providers>
             </body>
         </html>
     );

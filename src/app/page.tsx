@@ -10,8 +10,6 @@ import {
     useGetUpdatedStories,
 } from '@/data/hooks';
 
-import Footer from '@/components/home/footer';
-import Header from '@/components/home/header';
 import MainContent from '@/components/home/main';
 
 import { fullStoriesResponseAtom } from '@/atoms/fullStoriesResponseAtom';
@@ -56,9 +54,7 @@ export default function HomePage() {
 
     return (
         <div className="flex flex-col min-h-screen">
-            <Header />
             <MainContent />
-            <Footer />
         </div>
     );
 }
