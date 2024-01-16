@@ -13,7 +13,6 @@ export interface IChapterDetail {
     id: number;
     title: string;
     published_date: string;
-    slug: string;
 }
 
 export interface IPagination {
@@ -63,5 +62,4 @@ export interface IChapter {
     title: string;
     content: string;
     published_date: string;
-    slug: string;
 }

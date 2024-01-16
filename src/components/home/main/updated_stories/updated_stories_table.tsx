@@ -31,7 +31,15 @@ export function UpdatedStoriesTable() {
             <TableBody className="font-serif">
                 {updatedStoriesResponse.map((story: IStoryResponse) => (
                     <TableRow key={story.id}>
-                        <TableCell>{story.title}</TableCell>
+                        <TableCell>
+                            <Link
+                                className="text-blue-600 hover:text-blue-800 visited:text-purple-600"
+                                href={`/stories/${story.slug}`}
+                                passHref
+                            >
+                                {story.title}
+                            </Link>
+                        </TableCell>
                         <TableCell>
                             {story.genres.map(
                                 (genre: IGenreResponse, index: number) => (
@@ -39,7 +47,7 @@ export function UpdatedStoriesTable() {
                                         {index > 0 && ', '}
                                         <Link
                                             className="text-blue-600 hover:text-blue-800 visited:text-purple-600"
-                                            href={`/genre/${genre.slug}`}
+                                            href={`/genres/${genre.slug}`}
                                             passHref
                                         >
                                             {genre.name}
@@ -51,7 +59,7 @@ export function UpdatedStoriesTable() {
                         <TableCell>
                             <Link
                                 className="text-blue-600 hover:text-blue-800 visited:text-purple-600"
-                                href={`stories/${story.slug}/chapters/${story.latest_chapter.slug}`}
+                                href={`stories/${story.slug}/chapters/${story.latest_chapter.id}`}
                             >
                                 {story.latest_chapter.title}
                             </Link>
