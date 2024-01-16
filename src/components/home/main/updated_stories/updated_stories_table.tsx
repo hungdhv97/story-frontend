@@ -1,96 +1,67 @@
 import { useAtom } from 'jotai';
+import Link from 'next/link';
 
 import {
     Table,
     TableBody,
-    TableCaption,
     TableCell,
-    TableFooter,
     TableHead,
     TableHeader,
     TableRow,
 } from '@/components/ui/table';
 
 import { updatedStoriesResponseAtom } from '@/atoms/updatedStoriesResponseAtom';
-
-const invoices = [
-    {
-        invoice: 'INV001',
-        paymentStatus: 'Paid',
-        totalAmount: '$250.00',
-        paymentMethod: 'Credit Card',
-    },
-    {
-        invoice: 'INV002',
-        paymentStatus: 'Pending',
-        totalAmount: '$150.00',
-        paymentMethod: 'PayPal',
-    },
-    {
-        invoice: 'INV003',
-        paymentStatus: 'Unpaid',
-        totalAmount: '$350.00',
-        paymentMethod: 'Bank Transfer',
-    },
-    {
-        invoice: 'INV004',
-        paymentStatus: 'Paid',
-        totalAmount: '$450.00',
-        paymentMethod: 'Credit Card',
-    },
-    {
-        invoice: 'INV005',
-        paymentStatus: 'Paid',
-        totalAmount: '$550.00',
-        paymentMethod: 'PayPal',
-    },
-    {
-        invoice: 'INV006',
-        paymentStatus: 'Pending',
-        totalAmount: '$200.00',
-        paymentMethod: 'Bank Transfer',
-    },
-    {
-        invoice: 'INV007',
-        paymentStatus: 'Unpaid',
-        totalAmount: '$300.00',
-        paymentMethod: 'Credit Card',
-    },
-];
+import {
+    IGenreResponse,
+    IStoryResponse,
+} from '@/interfaces/services/responses';
 
 export function UpdatedStoriesTable() {
     const [updatedStoriesResponse] = useAtom(updatedStoriesResponseAtom);
     return (
         <Table>
-            <TableCaption>A list of your recent invoices.</TableCaption>
             <TableHeader>
                 <TableRow>
-                    <TableHead>Tiêu Đề</TableHead>
-                    <TableHead>Thể Loại</TableHead>
-                    <TableHead>Chương Cuối</TableHead>
-                    <TableHead>Cập Nhật</TableHead>
+                    <TableHead className="w-1/4">Tiêu Đề</TableHead>
+                    <TableHead className="w-1/4">Thể Loại</TableHead>
+                    <TableHead className="w-1/4">Chương Cuối</TableHead>
+                    <TableHead className="w-1/4">Cập Nhật</TableHead>
                 </TableRow>
             </TableHeader>
-            <TableBody>
-                {updatedStoriesResponse.map((story) => (
+            <TableBody className="font-serif">
+                {updatedStoriesResponse.map((story: IStoryResponse) => (
                     <TableRow key={story.id}>
-                        <TableCell className="font-medium">
-                            {story.title}
+                        <TableCell>{story.title}</TableCell>
+                        <TableCell>
+                            {story.genres.map(
+                                (genre: IGenreResponse, index: number) => (
+                                    <span key={genre.id}>
+                                        {index > 0 && ', '}
+                                        <Link
+                                            className="text-blue-600 hover:text-blue-800 visited:text-purple-600"
+                                            href={`/genre/${genre.slug}`}
+                                            passHref
+                                        >
+                                            {genre.name}
+                                        </Link>
+                                    </span>
+                                ),
+                            )}
                         </TableCell>
-                        <TableCell>{story.title}</TableCell>
-                        <TableCell>{story.title}</TableCell>
-                        <TableCell className="text-right">
-                            {story.title}
+                        <TableCell>
+                            <Link
+                                className="text-blue-600 hover:text-blue-800 visited:text-purple-600"
+                                href={`stories/${story.slug}/chapters/${story.latest_chapter.slug}`}
+                            >
+                                {story.latest_chapter.title}
+                            </Link>
+                        </TableCell>
+                        <TableCell>
+                            {story.latest_chapter.published_date}
                         </TableCell>
                     </TableRow>
                 ))}
             </TableBody>
-            <TableFooter>
-                <TableRow>
-                    <TableCell colSpan={3}>Total</TableCell>
-                    <TableCell className="text-right">$2,500.00</TableCell>
-                </TableRow>
-            </TableFooter>
         </Table>
     );
 }
