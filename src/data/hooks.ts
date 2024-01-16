@@ -34,9 +34,16 @@ export const useGetChapterById = (chapterId: string) => {
     );
 };
 
-export const useGetChaptersByStorySlug = (chapterId: string) => {
+export const useGetChaptersByStorySlug = (storySlug: string) => {
     return useSWR(
-        `http://18.141.25.103:8000/api/stories/${chapterId}/chapters/`,
+        `http://18.141.25.103:8000/api/stories/${storySlug}/chapters/`,
+        getData,
+    );
+};
+
+export const useGetStoryByStorySlug = (storySlug: string) => {
+    return useSWR(
+        `http://18.141.25.103:8000/api/stories/${storySlug}/`,
         getData,
     );
 };
