@@ -1,4 +1,4 @@
-import { IStoryDetail } from '@/interfaces/services/responses';
+import { IStoryShortInfo } from '@/interfaces/services/responses';
 
 export interface IRouter {
     title: string;
@@ -7,7 +7,7 @@ export interface IRouter {
 
 export interface IReadingChapter {
     id: number;
-    story: IStoryDetail;
+    story: IStoryShortInfo;
     title: string;
     accessedAt: string;
 }

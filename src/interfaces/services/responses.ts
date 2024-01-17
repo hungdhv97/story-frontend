@@ -9,7 +9,7 @@ export interface IGenreResponse {
     slug: string;
 }
 
-export interface IChapterDetail {
+export interface IChapterShortInfo {
     id: number;
     title: string;
     published_date: string;
@@ -43,7 +43,7 @@ export interface IStoryResponse {
     is_new: boolean;
     is_hot: boolean;
     avg_rating: number;
-    latest_chapter: IChapterDetail;
+    latest_chapter: IChapterShortInfo;
 }
 
 export interface IStoryPaginationResponse {
@@ -51,14 +51,14 @@ export interface IStoryPaginationResponse {
     results: IStoryResponse[];
 }
 
-export interface IStoryDetail {
+export interface IStoryShortInfo {
     title: string;
     slug: string;
 }
 
 export interface IChapterResponse {
     id: number;
-    story: IStoryDetail;
+    story: IStoryShortInfo;
     title: string;
     content: string;
     published_date: string;
