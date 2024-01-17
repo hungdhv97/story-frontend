@@ -1,7 +1,7 @@
 import { useAtom } from 'jotai';
 import Link from 'next/link';
 
-import Status from '@/components/home/main/hot_stories/status';
+import Status from '@/components/home/main/hot-stories/status';
 import {
     Table,
     TableBody,
