@@ -11,7 +11,7 @@ import {
     TableRow,
 } from '@/components/ui/table';
 
-import { updatedStoriesResponseAtom } from '@/atoms/updatedStoriesResponseAtom';
+import { updatedStoriesResponseAtom } from '@/atoms/updated-stories-response-atom';
 import {
     IGenreResponse,
     IStoryResponse,

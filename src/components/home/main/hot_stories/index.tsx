@@ -4,12 +4,12 @@ import Link from 'next/link';
 import { useGetHotStories } from '@/data/hooks';
 
 import { H1 } from '@/components/common/custom';
-import { HotStoriesSkeleton } from '@/components/home/main/hot_stories/hot_stories_skeleton';
+import { HotStoriesSkeleton } from '@/components/home/main/hot_stories/hot-stories-skeleton';
 import HotStory from '@/components/home/main/hot_stories/hot-story';
 import { SelectGenre } from '@/components/home/main/hot_stories/select-genre';
 
-import { hotStoriesResponseAtom } from '@/atoms/hotStoriesResponseAtom';
-import { selectedGenreAtom } from '@/atoms/selectedGenreAtom';
+import { hotStoriesResponseAtom } from '@/atoms/hot-stories-response-atom';
+import { selectedGenreAtom } from '@/atoms/selected-genre-atom';
 import { IStoryResponse } from '@/interfaces/services/responses';
 
 export function HotStories() {

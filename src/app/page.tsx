@@ -12,10 +12,10 @@ import {
 
 import MainContent from '@/components/home/main';
 
-import { fullStoriesResponseAtom } from '@/atoms/fullStoriesResponseAtom';
-import { genresResponseAtom } from '@/atoms/genresResponseAtom';
-import { hotStoriesResponseAtom } from '@/atoms/hotStoriesResponseAtom';
-import { updatedStoriesResponseAtom } from '@/atoms/updatedStoriesResponseAtom';
+import { fullStoriesResponseAtom } from '@/atoms/full-stories-response-atom';
+import { genresResponseAtom } from '@/atoms/genres-response-atom';
+import { hotStoriesResponseAtom } from '@/atoms/hot-stories-response-atom';
+import { updatedStoriesResponseAtom } from '@/atoms/updated-stories-response-atom';
 
 export default function HomePage() {
     const [, setGenresResponse] = useAtom(genresResponseAtom);

@@ -4,10 +4,10 @@ import Link from 'next/link';
 import { useGetFullStories } from '@/data/hooks';
 
 import { H1 } from '@/components/common/custom';
-import { FullStoriesSkeleton } from '@/components/home/main/full_stories/full_stories_skeleton';
+import { FullStoriesSkeleton } from '@/components/home/main/full_stories/full-stories-skeleton';
 import FullStory from '@/components/home/main/hot_stories/full-story';
 
-import { fullStoriesResponseAtom } from '@/atoms/fullStoriesResponseAtom';
+import { fullStoriesResponseAtom } from '@/atoms/full-stories-response-atom';
 import { IStoryResponse } from '@/interfaces/services/responses';
 
 export function FullStories() {

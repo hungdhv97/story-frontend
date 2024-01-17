@@ -2,8 +2,8 @@ import { useEffect, useState } from 'react';
 
 import { H1 } from '@/components/common/custom';
 import Genres from '@/components/home/main/updated_stories/genres';
-import { ReadingChaptersTable } from '@/components/home/main/updated_stories/reading_chapters_table';
-import { UpdatedStoriesTable } from '@/components/home/main/updated_stories/updated_stories_table';
+import { ReadingChaptersTable } from '@/components/home/main/updated_stories/reading-chapters-table';
+import { UpdatedStoriesTable } from '@/components/home/main/updated_stories/updated-stories-table';
 
 import { IReadingChapter } from '@/interfaces/common';
 
