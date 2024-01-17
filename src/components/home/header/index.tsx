@@ -12,10 +12,10 @@ import { chapterRouters, storyRouters } from '@/constants';
 import { IGenreResponse } from '@/interfaces/services/responses';
 
 export default function Header() {
-    const { data } = useGetGenres();
+    const { data: genres } = useGetGenres();
 
-    const genreRouters = data
-        ? data.map(({ id, name, slug }: IGenreResponse) => ({
+    const genreRouters = genres
+        ? genres?.map(({ id, name, slug }: IGenreResponse) => ({
               id,
               title: name,
               href: `/filter/genres/${slug}`,

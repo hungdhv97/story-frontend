@@ -6,7 +6,7 @@ import { useGetGenres } from '@/data/hooks';
 import { IGenreResponse } from '@/interfaces/services/responses';
 
 export default function Genres() {
-    const { data: genres, isLoading, error } = useGetGenres();
+    const { data: genres, isLoading } = useGetGenres();
     if (isLoading) return <div>Loading....</div>;
     return (
         <div>
@@ -14,7 +14,7 @@ export default function Genres() {
                 Thể Loại Truyện
             </h2>
             <div className="grid gap-2 grid-cols-2 p-2 font-serif">
-                {genres.map((genre: IGenreResponse) => (
+                {genres?.map((genre: IGenreResponse) => (
                     <Link
                         className="text-blue-600 hover:text-blue-800 visited:text-purple-600"
                         key={genre.id}

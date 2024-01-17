@@ -16,10 +16,9 @@ import { selectedGenreAtom } from '@/atoms/selectedGenreAtom';
 import { IGenreResponse } from '@/interfaces/services/responses';
 
 export function SelectGenre() {
-    const { data: genres, isLoading, error } = useGetGenres();
+    const { data: genres, isLoading } = useGetGenres();
     const [, setSelectedGenre] = useAtom(selectedGenreAtom);
     if (isLoading) return <div>Loading....</div>;
-    if (error) return <div>Error....</div>;
 
     return (
         <Select onValueChange={(e) => setSelectedGenre(e)}>
@@ -31,7 +30,7 @@ export function SelectGenre() {
                     <SelectItem key="tat-ca" value="all">
                         Tất cả
                     </SelectItem>
-                    {genres.map((genre: IGenreResponse) => (
+                    {genres?.map((genre: IGenreResponse) => (
                         <SelectItem key={genre.id} value={genre.slug}>
                             {genre.name}
                         </SelectItem>

@@ -1,3 +1,5 @@
 import { atom } from 'jotai';
 
-export const fullStoriesResponseAtom = atom([]);
+import { IStoryResponse } from '@/interfaces/services/responses';
+
+export const fullStoriesResponseAtom = atom<IStoryResponse[]>([]);

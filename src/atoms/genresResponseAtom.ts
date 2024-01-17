@@ -1,3 +1,5 @@
 import { atom } from 'jotai';
 
-export const genresResponseAtom = atom([]);
+import { IGenreResponse } from '@/interfaces/services/responses';
+
+export const genresResponseAtom = atom<IGenreResponse[]>([]);

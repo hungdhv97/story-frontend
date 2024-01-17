@@ -2,42 +2,57 @@ import useSWR from 'swr';
 
 import { getData } from '@/data/server';
 
-import { IStoryResponse } from '@/interfaces/services/responses';
+import {
+    IChapterResponse,
+    IChapterShortInfo,
+    IGenreResponse,
+    IStoryResponse,
+} from '@/interfaces/services/responses';
 
 export const useGetGenres = () => {
-    return useSWR('http://18.141.25.103:8000/api/genres/', getData);
+    return useSWR<IGenreResponse[]>(
+        'http://18.141.25.103:8000/api/genres/',
+        getData,
+    );
 };
 
 export const useGetHotStories = () => {
-    return useSWR(
+    return useSWR<IStoryResponse[]>(
         'http://18.141.25.103:8000/api/stories/?is_hot=true',
         getData,
     );
 };
 
 export const useGetUpdatedStories = () => {
-    return useSWR(
+    return useSWR<IStoryResponse[]>(
         'http://18.141.25.103:8000/api/stories/?is_new=true',
         getData,
     );
 };
 
 export const useGetFullStories = () => {
-    return useSWR(
+    return useSWR<IStoryResponse[]>(
         'http://18.141.25.103:8000/api/stories/?status=completed',
         getData,
     );
 };
 
 export const useGetChapterById = (chapterId: string) => {
-    return useSWR(
+    return useSWR<IChapterResponse>(
         `http://18.141.25.103:8000/api/chapters/${chapterId}/`,
         getData,
     );
 };
 
+export const useGetChaptersShortInfoByStorySlug = (storySlug: string) => {
+    return useSWR<IChapterShortInfo[]>(
+        `http://18.141.25.103:8000/api/stories/${storySlug}/chapters/short-info/`,
+        getData,
+    );
+};
+
 export const useGetChaptersByStorySlug = (storySlug: string) => {
-    return useSWR(
+    return useSWR<IChapterResponse[]>(
         `http://18.141.25.103:8000/api/stories/${storySlug}/chapters/`,
         getData,
     );
