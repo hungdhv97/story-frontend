@@ -2,7 +2,7 @@
 
 import { useGetStoryByStorySlug } from '@/data/hooks';
 
-import Breadcrumb from '@/components/story/breadcrumb';
+import Breadcrumb from '@/components/common/breadcrumb';
 
 export default function StoryPage({
     params,
