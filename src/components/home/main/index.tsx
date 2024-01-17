@@ -1,6 +1,6 @@
-import { FullStories } from 'full-stories';
-import { HotStories } from 'hot-stories';
-import { UpdatedStories } from 'updated-stories';
+import { FullStories } from '@/components/home/main/full-stories';
+import { HotStories } from '@/components/home/main/hot-stories';
+import { UpdatedStories } from '@/components/home/main/updated-stories';
 
 export default function MainContent() {
     return (

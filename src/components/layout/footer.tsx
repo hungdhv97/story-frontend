@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 import { Button } from '@/components/ui/button';
 
-export default function Footer() {
+export function Footer() {
     return (
         <div>
             <div className="flex flex-col items-center justify-center p-4 border-t dark:bg-slate-700 bg-slate-300">

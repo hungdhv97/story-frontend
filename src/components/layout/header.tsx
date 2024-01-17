@@ -3,15 +3,15 @@ import Link from 'next/link';
 
 import { useGetGenres } from '@/data/hooks';
 
-import { HomeNavigationMenu } from '@/components/home/header/main-nav';
-import { Search } from '@/components/home/header/search';
-import ThemeSwitcher from '@/components/home/header/theme-switcher';
+import { HomeNavigationMenu } from '@/components/layout/components/header/main-nav';
+import { Search } from '@/components/layout/components/header/search';
+import { ThemeSwitcher } from '@/components/layout/components/header/theme-switcher';
 import { Button } from '@/components/ui/button';
 
 import { chapterRouters, storyRouters } from '@/constants';
 import { IGenreResponse } from '@/interfaces/services/responses';
 
-export default function Header() {
+export function Header() {
     const { data: genres } = useGetGenres();
 
     const genreRouters = genres
