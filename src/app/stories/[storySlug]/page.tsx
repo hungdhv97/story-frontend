@@ -27,7 +27,7 @@ export default function StoryPage({
             <Breadcrumb paths={paths} />
             <div className="flex">
                 <div className="basis-2/3">
-                    <StoryInformation />
+                    <StoryInformation story={story} />
                     <ChaptersPagination />
                 </div>
                 <div className="basis-1/3">
