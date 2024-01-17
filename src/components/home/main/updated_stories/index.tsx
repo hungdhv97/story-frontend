@@ -1,3 +1,5 @@
+import { useEffect, useState } from 'react';
+
 import { H1 } from '@/components/common/custom';
 import Genres from '@/components/home/main/updated_stories/genres';
 import { ReadingChaptersTable } from '@/components/home/main/updated_stories/reading_chapters_table';
@@ -6,9 +8,13 @@ import { UpdatedStoriesTable } from '@/components/home/main/updated_stories/upda
 import { IReadingChapter } from '@/interfaces/common';
 
 export function UpdatedStories() {
-    const history: IReadingChapter[] = JSON.parse(
-        localStorage.getItem('chapterHistory') || '[]',
-    );
+    const [history, setHistory] = useState<IReadingChapter[]>([]);
+    useEffect(() => {
+        const chapterHistory = localStorage.getItem('chapterHistory');
+        if (chapterHistory) {
+            setHistory(JSON.parse(chapterHistory));
+        }
+    }, []);
 
     return (
         <div>
