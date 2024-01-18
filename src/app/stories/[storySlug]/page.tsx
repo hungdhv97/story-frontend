@@ -2,11 +2,11 @@
 
 import { useGetStoryByStorySlug } from '@/data/hooks';
 
-import Breadcrumb from '@/components/common/breadcrumb';
-import ChaptersPagination from '@/components/story/chapters-pagination';
-import HottestStories from '@/components/story/hottest-stories';
-import StoriesWithSameAuthor from '@/components/story/stories-with-same-author';
-import StoryInformation from '@/components/story/story-information';
+import Breadcrumb from '@/components/Common/Breadcrumb/Breadcrumb';
+import ChapterPagination from '@/components/StoryPage/ChapterPagination/ChapterPagination';
+import HottestStoryList from '@/components/StoryPage/HottestStoryList/HottestStoryList';
+import StoryInformation from '@/components/StoryPage/StoryInformation/StoryInformation';
+import StoryWithSameAuthorList from '@/components/StoryPage/StoryWithSameAuthorList/StoryWithSameAuthorList';
 
 export default function StoryPage({
     params,
@@ -28,11 +28,11 @@ export default function StoryPage({
             <div className="flex">
                 <div className="basis-2/3">
                     <StoryInformation story={story} />
-                    <ChaptersPagination />
+                    <ChapterPagination />
                 </div>
                 <div className="basis-1/3">
-                    <StoriesWithSameAuthor />
-                    <HottestStories />
+                    <StoryWithSameAuthorList />
+                    <HottestStoryList />
                 </div>
             </div>
         </div>

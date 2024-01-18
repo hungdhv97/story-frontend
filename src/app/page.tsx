@@ -10,7 +10,9 @@ import {
     useGetUpdatedStories,
 } from '@/data/hooks';
 
-import MainContent from '@/components/home/main';
+import { FullStoryList } from '@/components/HomePage/FullStoryList/FullStoryList';
+import { HotStoryList } from '@/components/HomePage/HotStoryList/HotStoryList';
+import { UpdatedStoryList } from '@/components/HomePage/UpdatedStoryList/UpdatedStoryList';
 
 import { fullStoriesResponseAtom } from '@/atoms/full-stories-response-atom';
 import { genresResponseAtom } from '@/atoms/genres-response-atom';
@@ -54,7 +56,11 @@ export default function HomePage() {
 
     return (
         <div className="flex flex-col min-h-screen">
-            <MainContent />
+            <div className="flex flex-col container px-30">
+                <HotStoryList />
+                <UpdatedStoryList />
+                <FullStoryList />
+            </div>
         </div>
     );
 }
