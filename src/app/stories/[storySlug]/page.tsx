@@ -2,11 +2,11 @@
 
 import { useGetStoryByStorySlug } from '@/data/hooks';
 
-import Breadcrumb from '@/components/Common/Breadcrumb/Breadcrumb';
-import ChapterPagination from '@/components/StoryPage/ChapterPagination/ChapterPagination';
-import HottestStoryList from '@/components/StoryPage/HottestStoryList/HottestStoryList';
-import StoryInformation from '@/components/StoryPage/StoryInformation/StoryInformation';
-import StoryWithSameAuthorList from '@/components/StoryPage/StoryWithSameAuthorList/StoryWithSameAuthorList';
+import { Breadcrumb } from '@/components/Common/Breadcrumb/Breadcrumb';
+import { ChapterPagination } from '@/components/StoryPage/ChapterPagination/ChapterPagination';
+import { HottestStoryList } from '@/components/StoryPage/HottestStoryList/HottestStoryList';
+import { StoryInformation } from '@/components/StoryPage/StoryInformation/StoryInformation';
+import { StoryWithSameAuthorList } from '@/components/StoryPage/StoryWithSameAuthorList/StoryWithSameAuthorList';
 
 export default function StoryPage({
     params,

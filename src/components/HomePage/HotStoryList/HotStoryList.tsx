@@ -5,7 +5,7 @@ import { useGetHotStories } from '@/data/hooks';
 
 import { H1 } from '@/components/Common/Custom/Custom';
 import { GenreSelect } from '@/components/HomePage/HotStoryList/GenreSelect/GenreSelect';
-import HotStory from '@/components/HomePage/HotStoryList/HotStory/HotStory';
+import { HotStory } from '@/components/HomePage/HotStoryList/HotStory/HotStory';
 import { HotStoryListSkeleton } from '@/components/HomePage/HotStoryList/HotStoryListSkeleton/HotStoryListSkeleton';
 
 import { hotStoriesResponseAtom } from '@/atoms/hot-stories-response-atom';

@@ -1,4 +1,4 @@
-export default function HottestStoryList() {
+export function HottestStoryList() {
     return (
         <div>
             <div>Truyện Đang Hot</div>

@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { useGetFullStories } from '@/data/hooks';
 
 import { H1 } from '@/components/Common/Custom/Custom';
-import FullStory from '@/components/HomePage/FullStoryList/FullStory/FullStory';
+import { FullStory } from '@/components/HomePage/FullStoryList/FullStory/FullStory';
 import { FullStoryListSkeleton } from '@/components/HomePage/FullStoryList/FullStoryListSkeleton/FullStoryListSkeleton';
 
 import { fullStoriesResponseAtom } from '@/atoms/full-stories-response-atom';

@@ -5,7 +5,7 @@ import { useGetGenres } from '@/data/hooks';
 
 import { IGenreResponse } from '@/interfaces/services/responses';
 
-export default function GenreList() {
+export function GenreList() {
     const { data: genres, isLoading } = useGetGenres();
     if (isLoading) return <div>Loading....</div>;
     return (

@@ -8,7 +8,7 @@ export interface IStatusProps {
     className: string;
 }
 
-export default function StatusButton({ label, link, className }: IStatusProps) {
+export function StatusButton({ label, link, className }: IStatusProps) {
     return (
         <Link href={link}>
             <Button variant="outline" className={className}>

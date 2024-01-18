@@ -1,4 +1,4 @@
-export default function ChapterPagination() {
+export function ChapterPagination() {
     return (
         <div>
             <div>Danh Sách Chương</div>

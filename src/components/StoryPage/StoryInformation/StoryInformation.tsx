@@ -4,7 +4,7 @@ interface IStoryInformationProps {
     story: IStoryResponse;
 }
 
-export default function StoryInformation({ story }: IStoryInformationProps) {
+export function StoryInformation({ story }: IStoryInformationProps) {
     return (
         <div>
             <div>Thông Tin Truyện</div>

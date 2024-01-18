@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 
 import { H1 } from '@/components/Common/Custom/Custom';
-import GenreList from '@/components/HomePage/UpdatedStoryList/GenreList/GenreList';
+import { GenreList } from '@/components/HomePage/UpdatedStoryList/GenreList/GenreList';
 import { ReadingChapterTable } from '@/components/HomePage/UpdatedStoryList/ReadingChapterTable/ReadingChapterTable';
 import { UpdatedStoryTable } from '@/components/HomePage/UpdatedStoryList/UpdatedStoryTable/UpdatedStoryTable';
 

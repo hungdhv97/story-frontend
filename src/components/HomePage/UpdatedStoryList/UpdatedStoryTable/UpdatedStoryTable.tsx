@@ -1,7 +1,7 @@
 import { useAtom } from 'jotai';
 import Link from 'next/link';
 
-import StatusButton from '@/components/HomePage/HotStoryList/StatusButton/StatusButton';
+import { StatusButton } from '@/components/HomePage/HotStoryList/StatusButton/StatusButton';
 import {
     Table,
     TableBody,
