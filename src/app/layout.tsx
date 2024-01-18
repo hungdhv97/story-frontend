@@ -7,8 +7,8 @@ import '@/styles/globals.css';
 
 import { cn } from '@/lib/utils';
 
-import { Footer } from '@/components/layout/footer';
-import { Header } from '@/components/layout/header';
+import { Footer } from '@/components/layout/Footer/Footer';
+import { Header } from '@/components/layout/Header/Header';
 
 import { Providers } from '@/app/providers';
 import { IRootLayoutProps } from '@/interfaces/components/props';

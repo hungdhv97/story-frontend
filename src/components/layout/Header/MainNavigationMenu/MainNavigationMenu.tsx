@@ -13,7 +13,7 @@ import {
     NavigationMenuTrigger,
 } from '@/components/ui/navigation-menu';
 
-import { IHomeNavigationMenuProps } from '@/interfaces/components/props';
+import { IMainNavigationMenuProps } from '@/interfaces/components/props';
 
 function onNavChange() {
     setTimeout(() => {
@@ -32,11 +32,11 @@ function onNavChange() {
     });
 }
 
-export function HomeNavigationMenu({
+export function MainNavigationMenu({
     storyRouters,
     genreRouters,
     chapterRouters,
-}: IHomeNavigationMenuProps) {
+}: IMainNavigationMenuProps) {
     return (
         <NavigationMenu onValueChange={onNavChange}>
             <NavigationMenuList>

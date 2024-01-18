@@ -6,7 +6,7 @@ export interface IRootLayoutProps {
     children: ReactNode;
 }
 
-export interface IHomeNavigationMenuProps {
+export interface IMainNavigationMenuProps {
     storyRouters: IRouter[];
     genreRouters: IRouter[];
     chapterRouters: IRouter[];

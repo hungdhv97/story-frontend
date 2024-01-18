@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react';
 
 import { Button } from '@/components/ui/button';
 
-export function ThemeSwitcher() {
+export function ThemeSwitcherButton() {
     const [mounted, setMounted] = useState(false);
     const { theme, setTheme } = useTheme();
     const [isDarkMode, setIsDarkMode] = useState(theme === 'dark');

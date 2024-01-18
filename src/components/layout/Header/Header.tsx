@@ -3,9 +3,9 @@ import Link from 'next/link';
 
 import { useGetGenres } from '@/data/hooks';
 
-import { HomeNavigationMenu } from '@/components/layout/components/header/main-nav';
-import { Search } from '@/components/layout/components/header/search';
-import { ThemeSwitcher } from '@/components/layout/components/header/theme-switcher';
+import { MainNavigationMenu } from '@/components/layout/Header/MainNavigationMenu/MainNavigationMenu';
+import { SearchInput } from '@/components/layout/Header/SearchInput/SearchInput';
+import { ThemeSwitcherButton } from '@/components/layout/Header/ThemeSwitcherButton/ThemeSwitcherButton';
 import { Button } from '@/components/ui/button';
 
 import { chapterRouters, storyRouters } from '@/constants';
@@ -30,21 +30,21 @@ export function Header() {
                         className="lg:hidden cursor-pointer"
                         onClick={() => {}}
                     />
-                    <Link href="/" className="mr-6 ml-2">
+                    <Link href="/public" className="mr-6 ml-2">
                         <Button variant="outline">
                             <BookOpenText />
                             <span className="ml-2">[Story Name]</span>
                         </Button>
                     </Link>
                 </div>
-                <HomeNavigationMenu
+                <MainNavigationMenu
                     storyRouters={storyRouters}
                     genreRouters={genreRouters}
                     chapterRouters={chapterRouters}
                 />
                 <div className="flex space-x-2">
-                    <ThemeSwitcher />
-                    <Search />
+                    <ThemeSwitcherButton />
+                    <SearchInput />
                 </div>
             </div>
         </header>

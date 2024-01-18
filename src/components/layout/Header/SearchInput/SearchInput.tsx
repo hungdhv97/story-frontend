@@ -3,7 +3,7 @@ import { Search as SearchIcon } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 
-export function Search() {
+export function SearchInput() {
     const handleClickSearch = () => {};
     return (
         <div>
