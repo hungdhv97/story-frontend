@@ -8,8 +8,8 @@ import { GenreSelect } from '@/components/HomePage/HotStoryList/GenreSelect/Genr
 import { HotStory } from '@/components/HomePage/HotStoryList/HotStory/HotStory';
 import { HotStoryListSkeleton } from '@/components/HomePage/HotStoryList/HotStoryListSkeleton/HotStoryListSkeleton';
 
-import { hotStoriesResponseAtom } from '@/atoms/hot-stories-response-atom';
-import { selectedGenreAtom } from '@/atoms/selected-genre-atom';
+import { hotStoriesResponseAtom } from '@/atoms/hotStoriesResponseAtom';
+import { selectedGenreAtom } from '@/atoms/selectedGenreAtom';
 import { IStoryResponse } from '@/interfaces/services/responses';
 
 export function HotStoryList() {

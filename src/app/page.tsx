@@ -14,10 +14,10 @@ import { FullStoryList } from '@/components/HomePage/FullStoryList/FullStoryList
 import { HotStoryList } from '@/components/HomePage/HotStoryList/HotStoryList';
 import { UpdatedStoryList } from '@/components/HomePage/UpdatedStoryList/UpdatedStoryList';
 
-import { fullStoriesResponseAtom } from '@/atoms/full-stories-response-atom';
-import { genresResponseAtom } from '@/atoms/genres-response-atom';
-import { hotStoriesResponseAtom } from '@/atoms/hot-stories-response-atom';
-import { updatedStoriesResponseAtom } from '@/atoms/updated-stories-response-atom';
+import { fullStoriesResponseAtom } from '@/atoms/fullStoriesResponseAtom';
+import { genresResponseAtom } from '@/atoms/genresResponseAtom';
+import { hotStoriesResponseAtom } from '@/atoms/hotStoriesResponseAtom';
+import { updatedStoriesResponseAtom } from '@/atoms/updatedStoriesResponseAtom';
 
 export default function HomePage() {
     const [, setGenresResponse] = useAtom(genresResponseAtom);

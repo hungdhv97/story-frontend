@@ -7,7 +7,7 @@ import { H1 } from '@/components/Common/Custom/Custom';
 import { FullStory } from '@/components/HomePage/FullStoryList/FullStory/FullStory';
 import { FullStoryListSkeleton } from '@/components/HomePage/FullStoryList/FullStoryListSkeleton/FullStoryListSkeleton';
 
-import { fullStoriesResponseAtom } from '@/atoms/full-stories-response-atom';
+import { fullStoriesResponseAtom } from '@/atoms/fullStoriesResponseAtom';
 import { IStoryResponse } from '@/interfaces/services/responses';
 
 export function FullStoryList() {

@@ -12,7 +12,7 @@ import {
     SelectValue,
 } from '@/components/ui/select';
 
-import { selectedGenreAtom } from '@/atoms/selected-genre-atom';
+import { selectedGenreAtom } from '@/atoms/selectedGenreAtom';
 import { IGenreResponse } from '@/interfaces/services/responses';
 
 export function GenreSelect() {
