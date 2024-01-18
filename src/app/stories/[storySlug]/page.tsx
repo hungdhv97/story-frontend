@@ -28,7 +28,7 @@ export default function StoryPage({
             <div className="flex">
                 <div className="basis-2/3">
                     <StoryInformation story={story} />
-                    <ChapterPagination />
+                    <ChapterPagination story={story} />
                 </div>
                 <div className="basis-1/3">
                     <StoryWithSameAuthorList />
