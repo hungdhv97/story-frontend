@@ -1,14 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-import {
-    Pagination,
-    PaginationContent,
-    PaginationEllipsis,
-    PaginationItem,
-    PaginationLink,
-    PaginationNext,
-    PaginationPrevious,
-} from '@/components/ui/pagination';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
 
 interface IPaginationProps {
     totalPages: number;
@@ -21,79 +14,56 @@ export function MainPagination({
     currentPage,
     setCurrentPage,
 }: IPaginationProps) {
-    const setPage = (page: number) => {
-        if (page < 1) {
-            setCurrentPage(1);
-        } else if (page > totalPages) {
-            setCurrentPage(totalPages);
-        } else {
-            setCurrentPage(page);
-        }
+    const [inputPage, setInputPage] = useState<number>(currentPage);
+
+    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const page = parseInt(e.target.value, 10);
+        setInputPage(page);
     };
 
-    const pages = [];
-    for (
-        let p = Math.max(currentPage - 2, 1);
-        p <= Math.min(currentPage + 2, totalPages);
-        p++
-    ) {
-        pages.push(p);
-    }
+    const goToPage = (page: number) => {
+        const newPage = Math.max(1, Math.min(page, totalPages));
+        setCurrentPage(newPage);
+        setInputPage(newPage);
+    };
+
+    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        goToPage(inputPage);
+    };
 
     return (
-        <Pagination>
-            <PaginationContent>
-                <PaginationItem>
-                    <PaginationPrevious
-                        href="#"
-                        onClick={(e) => {
-                            e.preventDefault();
-                            setPage(currentPage - 1);
-                        }}
-                    />
-                </PaginationItem>
-                {pages.map((page) => (
-                    <PaginationItem key={page}>
-                        <PaginationLink
-                            href="#"
-                            onClick={(e) => {
-                                e.preventDefault();
-                                setPage(page);
-                            }}
-                            isActive={page === currentPage}
-                        >
-                            {page}
-                        </PaginationLink>
-                    </PaginationItem>
-                ))}
-                {currentPage + 2 < totalPages && (
-                    <PaginationItem>
-                        <PaginationEllipsis />
-                    </PaginationItem>
-                )}
-                {currentPage + 2 < totalPages && (
-                    <PaginationItem>
-                        <PaginationLink
-                            href="#"
-                            onClick={(e) => {
-                                e.preventDefault();
-                                setPage(totalPages);
-                            }}
-                        >
-                            {totalPages}
-                        </PaginationLink>
-                    </PaginationItem>
-                )}
-                <PaginationItem>
-                    <PaginationNext
-                        href="#"
-                        onClick={(e) => {
-                            e.preventDefault();
-                            setPage(currentPage + 1);
-                        }}
-                    />
-                </PaginationItem>
-            </PaginationContent>
-        </Pagination>
+        <div className="flex justify-center items-center gap-2">
+            <Button onClick={() => goToPage(1)} disabled={currentPage === 1}>
+                First
+            </Button>
+            <Button
+                onClick={() => goToPage(currentPage - 1)}
+                disabled={currentPage === 1}
+            >
+                Previous
+            </Button>
+            <form onSubmit={handleSubmit} className="flex items-center">
+                <Input
+                    type="number"
+                    value={inputPage}
+                    onChange={handleInputChange}
+                    className="text-center w-12 [&::-webkit-inner-spin-button]:appearance-none"
+                />
+                <span className="ml-2 whitespace-nowrap"> / {totalPages}</span>
+            </form>
+            <Button
+                onClick={() => goToPage(currentPage + 1)}
+                disabled={currentPage === totalPages}
+            >
+                Next
+            </Button>
+            <Button
+                onClick={() => goToPage(totalPages)}
+                disabled={currentPage === totalPages}
+            >
+                Last
+            </Button>
+        </div>
     );
 }
