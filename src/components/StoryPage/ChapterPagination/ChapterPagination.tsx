@@ -23,7 +23,7 @@ export function ChapterPagination({ story }: IChapterPaginationProps) {
         chaptersShortInfoResponseAtom,
     );
     const [currentPage, setCurrentPage] = useState<number>(1);
-    const [chaptersPerPage] = useState<number>(2);
+    const [chaptersPerPage] = useState<number>(10);
     useEffect(() => {
         if (chaptersShortInfo) {
             setChaptersShortInfoResponse(chaptersShortInfo);
