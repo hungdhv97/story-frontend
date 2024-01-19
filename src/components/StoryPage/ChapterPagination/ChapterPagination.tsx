@@ -46,15 +46,17 @@ export function ChapterPagination({ story }: IChapterPaginationProps) {
     return (
         <div>
             <div>Danh Sách Chương</div>
-            {currentChapters.map((chapterShortInfo: IChapterShortInfo) => (
-                <div key={chapterShortInfo.id}>
-                    <Link
-                        href={`/stories/${story.slug}/chapters/${chapterShortInfo.id}`}
-                    >
-                        {chapterShortInfo.title}
-                    </Link>
-                </div>
-            ))}
+            <div className="grid grid-cols-2">
+                {currentChapters.map((chapterShortInfo: IChapterShortInfo) => (
+                    <div key={chapterShortInfo.id}>
+                        <Link
+                            href={`/stories/${story.slug}/chapters/${chapterShortInfo.id}`}
+                        >
+                            {chapterShortInfo.title}
+                        </Link>
+                    </div>
+                ))}
+            </div>
             <MainPagination
                 totalPages={totalPages}
                 currentPage={currentPage}
