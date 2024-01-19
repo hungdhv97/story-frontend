@@ -7,6 +7,7 @@ import {
     IChapterShortInfo,
     IGenreResponse,
     IStoryResponse,
+    ITopStoriesResponse,
 } from '@/interfaces/services/responses';
 
 export const useGetGenres = () => {
@@ -68,6 +69,13 @@ export const useGetStoryByStorySlug = (storySlug: string) => {
 export const useGetStoriesWithSameAuthor = (authorId: number) => {
     return useSWR<IStoryResponse[]>(
         `http://18.141.25.103:8000/api/stories/?author_id=${authorId}`,
+        getData,
+    );
+};
+
+export const useGetTopStories = () => {
+    return useSWR<ITopStoriesResponse>(
+        'http://18.141.25.103:8000/api/top/stories/',
         getData,
     );
 };

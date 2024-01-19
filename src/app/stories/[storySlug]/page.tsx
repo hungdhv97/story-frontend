@@ -4,9 +4,9 @@ import { useGetStoryByStorySlug } from '@/data/hooks';
 
 import { Breadcrumb } from '@/components/Common/Breadcrumb/Breadcrumb';
 import { ChapterPagination } from '@/components/StoryPage/ChapterPagination/ChapterPagination';
-import { HottestStoryList } from '@/components/StoryPage/HottestStoryList/HottestStoryList';
 import { StoryInformation } from '@/components/StoryPage/StoryInformation/StoryInformation';
 import { StoryWithSameAuthorList } from '@/components/StoryPage/StoryWithSameAuthorList/StoryWithSameAuthorList';
+import { TopStoryList } from '@/components/StoryPage/TopStoryList/TopStoryList';
 
 export default function StoryPage({
     params,
@@ -32,7 +32,7 @@ export default function StoryPage({
                 </div>
                 <div className="basis-1/3">
                     <StoryWithSameAuthorList story={story} />
-                    <HottestStoryList story={story} />
+                    <TopStoryList story={story} />
                 </div>
             </div>
         </div>

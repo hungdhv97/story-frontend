@@ -63,3 +63,17 @@ export interface IChapterResponse {
     content: string;
     published_date: string;
 }
+
+export interface ITopStoryResponse {
+    id: number;
+    title: string;
+    cover_photo: string;
+    slug: string;
+    total_reads: number;
+}
+
+export interface ITopStoriesResponse {
+    week: ITopStoryResponse[];
+    month: ITopStoryResponse[];
+    all: ITopStoryResponse[];
+}
