@@ -31,8 +31,8 @@ export default function StoryPage({
                     <ChapterPagination story={story} />
                 </div>
                 <div className="basis-1/3">
-                    <StoryWithSameAuthorList />
-                    <HottestStoryList />
+                    <StoryWithSameAuthorList story={story} />
+                    <HottestStoryList story={story} />
                 </div>
             </div>
         </div>
