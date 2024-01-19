@@ -46,7 +46,7 @@ export function ChapterPagination({ story }: IChapterPaginationProps) {
     return (
         <div>
             <div>Danh Sách Chương</div>
-            <div className="grid grid-cols-2">
+            <div className="grid grid-rows-5 grid-flow-col">
                 {currentChapters.map((chapterShortInfo: IChapterShortInfo) => (
                     <div key={chapterShortInfo.id}>
                         <Link
