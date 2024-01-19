@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 
 import { useGetChaptersShortInfoByStorySlug } from '@/data/hooks';
 
-import Pagination from '@/components/Common/Pagination/Pagination';
+import { MainPagination } from '@/components/Common/MainPagination/MainPagination';
 
 import { chaptersShortInfoResponseAtom } from '@/atoms/chaptersShortInfoResponseAtom';
 import {
@@ -23,7 +23,7 @@ export function ChapterPagination({ story }: IChapterPaginationProps) {
         chaptersShortInfoResponseAtom,
     );
     const [currentPage, setCurrentPage] = useState<number>(1);
-    const [chaptersPerPage] = useState<number>(10);
+    const [chaptersPerPage] = useState<number>(2);
     useEffect(() => {
         if (chaptersShortInfo) {
             setChaptersShortInfoResponse(chaptersShortInfo);
@@ -55,7 +55,7 @@ export function ChapterPagination({ story }: IChapterPaginationProps) {
                     </Link>
                 </div>
             ))}
-            <Pagination
+            <MainPagination
                 totalPages={totalPages}
                 currentPage={currentPage}
                 setCurrentPage={setCurrentPage}
