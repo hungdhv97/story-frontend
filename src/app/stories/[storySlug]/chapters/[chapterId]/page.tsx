@@ -36,6 +36,10 @@ export default function ChapterPage({
     return (
         <div className="container">
             <Breadcrumb paths={paths} />
+            <div className="container flex flex-col">
+                <div className="text-center">{chapter.title}</div>
+                <div>{chapter.content}</div>
+            </div>
         </div>
     );
 }
