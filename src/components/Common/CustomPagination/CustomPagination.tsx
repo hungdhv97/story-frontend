@@ -1,3 +1,4 @@
+import { PrimitiveAtom } from 'jotai';
 import React, { useState } from 'react';
 
 import { usePagination } from '@/hooks/usePagination';
@@ -5,16 +6,19 @@ import { usePagination } from '@/hooks/usePagination';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 
-import { chapterPaginationAtom } from '@/atoms/chapterPaginationAtom';
+import { IPagination } from '@/interfaces/common';
 
 interface ICustomPaginationProps {
+    paginationAtom: PrimitiveAtom<IPagination>;
     totalPages: number;
 }
 
-export function CustomPagination({ totalPages }: ICustomPaginationProps) {
-    const { pagination, nextPage, prevPage, goToPage } = usePagination(
-        chapterPaginationAtom,
-    );
+export function CustomPagination({
+    totalPages,
+    paginationAtom,
+}: ICustomPaginationProps) {
+    const { pagination, nextPage, prevPage, goToPage } =
+        usePagination(paginationAtom);
     const [inputPage, setInputPage] = useState(pagination.page);
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {

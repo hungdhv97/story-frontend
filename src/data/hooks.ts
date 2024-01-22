@@ -100,8 +100,11 @@ export const useGetStoryList = ({
 };
 
 interface IUseGetStoryPaginationParams {
-    limit: number;
-    page: number;
+    paginationAtom: WritableAtom<
+        IPagination,
+        [SetStateAction<IPagination>],
+        void
+    >;
     authorId?: number;
     genreId?: number;
     isHot?: boolean;
@@ -110,15 +113,15 @@ interface IUseGetStoryPaginationParams {
 }
 
 export const useGetStoryPagination = ({
-    page,
-    limit,
+    paginationAtom,
     authorId,
     genreId,
     isHot,
     isNew,
     status,
 }: IUseGetStoryPaginationParams) => {
-    let url = `http://18.141.25.103:8000/api/stories/?limit=${limit}&page=${page}&`;
+    const { pagination } = usePagination(paginationAtom);
+    let url = `http://18.141.25.103:8000/api/stories/?limit=${pagination.limit}&page=${pagination.page}&`;
 
     if (authorId) url += `author_id=${authorId}&`;
     if (genreId) url += `genre_id=${genreId}&`;

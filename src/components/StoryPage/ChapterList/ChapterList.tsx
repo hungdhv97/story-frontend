@@ -43,6 +43,7 @@ export function ChapterList({ story }: IChapterPaginationProps) {
                 totalPages={
                     chapterShortInfoPagination.meta.pagination.total_pages
                 }
+                paginationAtom={chapterPaginationAtom}
             />
         </div>
     );
