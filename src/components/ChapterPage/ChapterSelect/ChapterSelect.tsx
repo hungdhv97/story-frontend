@@ -1,5 +1,7 @@
+'use client';
+
 import { useAtom } from 'jotai/index';
-import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import * as React from 'react';
 
 import {
@@ -20,10 +22,19 @@ export function ChapterSelect() {
     const [chapterShortInfoListResponse] = useAtom(
         chaptersShortInfoResponseAtom,
     );
-    const [selectedChapter] = useAtom(selectedChapterAtom);
+    const [selectedChapter, setSelectedChapter] = useAtom(selectedChapterAtom);
     const [selectedStorySlug] = useAtom(selectedStorySlugAtom);
+    const router = useRouter();
+
+    const handleSelectionChange = (chapterId: string) => {
+        setSelectedChapter(chapterId);
+        router.push(`/stories/${selectedStorySlug}/chapters/${chapterId}`);
+    };
     return (
-        <Select defaultValue={selectedChapter}>
+        <Select
+            defaultValue={selectedChapter}
+            onValueChange={handleSelectionChange}
+        >
             <SelectTrigger className="w-[180px]">
                 <SelectValue placeholder={selectedChapter} />
             </SelectTrigger>
@@ -35,11 +46,7 @@ export function ChapterSelect() {
                                 key={chapterShortInfo.id}
                                 value={chapterShortInfo.id.toString()}
                             >
-                                <Link
-                                    href={`/stories/${selectedStorySlug}/chapters/${chapterShortInfo.id}`}
-                                >
-                                    {chapterShortInfo.title}
-                                </Link>{' '}
+                                {chapterShortInfo.title}
                             </SelectItem>
                         ),
                     )}
