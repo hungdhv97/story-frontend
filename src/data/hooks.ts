@@ -74,13 +74,21 @@ export const useGetTopStories = () => {
     );
 };
 
-export const useGetStoryList = (
-    authorId?: number,
-    genreId?: number,
-    isHot?: boolean,
-    isNew?: boolean,
-    status?: string,
-) => {
+interface IUseGetStoryListParams {
+    authorId?: number;
+    genreId?: number;
+    isHot?: boolean;
+    isNew?: boolean;
+    status?: string;
+}
+
+export const useGetStoryList = ({
+    authorId,
+    genreId,
+    isHot,
+    isNew,
+    status,
+}: IUseGetStoryListParams) => {
     let url = `http://18.141.25.103:8000/api/stories/?`;
 
     if (authorId) url += `author_id=${authorId}&`;
@@ -89,18 +97,30 @@ export const useGetStoryList = (
     if (isNew !== undefined) url += `is_new=${isNew}&`;
     if (status) url += `status=${status}&`;
 
-    return useSWR<IStoryResponse[]>(url, getData);
+    url = url.replace(/&$|\?$/, '');
+
+    return useSWR(url, getData);
 };
 
-export const useGetStoryListPagination = (
-    limit: number,
-    page: number,
-    authorId?: number,
-    genreId?: number,
-    isHot?: boolean,
-    isNew?: boolean,
-    status?: string,
-) => {
+interface IUseGetStoryListParams {
+    limit: number;
+    page: number;
+    authorId?: number;
+    genreId?: number;
+    isHot?: boolean;
+    isNew?: boolean;
+    status?: string;
+}
+
+export const useGetStoryListPagination = ({
+    limit,
+    page,
+    authorId,
+    genreId,
+    isHot,
+    isNew,
+    status,
+}: IUseGetStoryListParams) => {
     let url = `http://18.141.25.103:8000/api/stories/?limit=${limit}&page=${page}&`;
 
     if (authorId) url += `author_id=${authorId}&`;
@@ -108,6 +128,8 @@ export const useGetStoryListPagination = (
     if (isHot !== undefined) url += `is_hot=${isHot}&`;
     if (isNew !== undefined) url += `is_new=${isNew}&`;
     if (status) url += `status=${status}&`;
+
+    url = url.replace(/&$|\?$/, '');
 
     return useSWR<IStoryListPaginationResponse>(url, getData);
 };
