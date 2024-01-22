@@ -8,7 +8,7 @@ import {
     IGenreResponse,
     IStoryListPaginationResponse,
     IStoryResponse,
-    ITopStoriesResponse,
+    ITopStoryListResponse,
 } from '@/interfaces/services/responses';
 
 export const useGetGenreList = () => {
@@ -46,8 +46,8 @@ export const useGetStoriesWithSameAuthor = (authorId: number) => {
     );
 };
 
-export const useGetTopStories = () => {
-    return useSWR<ITopStoriesResponse>(
+export const useGetTopStoryList = () => {
+    return useSWR<ITopStoryListResponse>(
         'http://18.141.25.103:8000/api/top/stories/',
         getData,
     );

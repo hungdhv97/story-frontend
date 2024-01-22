@@ -5,7 +5,7 @@ import { useAtom } from 'jotai';
 import { TopStoryTabList } from '@/components/StoryPage/TopStoryList/TopStoryTabList/TopStoryTabList';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 
-import { topStoriesResponseAtom } from '@/atoms/topStoriesResponseAtom';
+import { topStoryListResponseAtom } from '@/atoms/topStoryListResponseAtom';
 import { IStoryResponse } from '@/interfaces/services/responses';
 
 interface ITopStoryListProps {
@@ -13,7 +13,7 @@ interface ITopStoryListProps {
 }
 
 export function TopStoryList({ story }: ITopStoryListProps) {
-    const [topStoriesResponse] = useAtom(topStoriesResponseAtom);
+    const [topStoriesResponse] = useAtom(topStoryListResponseAtom);
     return (
         <div>
             <div>Truyện Đang Hot</div>

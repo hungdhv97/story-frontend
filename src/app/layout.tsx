@@ -8,14 +8,14 @@ import '@/styles/globals.css';
 
 import { cn } from '@/lib/utils';
 
-import { useGetGenreList, useGetTopStories } from '@/data/hooks';
+import { useGetGenreList, useGetTopStoryList } from '@/data/hooks';
 
 import { Footer } from '@/components/Layout/Footer/Footer';
 import { Header } from '@/components/Layout/Header/Header';
 
 import { Providers } from '@/app/providers';
 import { genreListResponseAtom } from '@/atoms/genreListResponseAtom';
-import { topStoriesResponseAtom } from '@/atoms/topStoriesResponseAtom';
+import { topStoryListResponseAtom } from '@/atoms/topStoryListResponseAtom';
 import { IRootLayoutProps } from '@/interfaces/components/props';
 
 const fontSans = FontSans({
@@ -26,10 +26,10 @@ const fontSans = FontSans({
 
 export default function RootLayout({ children }: IRootLayoutProps) {
     const [, setGenreListResponse] = useAtom(genreListResponseAtom);
-    const [, setTopStoriesResponse] = useAtom(topStoriesResponseAtom);
+    const [, setTopStoryListResponse] = useAtom(topStoryListResponseAtom);
 
     const { data: genreList } = useGetGenreList();
-    const { data: topStories } = useGetTopStories();
+    const { data: topStoryList } = useGetTopStoryList();
 
     useEffect(() => {
         if (genreList) {
@@ -38,10 +38,11 @@ export default function RootLayout({ children }: IRootLayoutProps) {
     }, [genreList, setGenreListResponse]);
 
     useEffect(() => {
-        if (topStories) {
-            setTopStoriesResponse(topStories);
+        if (topStoryList) {
+            setTopStoryListResponse(topStoryList);
         }
-    }, [topStories, setTopStoriesResponse]);
+    }, [topStoryList, setTopStoryListResponse]);
+    
     return (
         <html lang="en" suppressHydrationWarning>
             <head />

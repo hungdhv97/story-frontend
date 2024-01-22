@@ -72,7 +72,7 @@ export interface ITopStoryResponse {
     total_reads: number;
 }
 
-export interface ITopStoriesResponse {
+export interface ITopStoryListResponse {
     week: ITopStoryResponse[];
     month: ITopStoryResponse[];
     all: ITopStoryResponse[];
