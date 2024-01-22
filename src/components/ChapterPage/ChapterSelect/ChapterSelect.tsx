@@ -16,7 +16,7 @@ import {
 import { chaptersShortInfoResponseAtom } from '@/atoms/chaptersShortInfoResponseAtom';
 import { selectedChapterAtom } from '@/atoms/selectedChapterAtom';
 import { selectedStorySlugAtom } from '@/atoms/selectedStoryAtom';
-import { IChapterShortInfo } from '@/interfaces/services/responses';
+import { IChapterShortInfoResponse } from '@/interfaces/services/responses';
 
 export function ChapterSelect() {
     const [chapterShortInfoListResponse] = useAtom(
@@ -41,7 +41,7 @@ export function ChapterSelect() {
             <SelectContent>
                 <SelectGroup>
                     {chapterShortInfoListResponse.map(
-                        (chapterShortInfo: IChapterShortInfo) => (
+                        (chapterShortInfo: IChapterShortInfoResponse) => (
                             <SelectItem
                                 key={chapterShortInfo.id}
                                 value={chapterShortInfo.id.toString()}

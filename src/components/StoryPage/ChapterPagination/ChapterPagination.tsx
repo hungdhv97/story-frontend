@@ -8,7 +8,7 @@ import { MainPagination } from '@/components/Common/MainPagination/MainPaginatio
 
 import { chaptersShortInfoResponseAtom } from '@/atoms/chaptersShortInfoResponseAtom';
 import {
-    IChapterShortInfo,
+    IChapterShortInfoResponse,
     IStoryResponse,
 } from '@/interfaces/services/responses';
 
@@ -47,15 +47,17 @@ export function ChapterPagination({ story }: IChapterPaginationProps) {
         <div>
             <div>Danh Sách Chương</div>
             <div className="grid grid-rows-5 grid-flow-col">
-                {currentChapters.map((chapterShortInfo: IChapterShortInfo) => (
-                    <div key={chapterShortInfo.id}>
-                        <Link
-                            href={`/stories/${story.slug}/chapters/${chapterShortInfo.id}`}
-                        >
-                            {chapterShortInfo.title}
-                        </Link>
-                    </div>
-                ))}
+                {currentChapters.map(
+                    (chapterShortInfo: IChapterShortInfoResponse) => (
+                        <div key={chapterShortInfo.id}>
+                            <Link
+                                href={`/stories/${story.slug}/chapters/${chapterShortInfo.id}`}
+                            >
+                                {chapterShortInfo.title}
+                            </Link>
+                        </div>
+                    ),
+                )}
             </div>
             <MainPagination
                 totalPages={totalPages}

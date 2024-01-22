@@ -4,9 +4,10 @@ import { getData } from '@/data/server';
 
 import {
     IChapterResponse,
-    IChapterShortInfo,
+    IChapterShortInfoPaginationResponse,
+    IChapterShortInfoResponse,
     IGenreResponse,
-    IStoryListPaginationResponse,
+    IStoryPaginationResponse,
     IStoryResponse,
     ITopStoryListResponse,
 } from '@/interfaces/services/responses';
@@ -25,8 +26,25 @@ export const useGetChapterById = (chapterId: string) => {
     );
 };
 
+interface IUseGetChapterShortInfoPaginationParams {
+    param: number;
+    page: number;
+    storySlug: string;
+}
+
+export const useGetChapterShortInfoPagination = ({
+    param,
+    page,
+    storySlug,
+}: IUseGetChapterShortInfoPaginationParams) => {
+    return useSWR<IChapterShortInfoPaginationResponse>(
+        `http://18.141.25.103:8000/api/stories/${storySlug}/chapters/short-info/?limit=${param}&page=${page}`,
+        getData,
+    );
+};
+
 export const useGetChaptersShortInfoByStorySlug = (storySlug: string) => {
-    return useSWR<IChapterShortInfo[]>(
+    return useSWR<IChapterShortInfoResponse[]>(
         `http://18.141.25.103:8000/api/stories/${storySlug}/chapters/short-info/`,
         getData,
     );
@@ -81,7 +99,7 @@ export const useGetStoryList = ({
     return useSWR(url, getData);
 };
 
-interface IUseGetStoryListPaginationParams {
+interface IUseGetStoryPaginationParams {
     limit: number;
     page: number;
     authorId?: number;
@@ -91,7 +109,7 @@ interface IUseGetStoryListPaginationParams {
     status?: string;
 }
 
-export const useGetStoryListPagination = ({
+export const useGetStoryPagination = ({
     limit,
     page,
     authorId,
@@ -99,7 +117,7 @@ export const useGetStoryListPagination = ({
     isHot,
     isNew,
     status,
-}: IUseGetStoryListPaginationParams) => {
+}: IUseGetStoryPaginationParams) => {
     let url = `http://18.141.25.103:8000/api/stories/?limit=${limit}&page=${page}&`;
 
     if (authorId) url += `author_id=${authorId}&`;
@@ -110,5 +128,5 @@ export const useGetStoryListPagination = ({
 
     url = url.replace(/&$|\?$/, '');
 
-    return useSWR<IStoryListPaginationResponse>(url, getData);
+    return useSWR<IStoryPaginationResponse>(url, getData);
 };
