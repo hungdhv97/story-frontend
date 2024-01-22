@@ -38,7 +38,7 @@ export function ChapterSelect() {
                 value={selectedChapterId}
                 onValueChange={handleSelectionChange}
             >
-                <SelectTrigger className="w-[180px]">
+                <SelectTrigger className="w-[300px]">
                     <SelectValue placeholder={selectedChapterId} />
                 </SelectTrigger>
                 <SelectContent>

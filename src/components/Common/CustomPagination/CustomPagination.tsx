@@ -35,10 +35,10 @@ export function CustomPagination({ totalPages }: ICustomPaginationProps) {
                 onClick={() => goToPage(1)}
                 disabled={pagination.page === 1}
             >
-                First
+                {'<<'}
             </Button>
             <Button onClick={prevPage} disabled={pagination.page === 1}>
-                Previous
+                {'<'}
             </Button>
             <form onSubmit={handleSubmit} className="flex items-center">
                 <Input
@@ -53,13 +53,13 @@ export function CustomPagination({ totalPages }: ICustomPaginationProps) {
                 onClick={nextPage}
                 disabled={pagination.page === totalPages}
             >
-                Next
+                {'>'}
             </Button>
             <Button
                 onClick={() => goToPage(totalPages)}
                 disabled={pagination.page === totalPages}
             >
-                Last
+                {'>>'}
             </Button>
         </div>
     );
