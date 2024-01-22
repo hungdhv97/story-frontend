@@ -15,7 +15,7 @@ export interface IChapterShortInfoResponse {
     published_date: string;
 }
 
-export interface IPagination {
+export interface IPaginationResponse {
     current_page: number;
     next_page: number | undefined;
     prev_page: number | undefined;
@@ -24,7 +24,7 @@ export interface IPagination {
 }
 
 export interface IMeta {
-    pagination: IPagination;
+    pagination: IPaginationResponse;
 }
 
 export interface IStoryResponse {

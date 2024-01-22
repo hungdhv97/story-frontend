@@ -1,7 +1,11 @@
+import { SetStateAction, WritableAtom } from 'jotai/index';
 import useSWR from 'swr';
+
+import { usePagination } from '@/hooks/usePagination';
 
 import { getData } from '@/data/server';
 
+import { IPagination } from '@/interfaces/common';
 import {
     IChapterResponse,
     IChapterShortInfoPaginationResponse,
@@ -27,18 +31,21 @@ export const useGetChapter = (chapterId: string) => {
 };
 
 interface IUseGetChapterShortInfoPaginationParams {
-    param: number;
-    page: number;
+    paginationAtom: WritableAtom<
+        IPagination,
+        [SetStateAction<IPagination>],
+        void
+    >;
     storySlug: string;
 }
 
 export const useGetChapterShortInfoPagination = ({
-    param,
-    page,
+    paginationAtom,
     storySlug,
 }: IUseGetChapterShortInfoPaginationParams) => {
+    const { pagination } = usePagination(paginationAtom);
     return useSWR<IChapterShortInfoPaginationResponse>(
-        `http://18.141.25.103:8000/api/stories/${storySlug}/chapters/short-info/?limit=${param}&page=${page}`,
+        `http://18.141.25.103:8000/api/stories/${storySlug}/chapters/short-info/?limit=${pagination.limit}&page=${pagination.page}`,
         getData,
     );
 };
@@ -103,8 +110,8 @@ interface IUseGetStoryPaginationParams {
 }
 
 export const useGetStoryPagination = ({
-    limit,
     page,
+    limit,
     authorId,
     genreId,
     isHot,

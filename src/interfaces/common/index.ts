@@ -11,3 +11,8 @@ export interface IReadingChapter {
     title: string;
     accessedAt: string;
 }
+
+export interface IPagination {
+    page: number;
+    limit: number;
+}

@@ -14,7 +14,7 @@ import { IStoryResponse } from '@/interfaces/services/responses';
 export function HotStoryList() {
     const { data: hotStoryList } = useGetStoryList({ isHot: true });
 
-    const [selectedGenre] = useAtom(selectedGenreAtom);
+    const [selectedGenre, set] = useAtom(selectedGenreAtom);
 
     function filterStoryList(genreSlug: string, storyList: IStoryResponse[]) {
         let filteredStories: IStoryResponse[] = storyList;

@@ -3,7 +3,7 @@
 import { useGetStory } from '@/data/hooks';
 
 import { Breadcrumb } from '@/components/Common/Breadcrumb/Breadcrumb';
-import { ChapterPagination } from '@/components/StoryPage/ChapterPagination/ChapterPagination';
+import { ChapterList } from '@/components/StoryPage/ChapterList/ChapterList';
 import { StoryInformation } from '@/components/StoryPage/StoryInformation/StoryInformation';
 import { StoryWithSameAuthorList } from '@/components/StoryPage/StoryWithSameAuthorList/StoryWithSameAuthorList';
 import { TopStoryList } from '@/components/StoryPage/TopStoryList/TopStoryList';
@@ -28,7 +28,7 @@ export default function StoryPage({
             <div className="flex">
                 <div className="basis-2/3">
                     <StoryInformation story={story} />
-                    <ChapterPagination story={story} />
+                    <ChapterList story={story} />
                 </div>
                 <div className="basis-1/3">
                     <StoryWithSameAuthorList story={story} />
