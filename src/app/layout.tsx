@@ -11,7 +11,6 @@ import { cn } from '@/lib/utils';
 import {
     useGetFullStories,
     useGetGenres,
-    useGetHotStories,
     useGetTopStories,
     useGetUpdatedStories,
 } from '@/data/hooks';
@@ -22,7 +21,6 @@ import { Header } from '@/components/Layout/Header/Header';
 import { Providers } from '@/app/providers';
 import { fullStoriesResponseAtom } from '@/atoms/fullStoriesResponseAtom';
 import { genresResponseAtom } from '@/atoms/genresResponseAtom';
-import { hotStoriesResponseAtom } from '@/atoms/hotStoriesResponseAtom';
 import { topStoriesResponseAtom } from '@/atoms/topStoriesResponseAtom';
 import { updatedStoriesResponseAtom } from '@/atoms/updatedStoriesResponseAtom';
 import { IRootLayoutProps } from '@/interfaces/components/props';
@@ -35,13 +33,11 @@ const fontSans = FontSans({
 
 export default function RootLayout({ children }: IRootLayoutProps) {
     const [, setGenresResponse] = useAtom(genresResponseAtom);
-    const [, setHotStoriesResponse] = useAtom(hotStoriesResponseAtom);
     const [, setFullStoriesResponse] = useAtom(fullStoriesResponseAtom);
     const [, setUpdatedStoriesResponse] = useAtom(updatedStoriesResponseAtom);
     const [, setTopStoriesResponse] = useAtom(topStoriesResponseAtom);
 
     const { data: genres } = useGetGenres();
-    const { data: hotStories } = useGetHotStories();
     const { data: updatedStories } = useGetUpdatedStories();
     const { data: fullStories } = useGetFullStories();
     const { data: topStories } = useGetTopStories();
@@ -51,12 +47,6 @@ export default function RootLayout({ children }: IRootLayoutProps) {
             setGenresResponse(genres);
         }
     }, [genres, setGenresResponse]);
-
-    useEffect(() => {
-        if (hotStories) {
-            setHotStoriesResponse(hotStories);
-        }
-    }, [hotStories, setHotStoriesResponse]);
 
     useEffect(() => {
         if (updatedStories) {

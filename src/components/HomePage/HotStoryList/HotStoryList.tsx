@@ -1,24 +1,23 @@
 import { useAtom } from 'jotai';
 import Link from 'next/link';
 
-import { useGetHotStories } from '@/data/hooks';
+import { useGetStoryList } from '@/data/hooks';
 
 import { H1 } from '@/components/Common/Custom/Custom';
 import { GenreSelect } from '@/components/HomePage/HotStoryList/GenreSelect/GenreSelect';
 import { HotStory } from '@/components/HomePage/HotStoryList/HotStory/HotStory';
 import { HotStoryListSkeleton } from '@/components/HomePage/HotStoryList/HotStoryListSkeleton/HotStoryListSkeleton';
 
-import { hotStoriesResponseAtom } from '@/atoms/hotStoriesResponseAtom';
 import { selectedGenreAtom } from '@/atoms/selectedGenreAtom';
 import { IStoryResponse } from '@/interfaces/services/responses';
 
 export function HotStoryList() {
-    const { isLoading } = useGetHotStories();
-    const [selectedGenre] = useAtom(selectedGenreAtom);
-    const [hotStoriesResponse] = useAtom(hotStoriesResponseAtom);
+    const { data: hotStoryList, isLoading } = useGetStoryList({ isHot: true });
 
-    function filterStories(genreSlug: string) {
-        let filteredStories: IStoryResponse[] = hotStoriesResponse;
+    const [selectedGenre] = useAtom(selectedGenreAtom);
+
+    function filterStoryList(genreSlug: string) {
+        let filteredStories: IStoryResponse[] = hotStoryList;
         if (genreSlug !== 'all') {
             filteredStories = filteredStories.filter((story: IStoryResponse) =>
                 story.genres.some((genre) => genre.slug === selectedGenre),
@@ -37,7 +36,7 @@ export function HotStoryList() {
                 <HotStoryListSkeleton />
             ) : (
                 <div className="grid gap-8 grid-cols-5">
-                    {filterStories(selectedGenre).map(
+                    {filterStoryList(selectedGenre).map(
                         (story: IStoryResponse) => (
                             <div
                                 key={story.id}

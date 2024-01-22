@@ -102,7 +102,7 @@ export const useGetStoryList = ({
     return useSWR(url, getData);
 };
 
-interface IUseGetStoryListParams {
+interface IUseGetStoryListPaginationParams {
     limit: number;
     page: number;
     authorId?: number;
@@ -120,7 +120,7 @@ export const useGetStoryListPagination = ({
     isHot,
     isNew,
     status,
-}: IUseGetStoryListParams) => {
+}: IUseGetStoryListPaginationParams) => {
     let url = `http://18.141.25.103:8000/api/stories/?limit=${limit}&page=${page}&`;
 
     if (authorId) url += `author_id=${authorId}&`;
