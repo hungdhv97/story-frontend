@@ -1,12 +1,12 @@
 import { ChapterSelect } from '@/components/ChapterPage/ChapterSelect/ChapterSelect';
 import { Button } from '@/components/ui/button';
 
-export function ChapterSwitcher() {
+export function ChapterNavigation() {
     return (
         <div className="flex justify-center gap-2">
-            <Button>Left</Button>
+            <Button>Chương Trươớc</Button>
             <ChapterSelect />
-            <Button>Right</Button>
+            <Button>Chương Sau</Button>
         </div>
     );
 }

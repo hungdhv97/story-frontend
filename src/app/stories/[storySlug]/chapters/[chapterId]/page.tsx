@@ -5,17 +5,12 @@ import { useEffect } from 'react';
 
 import { saveChapterHistory } from '@/lib/storage';
 
-import {
-    useGetChapter,
-    useGetChaptersShortInfoByStorySlug,
-    useGetStory,
-} from '@/data/hooks';
+import { useGetChapter, useGetStory } from '@/data/hooks';
 
-import { ChapterSwitcher } from '@/components/ChapterPage/ChapterSwitcher/ChapterSwitcher';
+import { ChapterNavigation } from '@/components/ChapterPage/ChapterNavigation/ChapterNavigation';
 import { Breadcrumb } from '@/components/Common/Breadcrumb/Breadcrumb';
 
-import { chaptersShortInfoResponseAtom } from '@/atoms/chaptersShortInfoResponseAtom';
-import { selectedChapterAtom } from '@/atoms/selectedChapterAtom';
+import { selectedChapterIdAtom } from '@/atoms/selectedChapterIdAtom';
 import { selectedStorySlugAtom } from '@/atoms/selectedStoryAtom';
 
 export default function ChapterPage({
@@ -25,32 +20,23 @@ export default function ChapterPage({
 }) {
     const { data: chapter } = useGetChapter(params.chapterId);
     const { data: story } = useGetStory(params.storySlug);
-    const { data: chapterStoryInfoList } = useGetChaptersShortInfoByStorySlug(
-        params.storySlug,
-    );
-    const [, setChapterShortInfoListResponse] = useAtom(
-        chaptersShortInfoResponseAtom,
-    );
-    const [, setSelectedChapter] = useAtom(selectedChapterAtom);
+
+    const [, setSelectedChapterId] = useAtom(selectedChapterIdAtom);
     const [, setSelectedStorySlug] = useAtom(selectedStorySlugAtom);
+
     useEffect(() => {
         if (chapter) {
             saveChapterHistory(chapter);
         }
     }, [chapter]);
+
     useEffect(() => {
-        if (chapterStoryInfoList) {
-            setChapterShortInfoListResponse(chapterStoryInfoList);
-        }
-    }, [chapterStoryInfoList, setChapterShortInfoListResponse]);
-    useEffect(() => {
-        setSelectedChapter(params.chapterId);
+        setSelectedChapterId(params.chapterId);
         setSelectedStorySlug(params.storySlug);
     }, []);
+
     if (!chapter) return <div>Chapter loading...</div>;
     if (!story) return <div>Story loading...</div>;
-    if (!chapterStoryInfoList)
-        return <div>Chapter short info list loading...</div>;
 
     const paths = [
         { title: 'Home', href: '/' },
@@ -65,7 +51,7 @@ export default function ChapterPage({
             <Breadcrumb paths={paths} />
             <div className="container flex flex-col">
                 <div className="text-center">{chapter.title}</div>
-                <ChapterSwitcher />
+                <ChapterNavigation />
                 <div>{chapter.content}</div>
             </div>
         </div>

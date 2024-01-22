@@ -50,7 +50,7 @@ export const useGetChapterShortInfoPagination = ({
     );
 };
 
-export const useGetChaptersShortInfoByStorySlug = (storySlug: string) => {
+export const useGetChapterShortInfoList = (storySlug: string) => {
     return useSWR<IChapterShortInfoResponse[]>(
         `http://18.141.25.103:8000/api/stories/${storySlug}/chapters/short-info/`,
         getData,
