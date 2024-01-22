@@ -52,13 +52,6 @@ export const useGetChaptersShortInfoByStorySlug = (storySlug: string) => {
     );
 };
 
-export const useGetChaptersByStorySlug = (storySlug: string) => {
-    return useSWR<IChapterResponse[]>(
-        `http://18.141.25.103:8000/api/stories/${storySlug}/chapters/`,
-        getData,
-    );
-};
-
 export const useGetStoryByStorySlug = (storySlug: string) => {
     return useSWR<IStoryResponse>(
         `http://18.141.25.103:8000/api/stories/${storySlug}/`,
