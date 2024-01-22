@@ -36,3 +36,59 @@ export const chapterRouters: IRouter[] = [
         href: '/filter/chapters/more-than-1000',
     },
 ];
+
+interface IStoryListFilterConfig {
+    stories: {
+        full: {
+            queryParams: { status: string };
+            path: { title: string; href: string };
+        };
+        hot: {
+            queryParams: { isHot: boolean };
+            path: { title: string; href: string };
+        };
+        updated: {
+            queryParams: { isNew: boolean };
+            path: { title: string; href: string };
+        };
+        new: {
+            queryParams: { isNew: boolean };
+            path: { title: string; href: string };
+        };
+    };
+}
+
+export const storyListFilterConfig: IStoryListFilterConfig = {
+    stories: {
+        full: {
+            queryParams: {
+                status: 'completed',
+            },
+            path: { title: 'Truyện Full', href: '/filter/stories/full' },
+        },
+        hot: {
+            queryParams: {
+                isHot: true,
+            },
+            path: { title: 'Truyện Hot', href: '/filter/stories/hot' },
+        },
+        updated: {
+            queryParams: {
+                isNew: true,
+            },
+            path: {
+                title: 'Truyện Mới Cập Nhật',
+                href: '/filter/stories/updated',
+            },
+        },
+        new: {
+            queryParams: {
+                isNew: true,
+            },
+            path: {
+                title: 'Truyện Mới',
+                href: '/filter/stories/new',
+            },
+        },
+    },
+};

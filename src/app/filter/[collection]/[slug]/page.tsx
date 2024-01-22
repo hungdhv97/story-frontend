@@ -9,29 +9,43 @@ import { GenreList } from '@/components/HomePage/UpdatedStoryList/GenreList/Genr
 import { TopStoryList } from '@/components/StoryPage/TopStoryList/TopStoryList';
 
 import { storyPaginationAtom } from '@/atoms/storyPaginationAtom';
+import { storyListFilterConfig } from '@/constants';
 
-export default function FullStoryListPage() {
-    const { data: fullStoryPagination } = useGetStoryPagination({
+type Collection = 'stories';
+type Slug = 'full' | 'hot' | 'updated' | 'new';
+
+export default function FilterStoryPage({
+    params,
+}: {
+    params: { collection: Collection; slug: Slug };
+}) {
+    const { data: storyPagination } = useGetStoryPagination({
         paginationAtom: storyPaginationAtom,
-        status: 'completed',
+        ...storyListFilterConfig[params.collection][params.slug].queryParams,
     });
 
     const paths = [
         { title: 'Home', href: '/' },
-        { title: 'Truyện Full', href: '/filter/stories/full' },
+        storyListFilterConfig[params.collection][params.slug].path,
     ];
 
-    if (fullStoryPagination) {
+    if (storyPagination) {
         return (
             <div className="container">
                 <Breadcrumb paths={paths} />
                 <div className="flex flex-row">
                     <div className="w-2/3">
-                        <div>Truyện Full</div>
-                        <FilterTable storyList={fullStoryPagination.results} />
+                        <div>
+                            {
+                                storyListFilterConfig[params.collection][
+                                    params.slug
+                                ].path.title
+                            }
+                        </div>
+                        <FilterTable storyList={storyPagination.results} />
                         <CustomPagination
                             totalPages={
-                                fullStoryPagination.meta.pagination.total_pages
+                                storyPagination.meta.pagination.total_pages
                             }
                             paginationAtom={storyPaginationAtom}
                         />
