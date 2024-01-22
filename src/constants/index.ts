@@ -7,7 +7,7 @@ export const storyRouters: IRouter[] = [
     },
     {
         title: 'Truyện Full',
-        href: '/filter/stories/completed',
+        href: '/filter/stories/full',
     },
     {
         title: 'Truyện mới cập nhật',
