@@ -57,13 +57,6 @@ export const useGetStory = (storySlug: string) => {
     );
 };
 
-export const useGetStoriesWithSameAuthor = (authorId: number) => {
-    return useSWR<IStoryResponse[]>(
-        `http://18.141.25.103:8000/api/stories/?author_id=${authorId}`,
-        getData,
-    );
-};
-
 export const useGetTopStoryList = () => {
     return useSWR<ITopStoryListResponse>(
         'http://18.141.25.103:8000/api/top/stories/',
