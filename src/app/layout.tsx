@@ -12,7 +12,6 @@ import {
     useGetFullStories,
     useGetGenreList,
     useGetTopStories,
-    useGetUpdatedStories,
 } from '@/data/hooks';
 
 import { Footer } from '@/components/Layout/Footer/Footer';
@@ -22,7 +21,6 @@ import { Providers } from '@/app/providers';
 import { fullStoriesResponseAtom } from '@/atoms/fullStoriesResponseAtom';
 import { genreListResponseAtom } from '@/atoms/genreListResponseAtom';
 import { topStoriesResponseAtom } from '@/atoms/topStoriesResponseAtom';
-import { updatedStoriesResponseAtom } from '@/atoms/updatedStoriesResponseAtom';
 import { IRootLayoutProps } from '@/interfaces/components/props';
 
 const fontSans = FontSans({
@@ -34,11 +32,9 @@ const fontSans = FontSans({
 export default function RootLayout({ children }: IRootLayoutProps) {
     const [, setGenreListResponse] = useAtom(genreListResponseAtom);
     const [, setFullStoriesResponse] = useAtom(fullStoriesResponseAtom);
-    const [, setUpdatedStoriesResponse] = useAtom(updatedStoriesResponseAtom);
     const [, setTopStoriesResponse] = useAtom(topStoriesResponseAtom);
 
     const { data: genreList } = useGetGenreList();
-    const { data: updatedStories } = useGetUpdatedStories();
     const { data: fullStories } = useGetFullStories();
     const { data: topStories } = useGetTopStories();
 
@@ -47,12 +43,6 @@ export default function RootLayout({ children }: IRootLayoutProps) {
             setGenreListResponse(genreList);
         }
     }, [genreList, setGenreListResponse]);
-
-    useEffect(() => {
-        if (updatedStories) {
-            setUpdatedStoriesResponse(updatedStories);
-        }
-    }, [updatedStories, setUpdatedStoriesResponse]);
 
     useEffect(() => {
         if (fullStories) {
