@@ -46,7 +46,7 @@ export interface IStoryResponse {
     latest_chapter: IChapterShortInfo;
 }
 
-export interface IStoryPaginationResponse {
+export interface IStoryListPaginationResponse {
     meta: IMeta;
     results: IStoryResponse[];
 }

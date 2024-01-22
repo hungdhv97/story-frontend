@@ -6,6 +6,7 @@ import {
     IChapterResponse,
     IChapterShortInfo,
     IGenreResponse,
+    IStoryListPaginationResponse,
     IStoryResponse,
     ITopStoriesResponse,
 } from '@/interfaces/services/responses';
@@ -71,4 +72,42 @@ export const useGetTopStories = () => {
         'http://18.141.25.103:8000/api/top/stories/',
         getData,
     );
+};
+
+export const useGetStoryList = (
+    authorId?: number,
+    genreId?: number,
+    isHot?: boolean,
+    isNew?: boolean,
+    status?: string,
+) => {
+    let url = `http://18.141.25.103:8000/api/stories/?`;
+
+    if (authorId) url += `author_id=${authorId}&`;
+    if (genreId) url += `genre_id=${genreId}&`;
+    if (isHot !== undefined) url += `is_hot=${isHot}&`;
+    if (isNew !== undefined) url += `is_new=${isNew}&`;
+    if (status) url += `status=${status}&`;
+
+    return useSWR<IStoryResponse[]>(url, getData);
+};
+
+export const useGetStoryListPagination = (
+    limit: number,
+    page: number,
+    authorId?: number,
+    genreId?: number,
+    isHot?: boolean,
+    isNew?: boolean,
+    status?: string,
+) => {
+    let url = `http://18.141.25.103:8000/api/stories/?limit=${limit}&page=${page}&`;
+
+    if (authorId) url += `author_id=${authorId}&`;
+    if (genreId) url += `genre_id=${genreId}&`;
+    if (isHot !== undefined) url += `is_hot=${isHot}&`;
+    if (isNew !== undefined) url += `is_new=${isNew}&`;
+    if (status) url += `status=${status}&`;
+
+    return useSWR<IStoryListPaginationResponse>(url, getData);
 };
