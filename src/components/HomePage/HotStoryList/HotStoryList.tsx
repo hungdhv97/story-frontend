@@ -12,12 +12,12 @@ import { selectedGenreAtom } from '@/atoms/selectedGenreAtom';
 import { IStoryResponse } from '@/interfaces/services/responses';
 
 export function HotStoryList() {
-    const { data: hotStoryList, isLoading } = useGetStoryList({ isHot: true });
+    const { data: hotStoryList } = useGetStoryList({ isHot: true });
 
     const [selectedGenre] = useAtom(selectedGenreAtom);
 
-    function filterStoryList(genreSlug: string) {
-        let filteredStories: IStoryResponse[] = hotStoryList;
+    function filterStoryList(genreSlug: string, storyList: IStoryResponse[]) {
+        let filteredStories: IStoryResponse[] = storyList;
         if (genreSlug !== 'all') {
             filteredStories = filteredStories.filter((story: IStoryResponse) =>
                 story.genres.some((genre) => genre.slug === selectedGenre),
@@ -32,11 +32,11 @@ export function HotStoryList() {
                 <H1 href="/filter/stories/hot">Truyện Hot</H1>
                 <GenreSelect />
             </div>
-            {isLoading ? (
+            {!hotStoryList ? (
                 <HotStoryListSkeleton />
             ) : (
                 <div className="grid gap-8 grid-cols-5">
-                    {filterStoryList(selectedGenre).map(
+                    {filterStoryList(selectedGenre, hotStoryList).map(
                         (story: IStoryResponse) => (
                             <div
                                 key={story.id}

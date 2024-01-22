@@ -9,13 +9,13 @@ import { FullStoryListSkeleton } from '@/components/HomePage/FullStoryList/FullS
 import { IStoryResponse } from '@/interfaces/services/responses';
 
 export function FullStoryList() {
-    const { data: fullStoryList, isLoading } = useGetStoryList({
+    const { data: fullStoryList } = useGetStoryList({
         status: 'completed',
     });
     return (
         <div>
             <H1 href="/filter/stories/full">Truyện Full</H1>
-            {isLoading ? (
+            {!fullStoryList ? (
                 <FullStoryListSkeleton />
             ) : (
                 <div className="grid gap-8 grid-cols-4">

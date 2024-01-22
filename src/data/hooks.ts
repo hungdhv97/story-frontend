@@ -96,7 +96,7 @@ export const useGetStoryList = ({
 
     url = url.replace(/&$|\?$/, '');
 
-    return useSWR(url, getData);
+    return useSWR<IStoryResponse[]>(url, getData);
 };
 
 interface IUseGetStoryPaginationParams {

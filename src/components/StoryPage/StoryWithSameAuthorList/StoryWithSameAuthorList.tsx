@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-import { useGetStoriesWithSameAuthor } from '@/data/hooks';
+import { useGetStoryList } from '@/data/hooks';
 
 import { IStoryResponse } from '@/interfaces/services/responses';
 
@@ -11,16 +11,16 @@ interface IStoryWithSameAuthorListProps {
 export function StoryWithSameAuthorList({
     story,
 }: IStoryWithSameAuthorListProps) {
-    const { data: storiesWithSameAuthor } = useGetStoriesWithSameAuthor(
-        story.author.id,
-    );
-    if (storiesWithSameAuthor) {
-        if (storiesWithSameAuthor.length > 1) {
+    const { data: storyWithSameAuthorList } = useGetStoryList({
+        authorId: story.author.id,
+    });
+    if (storyWithSameAuthorList) {
+        if (storyWithSameAuthorList.length > 1) {
             return (
                 <div>
                     <div>Truyện Cùng Tác Giả</div>
                     <div>
-                        {storiesWithSameAuthor
+                        {storyWithSameAuthorList
                             .filter(
                                 (storyWithSameAuthor) =>
                                     storyWithSameAuthor.id != story.id,
