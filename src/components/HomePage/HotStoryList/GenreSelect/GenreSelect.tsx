@@ -16,7 +16,7 @@ import { selectedGenreAtom } from '@/atoms/selectedGenreAtom';
 import { IGenreResponse } from '@/interfaces/services/responses';
 
 export function GenreSelect() {
-    const { data: genreList, isLoading } = useGetGenreList();
+    const { data: genreList } = useGetGenreList();
     const [, setSelectedGenre] = useAtom(selectedGenreAtom);
     if (genreList) {
         return (
