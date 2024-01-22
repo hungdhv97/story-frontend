@@ -6,9 +6,9 @@ import { useEffect } from 'react';
 import { saveChapterHistory } from '@/lib/storage';
 
 import {
-    useGetChapterById,
+    useGetChapter,
     useGetChaptersShortInfoByStorySlug,
-    useGetStoryByStorySlug,
+    useGetStory,
 } from '@/data/hooks';
 
 import { ChapterSwitcher } from '@/components/ChapterPage/ChapterSwitcher/ChapterSwitcher';
@@ -23,8 +23,8 @@ export default function ChapterPage({
 }: {
     params: { chapterId: string; storySlug: string };
 }) {
-    const { data: chapter } = useGetChapterById(params.chapterId);
-    const { data: story } = useGetStoryByStorySlug(params.storySlug);
+    const { data: chapter } = useGetChapter(params.chapterId);
+    const { data: story } = useGetStory(params.storySlug);
     const { data: chapterStoryInfoList } = useGetChaptersShortInfoByStorySlug(
         params.storySlug,
     );

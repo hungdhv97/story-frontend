@@ -19,7 +19,7 @@ export const useGetGenreList = () => {
     );
 };
 
-export const useGetChapterById = (chapterId: string) => {
+export const useGetChapter = (chapterId: string) => {
     return useSWR<IChapterResponse>(
         `http://18.141.25.103:8000/api/chapters/${chapterId}/`,
         getData,
@@ -50,7 +50,7 @@ export const useGetChaptersShortInfoByStorySlug = (storySlug: string) => {
     );
 };
 
-export const useGetStoryByStorySlug = (storySlug: string) => {
+export const useGetStory = (storySlug: string) => {
     return useSWR<IStoryResponse>(
         `http://18.141.25.103:8000/api/stories/${storySlug}/`,
         getData,

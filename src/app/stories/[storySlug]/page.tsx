@@ -1,6 +1,6 @@
 'use client';
 
-import { useGetStoryByStorySlug } from '@/data/hooks';
+import { useGetStory } from '@/data/hooks';
 
 import { Breadcrumb } from '@/components/Common/Breadcrumb/Breadcrumb';
 import { ChapterPagination } from '@/components/StoryPage/ChapterPagination/ChapterPagination';
@@ -13,7 +13,7 @@ export default function StoryPage({
 }: {
     params: { storySlug: string };
 }) {
-    const { data: story, isLoading } = useGetStoryByStorySlug(params.storySlug);
+    const { data: story, isLoading } = useGetStory(params.storySlug);
 
     if (isLoading) return <div>Loading...</div>;
     if (!story) return <div>Story not found.</div>;
