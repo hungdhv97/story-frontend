@@ -18,20 +18,6 @@ export const useGetGenreList = () => {
     );
 };
 
-export const useGetUpdatedStories = () => {
-    return useSWR<IStoryResponse[]>(
-        'http://18.141.25.103:8000/api/stories/?is_new=true',
-        getData,
-    );
-};
-
-export const useGetFullStories = () => {
-    return useSWR<IStoryResponse[]>(
-        'http://18.141.25.103:8000/api/stories/?status=completed',
-        getData,
-    );
-};
-
 export const useGetChapterById = (chapterId: string) => {
     return useSWR<IChapterResponse>(
         `http://18.141.25.103:8000/api/chapters/${chapterId}/`,
