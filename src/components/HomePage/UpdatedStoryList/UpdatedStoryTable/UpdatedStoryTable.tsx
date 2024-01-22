@@ -82,7 +82,7 @@ export function UpdatedStoryTable() {
                             <TableCell>
                                 <Link
                                     className="text-blue-600 hover:text-blue-800 visited:text-purple-600"
-                                    href={`stories/${story.slug}/chapters/${story.latest_chapter.id}`}
+                                    href={`/stories/${story.slug}/chapters/${story.latest_chapter.id}`}
                                 >
                                     {story.latest_chapter.title}
                                 </Link>

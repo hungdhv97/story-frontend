@@ -11,7 +11,6 @@ export function FullStory(story: IFullStoryProps) {
                 alt={story.title}
                 className="object-cover shadow-md rounded-md"
             />
-            `
             <div className="flex">
                 {story.full && (
                     <StatusButton

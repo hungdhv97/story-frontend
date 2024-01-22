@@ -20,7 +20,7 @@ export function UpdatedStoryList() {
         <div>
             <H1 href="/filter/stories/updated">Truyện Cập Nhật Chương Mới</H1>
             <div className="flex items-stretch">
-                <div className="w-2/3 ">
+                <div className="w-2/3">
                     <UpdatedStoryTable />
                 </div>
                 <div className="flex flex-col w-1/3">

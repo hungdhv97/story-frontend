@@ -32,7 +32,7 @@ export default function StoryPage({
                 </div>
                 <div className="basis-1/3">
                     <StoryWithSameAuthorList story={story} />
-                    <TopStoryList story={story} />
+                    <TopStoryList />
                 </div>
             </div>
         </div>

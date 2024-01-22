@@ -6,13 +6,8 @@ import { TopStoryTabList } from '@/components/StoryPage/TopStoryList/TopStoryTab
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 
 import { topStoryListResponseAtom } from '@/atoms/topStoryListResponseAtom';
-import { IStoryResponse } from '@/interfaces/services/responses';
 
-interface ITopStoryListProps {
-    story: IStoryResponse;
-}
-
-export function TopStoryList({ story }: ITopStoryListProps) {
+export function TopStoryList() {
     const [topStoriesResponse] = useAtom(topStoryListResponseAtom);
     return (
         <div>
