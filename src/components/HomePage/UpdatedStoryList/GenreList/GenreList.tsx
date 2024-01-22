@@ -1,12 +1,12 @@
 import Link from 'next/link';
 import * as React from 'react';
 
-import { useGetGenres } from '@/data/hooks';
+import { useGetGenreList } from '@/data/hooks';
 
 import { IGenreResponse } from '@/interfaces/services/responses';
 
 export function GenreList() {
-    const { data: genres, isLoading } = useGetGenres();
+    const { data: genres, isLoading } = useGetGenreList();
     if (isLoading) return <div>Loading....</div>;
     return (
         <div>

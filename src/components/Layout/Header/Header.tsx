@@ -1,7 +1,7 @@
 import { BookOpenText, Menu } from 'lucide-react';
 import Link from 'next/link';
 
-import { useGetGenres } from '@/data/hooks';
+import { useGetGenreList } from '@/data/hooks';
 
 import { MainNavigationMenu } from '@/components/Layout/Header/MainNavigationMenu/MainNavigationMenu';
 import { SearchInput } from '@/components/Layout/Header/SearchInput/SearchInput';
@@ -12,7 +12,7 @@ import { chapterRouters, storyRouters } from '@/constants';
 import { IGenreResponse } from '@/interfaces/services/responses';
 
 export function Header() {
-    const { data: genres } = useGetGenres();
+    const { data: genres } = useGetGenreList();
 
     const genreRouters = genres
         ? genres?.map(({ id, name, slug }: IGenreResponse) => ({

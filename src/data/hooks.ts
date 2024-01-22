@@ -11,7 +11,7 @@ import {
     ITopStoriesResponse,
 } from '@/interfaces/services/responses';
 
-export const useGetGenres = () => {
+export const useGetGenreList = () => {
     return useSWR<IGenreResponse[]>(
         'http://18.141.25.103:8000/api/genres/',
         getData,
