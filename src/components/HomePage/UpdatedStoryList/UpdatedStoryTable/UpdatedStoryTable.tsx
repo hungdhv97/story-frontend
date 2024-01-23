@@ -1,5 +1,6 @@
 import Link from 'next/link';
 
+import { calculateTimeDifference } from '@/lib/time';
 import { useGetStoryList } from '@/hooks/client';
 
 import { StatusButton } from '@/components/HomePage/HotStoryList/StatusButton/StatusButton';
@@ -88,7 +89,9 @@ export function UpdatedStoryTable() {
                                 </Link>
                             </TableCell>
                             <TableCell>
-                                {story.latest_chapter.published_date}
+                                {calculateTimeDifference(
+                                    story.latest_chapter.published_date,
+                                )}
                             </TableCell>
                         </TableRow>
                     ))}
