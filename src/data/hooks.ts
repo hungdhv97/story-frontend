@@ -7,6 +7,7 @@ import { getData } from '@/data/server';
 
 import { IPagination } from '@/interfaces/common';
 import {
+    IAuthorResponse,
     IChapterResponse,
     IChapterShortInfoPaginationResponse,
     IChapterShortInfoResponse,
@@ -19,6 +20,20 @@ import {
 export const useGetGenreList = () => {
     return useSWR<IGenreResponse[]>(
         'http://18.141.25.103:8000/api/genres/',
+        getData,
+    );
+};
+
+export const useGetGenre = (genreSlug: string) => {
+    return useSWR<IGenreResponse>(
+        `http://18.141.25.103:8000/api/genres/${genreSlug}/`,
+        getData,
+    );
+};
+
+export const useGetAuthor = (authorId: number) => {
+    return useSWR<IAuthorResponse>(
+        `http://18.141.25.103:8000/api/authors/${authorId}/`,
         getData,
     );
 };
@@ -73,7 +88,7 @@ export const useGetTopStoryList = () => {
 
 interface IUseGetStoryListParams {
     authorId?: number;
-    genreId?: number;
+    genreSlug?: string;
     isHot?: boolean;
     isNew?: boolean;
     status?: string;
@@ -81,7 +96,7 @@ interface IUseGetStoryListParams {
 
 export const useGetStoryList = ({
     authorId,
-    genreId,
+    genreSlug,
     isHot,
     isNew,
     status,
@@ -89,7 +104,7 @@ export const useGetStoryList = ({
     let url = `http://18.141.25.103:8000/api/stories/?`;
 
     if (authorId) url += `author_id=${authorId}&`;
-    if (genreId) url += `genre_id=${genreId}&`;
+    if (genreSlug) url += `genre_id=${genreSlug}&`;
     if (isHot !== undefined) url += `is_hot=${isHot}&`;
     if (isNew !== undefined) url += `is_new=${isNew}&`;
     if (status) url += `status=${status}&`;
@@ -106,7 +121,7 @@ interface IUseGetStoryPaginationParams {
         void
     >;
     authorId?: number;
-    genreId?: number;
+    genreSlug?: string;
     isHot?: boolean;
     isNew?: boolean;
     status?: string;
@@ -115,7 +130,7 @@ interface IUseGetStoryPaginationParams {
 export const useGetStoryPagination = ({
     paginationAtom,
     authorId,
-    genreId,
+    genreSlug,
     isHot,
     isNew,
     status,
@@ -124,7 +139,7 @@ export const useGetStoryPagination = ({
     let url = `http://18.141.25.103:8000/api/stories/?limit=${pagination.limit}&page=${pagination.page}&`;
 
     if (authorId) url += `author_id=${authorId}&`;
-    if (genreId) url += `genre_id=${genreId}&`;
+    if (genreSlug) url += `genre_id=${genreSlug}&`;
     if (isHot !== undefined) url += `is_hot=${isHot}&`;
     if (isNew !== undefined) url += `is_new=${isNew}&`;
     if (status) url += `status=${status}&`;
