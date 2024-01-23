@@ -91,6 +91,8 @@ interface IUseGetStoryListParams {
     isHot?: boolean;
     isNew?: boolean;
     status?: string;
+    totalChaptersFrom?: number;
+    totalChaptersTo?: number;
 }
 
 export const useGetStoryList = ({
@@ -99,6 +101,8 @@ export const useGetStoryList = ({
     isHot,
     isNew,
     status,
+    totalChaptersFrom,
+    totalChaptersTo,
 }: IUseGetStoryListParams) => {
     let url = `http://18.141.25.103:8000/api/stories/?`;
 
@@ -107,6 +111,8 @@ export const useGetStoryList = ({
     if (isHot !== undefined) url += `is_hot=${isHot}&`;
     if (isNew !== undefined) url += `is_new=${isNew}&`;
     if (status) url += `status=${status}&`;
+    if (totalChaptersFrom) url += `total_chapters_from=${totalChaptersFrom}&`;
+    if (totalChaptersTo) url += `total_chapters_to=${totalChaptersTo}&`;
 
     url = url.replace(/&$|\?$/, '');
 
@@ -124,6 +130,8 @@ interface IUseGetStoryPaginationParams {
     isHot?: boolean;
     isNew?: boolean;
     status?: string;
+    totalChaptersFrom?: number;
+    totalChaptersTo?: number;
 }
 
 export const useGetStoryPagination = ({
@@ -133,6 +141,8 @@ export const useGetStoryPagination = ({
     isHot,
     isNew,
     status,
+    totalChaptersFrom,
+    totalChaptersTo,
 }: IUseGetStoryPaginationParams) => {
     const { pagination } = usePagination(paginationAtom);
     let url = `http://18.141.25.103:8000/api/stories/?limit=${pagination.limit}&page=${pagination.page}&`;
@@ -142,6 +152,8 @@ export const useGetStoryPagination = ({
     if (isHot !== undefined) url += `is_hot=${isHot}&`;
     if (isNew !== undefined) url += `is_new=${isNew}&`;
     if (status) url += `status=${status}&`;
+    if (totalChaptersFrom) url += `total_chapters_from=${totalChaptersFrom}&`;
+    if (totalChaptersTo) url += `total_chapters_to=${totalChaptersTo}&`;
 
     url = url.replace(/&$|\?$/, '');
 

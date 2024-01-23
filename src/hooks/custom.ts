@@ -41,6 +41,8 @@ interface IStoryListFilterConfig {
         isHot?: boolean;
         isNew?: boolean;
         status?: string;
+        totalChaptersFrom?: number;
+        totalChaptersTo?: number;
     };
     paths: {
         title: string;
@@ -124,7 +126,9 @@ export const useStoryListFilterConfig: (
             switch (slug) {
                 case 'lower-100':
                     return {
-                        queryParams: {},
+                        queryParams: {
+                            totalChaptersTo: 100,
+                        },
                         paths: [
                             {
                                 title: 'Truyện Dưới 100 Chương',
@@ -134,7 +138,10 @@ export const useStoryListFilterConfig: (
                     };
                 case 'from-100-to-500':
                     return {
-                        queryParams: {},
+                        queryParams: {
+                            totalChaptersFrom: 100,
+                            totalChaptersTo: 500,
+                        },
                         paths: [
                             {
                                 title: 'Truyện Từ 100 Đến 500 Chương',
@@ -144,7 +151,10 @@ export const useStoryListFilterConfig: (
                     };
                 case 'from-500-to-1000':
                     return {
-                        queryParams: {},
+                        queryParams: {
+                            totalChaptersFrom: 500,
+                            totalChaptersTo: 1000,
+                        },
                         paths: [
                             {
                                 title: 'Truyện Từ 500 Đến 1000 Chương',
@@ -154,7 +164,9 @@ export const useStoryListFilterConfig: (
                     };
                 case 'more-than-1000':
                     return {
-                        queryParams: {},
+                        queryParams: {
+                            totalChaptersFrom: 1000,
+                        },
                         paths: [
                             {
                                 title: 'Truyện Trên 1000 Chương',
