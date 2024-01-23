@@ -7,8 +7,7 @@ import React, { useEffect } from 'react';
 import '@/styles/globals.css';
 
 import { cn } from '@/lib/utils';
-
-import { useGetGenreList, useGetTopStoryList } from '@/data/hooks';
+import { useGetGenreList, useGetTopStoryList } from '@/hooks/client';
 
 import { Footer } from '@/components/Layout/Footer/Footer';
 import { Header } from '@/components/Layout/Header/Header';
@@ -42,7 +41,7 @@ export default function RootLayout({ children }: IRootLayoutProps) {
             setTopStoryListResponse(topStoryList);
         }
     }, [topStoryList, setTopStoryListResponse]);
-    
+
     return (
         <html lang="en" suppressHydrationWarning>
             <head />

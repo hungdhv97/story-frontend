@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-import { useGetChapterShortInfoPagination } from '@/data/hooks';
+import { useGetChapterShortInfoPagination } from '@/hooks/client';
 
 import { CustomPagination } from '@/components/Common/CustomPagination/CustomPagination';
 

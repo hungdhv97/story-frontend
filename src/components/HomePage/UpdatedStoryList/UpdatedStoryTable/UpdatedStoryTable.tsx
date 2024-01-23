@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-import { useGetStoryList } from '@/data/hooks';
+import { useGetStoryList } from '@/hooks/client';
 
 import { StatusButton } from '@/components/HomePage/HotStoryList/StatusButton/StatusButton';
 import {

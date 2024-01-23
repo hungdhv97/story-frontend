@@ -1,7 +1,7 @@
 import { useAtom } from 'jotai';
 import Link from 'next/link';
 
-import { useGetStoryList } from '@/data/hooks';
+import { useGetStoryList } from '@/hooks/client';
 
 import { H1 } from '@/components/Common/Custom/Custom';
 import { GenreSelect } from '@/components/HomePage/HotStoryList/GenreSelect/GenreSelect';

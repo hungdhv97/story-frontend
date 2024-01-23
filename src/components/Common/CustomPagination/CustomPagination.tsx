@@ -1,7 +1,7 @@
 import { PrimitiveAtom } from 'jotai';
 import React, { useEffect, useState } from 'react';
 
-import { usePagination } from '@/hooks/usePagination';
+import { usePagination } from '@/hooks/custom';
 
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';

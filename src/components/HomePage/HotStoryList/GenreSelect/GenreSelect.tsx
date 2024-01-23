@@ -1,7 +1,7 @@
 import { useAtom } from 'jotai/index';
 import * as React from 'react';
 
-import { useGetGenreList } from '@/data/hooks';
+import { useGetGenreList } from '@/hooks/client';
 
 import {
     Select,

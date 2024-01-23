@@ -1,6 +1,6 @@
 'use client';
 
-import { useGetStory } from '@/data/hooks';
+import { useGetStory } from '@/hooks/client';
 
 import { Breadcrumb } from '@/components/Common/Breadcrumb/Breadcrumb';
 import { ChapterList } from '@/components/StoryPage/ChapterList/ChapterList';

@@ -1,9 +1,8 @@
 import { SetStateAction, WritableAtom } from 'jotai/index';
 import useSWR from 'swr';
 
-import { usePagination } from '@/hooks/usePagination';
-
-import { getData } from '@/data/server';
+import { getData } from '@/lib/server';
+import { usePagination } from '@/hooks/custom';
 
 import { IPagination } from '@/interfaces/common';
 import {

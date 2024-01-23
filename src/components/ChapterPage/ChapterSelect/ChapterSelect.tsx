@@ -4,7 +4,7 @@ import { useAtom } from 'jotai/index';
 import { useRouter } from 'next/navigation';
 import * as React from 'react';
 
-import { useGetChapterShortInfoList } from '@/data/hooks';
+import { useGetChapterShortInfoList } from '@/hooks/client';
 
 import {
     Select,

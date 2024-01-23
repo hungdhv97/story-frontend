@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-import { useGetStoryList } from '@/data/hooks';
+import { useGetStoryList } from '@/hooks/client';
 
 import { IStoryResponse } from '@/interfaces/services/responses';
 

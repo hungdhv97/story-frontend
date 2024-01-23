@@ -1,7 +1,7 @@
 import { BookOpenText, Menu } from 'lucide-react';
 import Link from 'next/link';
 
-import { useGetGenreList } from '@/data/hooks';
+import { useGetGenreList } from '@/hooks/client';
 
 import { MainNavigationMenu } from '@/components/Layout/Header/MainNavigationMenu/MainNavigationMenu';
 import { SearchInput } from '@/components/Layout/Header/SearchInput/SearchInput';

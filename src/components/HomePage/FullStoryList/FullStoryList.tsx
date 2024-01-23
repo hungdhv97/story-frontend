@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-import { useGetStoryList } from '@/data/hooks';
+import { useGetStoryList } from '@/hooks/client';
 
 import { H1 } from '@/components/Common/Custom/Custom';
 import { FullStory } from '@/components/HomePage/FullStoryList/FullStory/FullStory';

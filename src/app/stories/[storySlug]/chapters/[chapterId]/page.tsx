@@ -4,8 +4,7 @@ import { useAtom } from 'jotai/index';
 import { useEffect } from 'react';
 
 import { saveChapterHistory } from '@/lib/storage';
-
-import { useGetChapter, useGetStory } from '@/data/hooks';
+import { useGetChapter, useGetStory } from '@/hooks/client';
 
 import { ChapterNavigation } from '@/components/ChapterPage/ChapterNavigation/ChapterNavigation';
 import { Breadcrumb } from '@/components/Common/Breadcrumb/Breadcrumb';
