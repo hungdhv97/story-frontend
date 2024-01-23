@@ -5,7 +5,7 @@ import { useAtom } from 'jotai';
 import { TopStoryTabList } from '@/components/StoryPage/TopStoryList/TopStoryTabList/TopStoryTabList';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 
-import { topStoryListResponseAtom } from '@/atoms/topStoryListResponseAtom';
+import { topStoryListResponseAtom } from '@/atoms';
 
 export function TopStoryList() {
     const [topStoriesResponse] = useAtom(topStoryListResponseAtom);

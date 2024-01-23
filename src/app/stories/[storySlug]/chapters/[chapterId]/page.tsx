@@ -9,8 +9,7 @@ import { useGetChapter, useGetStory } from '@/hooks/client';
 import { ChapterNavigation } from '@/components/ChapterPage/ChapterNavigation/ChapterNavigation';
 import { Breadcrumb } from '@/components/Common/Breadcrumb/Breadcrumb';
 
-import { selectedChapterIdAtom } from '@/atoms/selectedChapterIdAtom';
-import { selectedStorySlugAtom } from '@/atoms/selectedStoryAtom';
+import { selectedChapterIdAtom, selectedStorySlugAtom } from '@/atoms';
 
 export default function ChapterPage({
     params,

@@ -4,7 +4,7 @@ import { useGetChapterShortInfoPagination } from '@/hooks/client';
 
 import { CustomPagination } from '@/components/Common/CustomPagination/CustomPagination';
 
-import { chapterPaginationAtom } from '@/atoms/chapterPaginationAtom';
+import { chapterPaginationAtom } from '@/atoms';
 import {
     IChapterShortInfoResponse,
     IStoryResponse,

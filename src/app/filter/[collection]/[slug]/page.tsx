@@ -9,7 +9,7 @@ import { FilterTable } from '@/components/FilterPage/FilterTable/FilterTable';
 import { GenreList } from '@/components/HomePage/UpdatedStoryList/GenreList/GenreList';
 import { TopStoryList } from '@/components/StoryPage/TopStoryList/TopStoryList';
 
-import { storyPaginationAtom } from '@/atoms/storyPaginationAtom';
+import { storyPaginationAtom } from '@/atoms';
 
 export default function FilterStoryPage({
     params,

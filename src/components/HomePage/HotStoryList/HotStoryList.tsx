@@ -8,7 +8,7 @@ import { GenreSelect } from '@/components/HomePage/HotStoryList/GenreSelect/Genr
 import { HotStory } from '@/components/HomePage/HotStoryList/HotStory/HotStory';
 import { HotStoryListSkeleton } from '@/components/HomePage/HotStoryList/HotStoryListSkeleton/HotStoryListSkeleton';
 
-import { selectedGenreAtom } from '@/atoms/selectedGenreAtom';
+import { selectedGenreAtom } from '@/atoms';
 import { IStoryResponse } from '@/interfaces/services/responses';
 
 export function HotStoryList() {

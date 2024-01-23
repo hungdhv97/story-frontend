@@ -13,8 +13,7 @@ import { Footer } from '@/components/Layout/Footer/Footer';
 import { Header } from '@/components/Layout/Header/Header';
 
 import { Providers } from '@/app/providers';
-import { genreListResponseAtom } from '@/atoms/genreListResponseAtom';
-import { topStoryListResponseAtom } from '@/atoms/topStoryListResponseAtom';
+import { genreListResponseAtom, topStoryListResponseAtom } from '@/atoms';
 import { IRootLayoutProps } from '@/interfaces/components/props';
 
 const fontSans = FontSans({

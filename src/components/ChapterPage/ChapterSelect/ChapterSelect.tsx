@@ -15,8 +15,7 @@ import {
     SelectValue,
 } from '@/components/ui/select';
 
-import { selectedChapterIdAtom } from '@/atoms/selectedChapterIdAtom';
-import { selectedStorySlugAtom } from '@/atoms/selectedStoryAtom';
+import { selectedChapterIdAtom, selectedStorySlugAtom } from '@/atoms';
 import { IChapterShortInfoResponse } from '@/interfaces/services/responses';
 
 export function ChapterSelect() {
