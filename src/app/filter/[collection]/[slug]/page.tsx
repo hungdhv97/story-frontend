@@ -29,7 +29,9 @@ const useStoryListFilterConfig: (
     slug: string,
 ) => IStoryListFilterConfig = (collection, slug) => {
     const { data: genre } = useGetGenre(slug);
-    const { data: author } = useGetAuthor(parseInt(slug));
+    const { data: author } = useGetAuthor(
+        isNaN(parseInt(slug, 10)) ? 1 : parseInt(slug, 10),
+    );
 
     switch (collection) {
         case 'stories':
@@ -71,6 +73,68 @@ const useStoryListFilterConfig: (
                         ],
                     };
                 case 'new':
+                    return {
+                        queryParams: {
+                            isNew: true,
+                        },
+                        paths: [
+                            {
+                                title: 'Truyện Mới',
+                                href: '/filter/stories/new',
+                            },
+                        ],
+                    };
+                case 'all':
+                    return {
+                        queryParams: {},
+                        paths: [
+                            {
+                                title: 'Tất Cả Truyện',
+                                href: '/filter/stories/all',
+                            },
+                        ],
+                    };
+            }
+            break;
+        case 'chapters':
+            switch (slug) {
+                case 'lower-100':
+                    return {
+                        queryParams: {
+                            status: 'completed',
+                        },
+                        paths: [
+                            {
+                                title: 'Truyện Full',
+                                href: '/filter/stories/full',
+                            },
+                        ],
+                    };
+                case 'from-100-to-500':
+                    return {
+                        queryParams: {
+                            isHot: true,
+                        },
+                        paths: [
+                            {
+                                title: 'Truyện Hot',
+                                href: '/filter/stories/hot',
+                            },
+                        ],
+                    };
+                case 'from-500-to-1000':
+                    return {
+                        queryParams: {
+                            isNew: true,
+                        },
+                        paths: [
+                            {
+                                title: 'Truyện Mới Cập Nhật',
+                                href: '/filter/stories/updated',
+                            },
+                        ],
+                    };
+                case 'more-than-1000':
                     return {
                         queryParams: {
                             isNew: true,

@@ -14,8 +14,8 @@ export function TopStoryList() {
             <div>Truyện Đang Hot</div>
             <Tabs defaultValue="week" className="w-[400px]">
                 <TabsList>
-                    <TabsTrigger value="week">Tháng</TabsTrigger>
-                    <TabsTrigger value="month">Tuần</TabsTrigger>
+                    <TabsTrigger value="week">Tuần</TabsTrigger>
+                    <TabsTrigger value="month">Tháng</TabsTrigger>
                     <TabsTrigger value="all">Năm</TabsTrigger>
                 </TabsList>
                 <TabsContent value="week">
