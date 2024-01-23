@@ -104,7 +104,7 @@ export const useGetStoryList = ({
     let url = `http://18.141.25.103:8000/api/stories/?`;
 
     if (authorId) url += `author_id=${authorId}&`;
-    if (genreSlug) url += `genre_id=${genreSlug}&`;
+    if (genreSlug) url += `genre_slug=${genreSlug}&`;
     if (isHot !== undefined) url += `is_hot=${isHot}&`;
     if (isNew !== undefined) url += `is_new=${isNew}&`;
     if (status) url += `status=${status}&`;
@@ -139,7 +139,7 @@ export const useGetStoryPagination = ({
     let url = `http://18.141.25.103:8000/api/stories/?limit=${pagination.limit}&page=${pagination.page}&`;
 
     if (authorId) url += `author_id=${authorId}&`;
-    if (genreSlug) url += `genre_id=${genreSlug}&`;
+    if (genreSlug) url += `genre_slug=${genreSlug}&`;
     if (isHot !== undefined) url += `is_hot=${isHot}&`;
     if (isNew !== undefined) url += `is_new=${isNew}&`;
     if (status) url += `status=${status}&`;

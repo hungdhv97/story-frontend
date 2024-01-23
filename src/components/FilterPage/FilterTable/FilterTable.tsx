@@ -50,7 +50,11 @@ export function FilterTable({ storyList }: IFilterTableProps) {
                                 />
                             )}
                         </div>
-                        <div className="h-1/2">{story.author.name}</div>
+                        <div className="h-1/2">
+                            <Link href={`/filter/authors/${story.author.id}`}>
+                                {story.author.name}
+                            </Link>
+                        </div>
                     </div>
                     <div className="w-1/4">
                         <Link
