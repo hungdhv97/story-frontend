@@ -124,49 +124,41 @@ export const useStoryListFilterConfig: (
             switch (slug) {
                 case 'lower-100':
                     return {
-                        queryParams: {
-                            status: 'completed',
-                        },
+                        queryParams: {},
                         paths: [
                             {
-                                title: 'Truyện Full',
-                                href: '/filter/stories/full',
+                                title: 'Truyện Dưới 100 Chương',
+                                href: '/filter/chapters/lower-100',
                             },
                         ],
                     };
                 case 'from-100-to-500':
                     return {
-                        queryParams: {
-                            isHot: true,
-                        },
+                        queryParams: {},
                         paths: [
                             {
-                                title: 'Truyện Hot',
-                                href: '/filter/stories/hot',
+                                title: 'Truyện Từ 100 Đến 500 Chương',
+                                href: '/filter/chapters/from-100-to-500',
                             },
                         ],
                     };
                 case 'from-500-to-1000':
                     return {
-                        queryParams: {
-                            isNew: true,
-                        },
+                        queryParams: {},
                         paths: [
                             {
-                                title: 'Truyện Mới Cập Nhật',
-                                href: '/filter/stories/updated',
+                                title: 'Truyện Từ 500 Đến 1000 Chương',
+                                href: '/filter/chapters/from-500-to-1000',
                             },
                         ],
                     };
                 case 'more-than-1000':
                     return {
-                        queryParams: {
-                            isNew: true,
-                        },
+                        queryParams: {},
                         paths: [
                             {
-                                title: 'Truyện Mới',
-                                href: '/filter/stories/new',
+                                title: 'Truyện Trên 1000 Chương',
+                                href: '/filter/chapters/more-than-1000',
                             },
                         ],
                     };
