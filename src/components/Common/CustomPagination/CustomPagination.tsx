@@ -1,5 +1,5 @@
 import { PrimitiveAtom } from 'jotai';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { usePagination } from '@/hooks/usePagination';
 
@@ -20,6 +20,10 @@ export function CustomPagination({
     const { pagination, nextPage, prevPage, goToPage } =
         usePagination(paginationAtom);
     const [inputPage, setInputPage] = useState(pagination.page);
+
+    useEffect(() => {
+        setInputPage(pagination.page);
+    }, [pagination]);
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const page = parseInt(e.target.value, 10);
