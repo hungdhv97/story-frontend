@@ -36,24 +36,3 @@ export const chapterRouters: IRouter[] = [
         href: '/filter/chapters/more-than-1000',
     },
 ];
-
-interface IStoryListFilterConfig {
-    stories: {
-        full: {
-            queryParams: { status: string };
-            path: { title: string; href: string };
-        };
-        hot: {
-            queryParams: { isHot: boolean };
-            path: { title: string; href: string };
-        };
-        updated: {
-            queryParams: { isNew: boolean };
-            path: { title: string; href: string };
-        };
-        new: {
-            queryParams: { isNew: boolean };
-            path: { title: string; href: string };
-        };
-    };
-}
