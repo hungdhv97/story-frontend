@@ -159,3 +159,10 @@ export const useGetStoryPagination = ({
 
     return useSWR<IStoryPaginationResponse>(url, getData);
 };
+
+export const useSearchStoryList = (text: string) => {
+    return useSWR<IStoryResponse[]>(
+        `http://18.141.25.103:8000/api/search/${text}/`,
+        getData,
+    );
+};
