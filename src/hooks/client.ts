@@ -2,7 +2,7 @@ import { SetStateAction, WritableAtom } from 'jotai/index';
 import useSWR from 'swr';
 
 import { getData } from '@/lib/server';
-import { usePagination } from '@/hooks/custom';
+import { useDebounce, usePagination } from '@/hooks/custom';
 
 import { IPagination } from '@/interfaces/common';
 import {
@@ -161,9 +161,12 @@ export const useGetStoryPagination = ({
 };
 
 export const useSearchStoryList = (text: string) => {
+    const debouncedText = useDebounce(text, 300);
+
     const url =
-        text.trim() !== ''
-            ? `http://18.141.25.103:8000/api/search/?text=${text}`
+        debouncedText.trim() !== ''
+            ? `http://18.141.25.103:8000/api/search/?text=${debouncedText}`
             : null;
+
     return useSWR<IStoryResponse[]>(url, getData);
 };

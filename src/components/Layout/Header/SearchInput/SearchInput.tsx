@@ -1,5 +1,5 @@
 import { useAtom } from 'jotai/index';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 
 import { useSearchStoryList } from '@/hooks/client';
 
@@ -8,37 +8,27 @@ import { Input } from '@/components/ui/input';
 import { searchTextAtom } from '@/atoms';
 
 export function SearchInput() {
-    const [query, setQuery] = useAtom(searchTextAtom);
-    const [debouncedQuery, setDebouncedQuery] = useState(query);
-    const { data: results } = useSearchStoryList(debouncedQuery);
+    const [searchText, setSearchText] = useAtom(searchTextAtom);
+    const { data: searchStoryList } = useSearchStoryList(searchText);
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setQuery(e.target.value);
+        setSearchText(e.target.value);
     };
-
-    useEffect(() => {
-        const timerId = setTimeout(() => {
-            setDebouncedQuery(query);
-        }, 300);
-
-        return () => {
-            clearTimeout(timerId);
-        };
-    }, [query]);
 
     return (
         <div className="sticky top-0 z-10">
             <Input
                 type="text"
-                value={query}
+                value={searchText}
                 onChange={handleInputChange}
                 className="border p-2 w-full"
                 placeholder="Search..."
             />
             <div className="mt-2 absolute w-full z-0">
-                {results?.map((result) => (
-                    <div key={result.id} className="bg-white border-b p-2">
-                        {result.title}
+                {searchStoryList?.map((story) => (
+                    <div key={story.id} className="bg-white border-b p-2">
+                        <div className="text-green-500">{story.title}</div>
+                        <div className="text-red-500">{story.author.name}</div>
                     </div>
                 ))}
             </div>

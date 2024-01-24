@@ -1,4 +1,5 @@
 import { SetStateAction, useAtom, WritableAtom } from 'jotai/index';
+import { useEffect, useState } from 'react';
 
 import { useGetAuthor, useGetGenre } from '@/hooks/client';
 
@@ -222,3 +223,19 @@ export const useStoryListFilterConfig: (
         ],
     };
 };
+
+export function useDebounce(value: string, delay: number) {
+    const [debouncedValue, setDebouncedValue] = useState(value);
+
+    useEffect(() => {
+        const handler = setTimeout(() => {
+            setDebouncedValue(value);
+        }, delay);
+
+        return () => {
+            clearTimeout(handler);
+        };
+    }, [value, delay]);
+
+    return debouncedValue;
+}
