@@ -11,9 +11,9 @@ export const saveChapterHistory = (chapter: IChapterResponse) => {
     );
     if (!isChapterInHistory) {
         if (history.length >= 5) {
-            history.shift();
+            history.pop();
         }
-        history.push({
+        history.unshift({
             id: chapter.id,
             story: chapter.story,
             title: chapter.title,
