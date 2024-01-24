@@ -29,3 +29,5 @@ export const topStoryListResponseAtom = atom<ITopStoryListResponse>({
     month: [],
     all: [],
 });
+
+export const searchTextAtom = atom('');
