@@ -5,8 +5,6 @@ import '@/styles/globals.css';
 
 import { cn } from '@/lib/utils';
 
-import { Footer } from '@/components/Layout/Footer/Footer';
-import { Header } from '@/components/Layout/Header/Header';
 import { Providers } from '@/components/Providers/Providers';
 
 import { IRootLayoutProps } from '@/interfaces/components/props';
@@ -27,11 +25,7 @@ export default function RootLayout({ children }: IRootLayoutProps) {
                     fontSans.variable,
                 )}
             >
-                <Providers>
-                    <Header />
-                    {children}
-                    <Footer />
-                </Providers>
+                <Providers>{children}</Providers>
             </body>
         </html>
     );
