@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import Link from 'next/link';
-import { FC, ReactNode } from 'react';
+import React, { FC, ReactNode } from 'react';
 
 interface IH1Props {
     href: string;

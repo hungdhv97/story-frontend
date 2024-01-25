@@ -1,4 +1,6 @@
+import { LoaderIcon } from 'lucide-react';
 import Link from 'next/link';
+import React from 'react';
 
 import { calculateTimeDifference } from '@/lib/time';
 import { useGetStoryList } from '@/hooks/client';
@@ -81,16 +83,24 @@ export function UpdatedStoryTable() {
                                 )}
                             </TableCell>
                             <TableCell>
-                                <Link
-                                    className="text-blue-600 hover:text-blue-800 visited:text-purple-600"
-                                    href={`/stories/${story.slug}/chapters/${story.latest_chapter.id}`}
-                                >
-                                    {story.latest_chapter.title}
-                                </Link>
+                                {story.latest_chapter ? (
+                                    <Link
+                                        className="text-blue-600 hover:text-blue-800 visited:text-purple-600"
+                                        href={`/stories/${story.slug}/chapters/${story.latest_chapter.id}`}
+                                    >
+                                        {story.latest_chapter.title}
+                                    </Link>
+                                ) : (
+                                    <LoaderIcon className="animate-spin" />
+                                )}
                             </TableCell>
                             <TableCell>
-                                {calculateTimeDifference(
-                                    story.latest_chapter.published_date,
+                                {story.latest_chapter ? (
+                                    calculateTimeDifference(
+                                        story.latest_chapter.published_date,
+                                    )
+                                ) : (
+                                    <LoaderIcon className="animate-spin" />
                                 )}
                             </TableCell>
                         </TableRow>
