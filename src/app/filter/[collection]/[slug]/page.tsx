@@ -1,6 +1,9 @@
 'use client';
 
-import { useGetStoryPagination } from '@/hooks/client';
+import { useAtom } from 'jotai/index';
+import { useEffect } from 'react';
+
+import { useGetStoryPagination, useGetTopStoryList } from '@/hooks/client';
 import { useStoryListFilterConfig } from '@/hooks/custom';
 
 import { Breadcrumb } from '@/components/Common/Breadcrumb/Breadcrumb';
@@ -9,18 +12,19 @@ import { FilterTable } from '@/components/FilterPage/FilterTable/FilterTable';
 import { GenreList } from '@/components/HomePage/UpdatedStoryList/GenreList/GenreList';
 import { TopStoryList } from '@/components/StoryPage/TopStoryList/TopStoryList';
 
-import { storyPaginationAtom } from '@/atoms';
+import { storyPaginationAtom, topStoryListResponseAtom } from '@/atoms';
 
 export default function FilterStoryPage({
     params,
 }: {
     params: { collection: string; slug: string };
 }) {
+    const [, setTopStoryListResponse] = useAtom(topStoryListResponseAtom);
+    const { data: topStoryList } = useGetTopStoryList();
     const storyListFilterConfig = useStoryListFilterConfig(
         params.collection,
         params.slug,
     );
-
     const { data: storyPagination } = useGetStoryPagination({
         paginationAtom: storyPaginationAtom,
         ...storyListFilterConfig.queryParams,
@@ -30,6 +34,12 @@ export default function FilterStoryPage({
         { title: 'Home', href: '/' },
         ...storyListFilterConfig.paths,
     ];
+
+    useEffect(() => {
+        if (topStoryList) {
+            setTopStoryListResponse(topStoryList);
+        }
+    }, [topStoryList, setTopStoryListResponse]);
 
     if (storyPagination) {
         return (
