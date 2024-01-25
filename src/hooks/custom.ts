@@ -55,9 +55,10 @@ export const useStoryListFilterConfig: (
     collection: string,
     slug: string,
 ) => IStoryListFilterConfig = (collection, slug) => {
-    const { data: genre } = useGetGenre(slug);
+    const { data: genre } = useGetGenre(slug, collection == 'genres');
     const { data: author } = useGetAuthor(
         isNaN(parseInt(slug, 10)) ? 1 : parseInt(slug, 10),
+        collection == 'authors',
     );
 
     switch (collection) {

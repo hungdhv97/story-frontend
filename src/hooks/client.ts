@@ -23,18 +23,18 @@ export const useGetGenreList = () => {
     );
 };
 
-export const useGetGenre = (genreSlug: string) => {
-    return useSWR<IGenreResponse>(
-        `http://18.141.25.103:8000/api/genres/${genreSlug}/`,
-        getData,
-    );
+export const useGetGenre = (genreSlug: string, shouldFetch: boolean) => {
+    const url = shouldFetch
+        ? `http://18.141.25.103:8000/api/genres/${genreSlug}/`
+        : null;
+    return useSWR<IGenreResponse>(url, getData);
 };
 
-export const useGetAuthor = (authorId: number) => {
-    return useSWR<IAuthorResponse>(
-        `http://18.141.25.103:8000/api/authors/${authorId}/`,
-        getData,
-    );
+export const useGetAuthor = (authorId: number, shouldFetch: boolean) => {
+    const url = shouldFetch
+        ? `http://18.141.25.103:8000/api/authors/${authorId}/`
+        : null;
+    return useSWR<IAuthorResponse>(url, getData);
 };
 
 export const useGetChapter = (chapterId: string) => {
