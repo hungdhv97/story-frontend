@@ -1,3 +1,5 @@
+'use client';
+
 import { BookOpenText, Menu } from 'lucide-react';
 import Link from 'next/link';
 
