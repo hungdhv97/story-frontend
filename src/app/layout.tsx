@@ -7,8 +7,8 @@ import { cn } from '@/lib/utils';
 
 import { Footer } from '@/components/Layout/Footer/Footer';
 import { Header } from '@/components/Layout/Header/Header';
+import { Providers } from '@/components/Providers/Providers';
 
-import { Providers } from '@/app/providers';
 import { IRootLayoutProps } from '@/interfaces/components/props';
 
 const fontSans = FontSans({
