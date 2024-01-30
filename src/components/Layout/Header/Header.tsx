@@ -25,7 +25,7 @@ export function Header() {
         : [];
 
     return (
-        <header className="border-b dark:bg-slate-700 bg-slate-300 h-[6.25rem]">
+        <header className="border-b dark:bg-slate-700 bg-slate-300 h-[6.25rem] sticky top-0 z-10 w-full bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
             <div className="mx-auto flex h-full w-full items-center px-[10px] justify-between lg:space-x-0 md:max-w-[644px] lg:max-w-[1200px]">
                 <div className="flex items-center space-x-4">
                     <Menu
