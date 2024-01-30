@@ -23,7 +23,12 @@ export function ThemeSwitcherButton() {
 
     return (
         <div>
-            <Button variant="outline" size="icon" onClick={toggleTheme}>
+            <Button
+                variant="outline"
+                size="icon"
+                onClick={toggleTheme}
+                className="rounded-full"
+            >
                 {mounted ? (
                     isDarkMode ? (
                         <Sun className="h-[1.2rem] w-[1.2rem]" />
