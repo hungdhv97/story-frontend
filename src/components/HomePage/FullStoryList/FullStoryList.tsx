@@ -22,16 +22,13 @@ export function FullStoryList() {
                     {fullStoryList.slice(0, 8).map((story: IStoryResponse) => (
                         <div
                             key={story.id}
-                            className="min-h-[200px] rounded-2xl bg-secondary border border-teal-100 hover:border-teal-900 shadow-md"
+                            className="relative min-h-[200px] rounded-2xl bg-secondary border border-teal-100 hover:border-teal-900 shadow-md"
                         >
-                            <Link href={`/stories/${story.slug}`}>
-                                <FullStory
-                                    title={story.title}
-                                    cover_photo={story.cover_photo}
-                                    full={story.status === 'completed'}
-                                    totalChapter={story.total_chapters}
-                                />
-                            </Link>
+                            <FullStory story={story} />
+                            <Link
+                                href={`/stories/${story.slug}`}
+                                className="absolute inset-0 -z-50"
+                            />
                         </div>
                     ))}
                 </div>

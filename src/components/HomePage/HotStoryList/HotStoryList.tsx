@@ -42,15 +42,17 @@ export function HotStoryList() {
                                 key={story.id}
                                 className="min-h-[200px] rounded-2xl bg-secondary border border-teal-100 hover:border-teal-900 shadow-md"
                             >
-                                <Link href={`/stories/${story.slug}`}>
-                                    <HotStory
-                                        title={story.title}
-                                        cover_photo={story.cover_photo}
-                                        full={story.status === 'completed'}
-                                        is_hot={story.is_hot}
-                                        is_new={story.is_new}
-                                    />
-                                </Link>
+                                <HotStory
+                                    title={story.title}
+                                    cover_photo={story.cover_photo}
+                                    full={story.status === 'completed'}
+                                    is_hot={story.is_hot}
+                                    is_new={story.is_new}
+                                />
+                                <Link
+                                    href={`/stories/${story.slug}`}
+                                    className="absolute inset-0 -z-50"
+                                />
                             </div>
                         ),
                     )}
