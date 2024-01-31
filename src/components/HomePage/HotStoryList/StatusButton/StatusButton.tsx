@@ -1,6 +1,7 @@
+import { clsx } from 'clsx';
 import Link from 'next/link';
 
-import { Button } from '@/components/ui/button';
+import { buttonVariants } from '@/components/ui/button';
 
 export interface IStatusProps {
     label: string;
@@ -10,10 +11,11 @@ export interface IStatusProps {
 
 export function StatusButton({ label, link, className }: IStatusProps) {
     return (
-        <Link href={link}>
-            <Button variant="outline" className={className}>
-                {label}
-            </Button>
+        <Link
+            href={link}
+            className={clsx(className, buttonVariants({ variant: 'outline' }))}
+        >
+            {label}
         </Link>
     );
 }
