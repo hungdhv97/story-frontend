@@ -24,11 +24,11 @@ export function FullStoryList() {
                             key={story.id}
                             className="relative min-h-[200px] rounded-2xl bg-secondary border border-teal-100 hover:border-teal-900 shadow-md"
                         >
-                            <FullStory story={story} />
                             <Link
                                 href={`/stories/${story.slug}`}
-                                className="absolute inset-0 -z-50"
+                                className="absolute inset-0 z-0"
                             />
+                            <FullStory story={story} />
                         </div>
                     ))}
                 </div>

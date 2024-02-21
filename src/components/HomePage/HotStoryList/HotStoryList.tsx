@@ -40,7 +40,7 @@ export function HotStoryList() {
                         (story: IStoryResponse) => (
                             <div
                                 key={story.id}
-                                className="min-h-[200px] rounded-2xl bg-secondary border border-teal-100 hover:border-teal-900 shadow-md"
+                                className="relative min-h-[200px] rounded-2xl bg-secondary border border-teal-100 hover:border-teal-900 shadow-md"
                             >
                                 <HotStory
                                     title={story.title}
@@ -51,7 +51,7 @@ export function HotStoryList() {
                                 />
                                 <Link
                                     href={`/stories/${story.slug}`}
-                                    className="absolute inset-0 -z-50"
+                                    className="absolute inset-0 z-0"
                                 />
                             </div>
                         ),
