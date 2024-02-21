@@ -34,8 +34,10 @@ export function Header() {
                     />
                     <Link href="/" className="mr-6 ml-2">
                         <Button variant="outline">
-                            <BookOpenText />
-                            <span className="ml-2">[Story Name]</span>
+                            <BookOpenText size="40" />
+                            <span className="ml-2 text-2xl font-black font-sans tracking-widest">
+                                TruyenHH
+                            </span>
                         </Button>
                     </Link>
                 </div>

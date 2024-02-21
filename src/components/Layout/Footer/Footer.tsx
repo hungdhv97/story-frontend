@@ -1,15 +1,15 @@
 import { Facebook, Github } from 'lucide-react';
 import Link from 'next/link';
 
-import { Button } from '@/components/ui/button';
-
 export function Footer() {
     return (
         <div>
             <div className="flex flex-col items-center justify-center p-4 border-t dark:bg-slate-700 bg-slate-300">
-                <p>© {new Date().getFullYear()} [Story Name]</p>
+                <span className="font-black text-3xl font-sans tracking-widest">
+                    TruyenHH
+                </span>
                 <p className="my-2">
-                    [Story Name] là website đọc truyện tranh miễn phí
+                    TruyenHH là website đọc truyện tranh miễn phí
                 </p>
                 <div className="flex space-x-4">
                     <Link
@@ -19,9 +19,7 @@ export function Footer() {
                         target="_blank"
                         rel="noopener noreferrer"
                     >
-                        <Button variant="outline">
-                            <Github className="w-5 h-5" /> GitHub
-                        </Button>
+                        <Github className="size-14 border-[3px] p-2 rounded-full border-foreground hover:opacity-60" />
                     </Link>
                     <Link
                         href="https://facebook.com/hungdhv97"
@@ -30,12 +28,10 @@ export function Footer() {
                         target="_blank"
                         rel="noopener noreferrer"
                     >
-                        <Button variant="outline">
-                            <Facebook className="w-5 h-5" /> Facebook
-                        </Button>
+                        <Facebook className="size-14 border-[3px] p-2 rounded-full border-foreground hover:opacity-60" />
                     </Link>
                 </div>
-                <p className="my-2">@ [Story Host]</p>
+                <p className="my-2">Copyright © 2024 HH Contributors</p>
             </div>
         </div>
     );

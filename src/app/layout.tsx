@@ -1,4 +1,4 @@
-import { Inter as FontSans } from 'next/font/google';
+import { Inter_Tight as FontSans } from 'next/font/google';
 import React from 'react';
 
 import '@/styles/globals.css';
@@ -12,7 +12,6 @@ import { IRootLayoutProps } from '@/interfaces/components/props';
 const fontSans = FontSans({
     subsets: ['latin'],
     variable: '--font-sans',
-    weight: ['700'],
 });
 
 export default function RootLayout({ children }: IRootLayoutProps) {
@@ -21,7 +20,7 @@ export default function RootLayout({ children }: IRootLayoutProps) {
             <head />
             <body
                 className={cn(
-                    'min-h-screen bg-background font-sans antialiased',
+                    'min-h-screen bg-background font-serif font-bold text-2xl antialiased',
                     fontSans.variable,
                 )}
             >

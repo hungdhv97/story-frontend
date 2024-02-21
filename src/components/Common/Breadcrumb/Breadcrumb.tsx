@@ -17,7 +17,7 @@ export function Breadcrumb({ paths }: IBreadcrumbProps) {
                 {paths.map((path, index) => (
                     <Link
                         key={index}
-                        className={clsx('text-sm', {
+                        className={clsx({
                             'pr-4': index === 0,
                             'px-4': index != 0,
                         })}
