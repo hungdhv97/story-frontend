@@ -12,7 +12,7 @@ const H1: FC<IH1Props> = ({ href, children, className }) => (
     <Link href={href} passHref>
         <h1
             className={clsx(
-                'scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl my-2 hover:underline hover:text-blue-500 py-4',
+                'my-2 scroll-m-20 py-4 text-4xl font-extrabold tracking-tight hover:text-blue-500 hover:underline lg:text-5xl',
                 className,
             )}
         >

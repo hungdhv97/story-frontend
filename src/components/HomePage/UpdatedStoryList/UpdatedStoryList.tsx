@@ -23,7 +23,7 @@ export function UpdatedStoryList() {
                 <div className="w-2/3">
                     <UpdatedStoryTable />
                 </div>
-                <div className="flex flex-col w-1/3">
+                <div className="flex w-1/3 flex-col">
                     {history && (
                         <div>
                             <ReadingChapterTable readingChapters={history} />

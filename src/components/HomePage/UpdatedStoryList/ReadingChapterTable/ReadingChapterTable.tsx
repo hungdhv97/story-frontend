@@ -36,7 +36,7 @@ export function ReadingChapterTable({
                         <TableRow key={readingChapter.id}>
                             <TableCell>
                                 <Link
-                                    className="text-blue-600 hover:text-blue-800 visited:text-purple-600"
+                                    className="text-blue-600 visited:text-purple-600 hover:text-blue-800"
                                     href={`/stories/${readingChapter.story.slug}`}
                                     passHref
                                 >
@@ -45,7 +45,7 @@ export function ReadingChapterTable({
                             </TableCell>
                             <TableCell>
                                 <Link
-                                    className="text-blue-600 hover:text-blue-800 visited:text-purple-600"
+                                    className="text-blue-600 visited:text-purple-600 hover:text-blue-800"
                                     href={`stories/${readingChapter.story.slug}/chapters/${readingChapter.id}`}
                                 >
                                     {readingChapter.title}

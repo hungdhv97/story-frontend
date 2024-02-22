@@ -21,12 +21,12 @@ export function SearchInput() {
                 type="text"
                 value={searchText}
                 onChange={handleInputChange}
-                className="border p-2 w-full"
+                className="w-full border p-2"
                 placeholder="Search..."
             />
-            <div className="mt-2 absolute w-full z-0">
+            <div className="absolute z-0 mt-2 w-full">
                 {searchStoryList?.map((story) => (
-                    <div key={story.id} className="bg-white border-b p-2">
+                    <div key={story.id} className="border-b bg-white p-2">
                         <div className="text-green-500">{story.title}</div>
                         <div className="text-red-500">{story.author.name}</div>
                     </div>

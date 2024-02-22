@@ -13,7 +13,7 @@ interface IBreadcrumbProps {
 export function Breadcrumb({ paths }: IBreadcrumbProps) {
     return (
         <nav aria-label="breadcrumb">
-            <ol className="flex leading-none text-indigo-600 divide-x divide-indigo-400">
+            <ol className="flex divide-x divide-indigo-400 leading-none text-indigo-600">
                 {paths.map((path, index) => (
                     <Link
                         key={index}

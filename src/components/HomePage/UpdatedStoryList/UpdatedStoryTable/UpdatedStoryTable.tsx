@@ -38,7 +38,7 @@ export function UpdatedStoryTable() {
                         <TableRow key={story.id}>
                             <TableCell>
                                 <Link
-                                    className="text-blue-600 hover:text-blue-800 visited:text-purple-600"
+                                    className="text-blue-600 visited:text-purple-600 hover:text-blue-800"
                                     href={`/stories/${story.slug}`}
                                     passHref
                                 >
@@ -48,21 +48,21 @@ export function UpdatedStoryTable() {
                                     <StatusButton
                                         label="Hot"
                                         link="/filter/stories/hot"
-                                        className="px-1 mx-1 border-2 hover:font-bold text-red-500 hover:text-red-500 border-red-500 hover:border-red-500 rounded-none h-1/2"
+                                        className="mx-1 h-1/2 rounded-none border-2 border-red-500 px-1 text-red-500 hover:border-red-500 hover:font-bold hover:text-red-500"
                                     />
                                 )}
                                 {story.is_new && (
                                     <StatusButton
                                         label="New"
                                         link="/filter/stories/new"
-                                        className="px-1 mx-1 border-2 hover:font-bold text-green-500 hover:text-green-500 border-green-500 hover:border-green-500 rounded-none h-1/2"
+                                        className="mx-1 h-1/2 rounded-none border-2 border-green-500 px-1 text-green-500 hover:border-green-500 hover:font-bold hover:text-green-500"
                                     />
                                 )}
                                 {story.status === 'completed' && (
                                     <StatusButton
                                         label="Full"
                                         link="/filter/stories/full"
-                                        className="px-1 mx-1 border-2 hover:font-bold text-blue-500 hover:text-blue-500 border-blue-500 hover:border-blue-500 rounded-none h-1/2"
+                                        className="mx-1 h-1/2 rounded-none border-2 border-blue-500 px-1 text-blue-500 hover:border-blue-500 hover:font-bold hover:text-blue-500"
                                     />
                                 )}
                             </TableCell>
@@ -72,7 +72,7 @@ export function UpdatedStoryTable() {
                                         <span key={genre.id}>
                                             {index > 0 && ', '}
                                             <Link
-                                                className="text-blue-600 hover:text-blue-800 visited:text-purple-600"
+                                                className="text-blue-600 visited:text-purple-600 hover:text-blue-800"
                                                 href={`/filter/genres/${genre.slug}`}
                                                 passHref
                                             >
@@ -85,7 +85,7 @@ export function UpdatedStoryTable() {
                             <TableCell>
                                 {story.latest_chapter ? (
                                     <Link
-                                        className="text-blue-600 hover:text-blue-800 visited:text-purple-600"
+                                        className="text-blue-600 visited:text-purple-600 hover:text-blue-800"
                                         href={`/stories/${story.slug}/chapters/${story.latest_chapter.id}`}
                                     >
                                         {story.latest_chapter.title}

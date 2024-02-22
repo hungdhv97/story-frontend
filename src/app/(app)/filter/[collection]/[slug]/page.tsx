@@ -56,7 +56,7 @@ export default function FilterStoryPage({
                             paginationAtom={storyPaginationAtom}
                         />
                     </div>
-                    <div className="w-1/3 fex flex-col">
+                    <div className="fex w-1/3 flex-col">
                         <GenreList />
                         <TopStoryList />
                     </div>

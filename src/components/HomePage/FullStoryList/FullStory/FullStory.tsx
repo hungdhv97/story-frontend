@@ -8,15 +8,15 @@ export function FullStory({ story }: { story: IStoryResponse }) {
             <img
                 src={story.cover_photo}
                 alt={story.title}
-                className="object-cover shadow-md rounded-md"
+                className="rounded-md object-cover shadow-md"
             />
-            <h2 className="text-center font-semibold w-50">{story.title}</h2>
+            <h2 className="w-50 text-center font-semibold">{story.title}</h2>
             <div className="flex">
                 {story.status === 'completed' && (
                     <StatusButton
                         label={`Full ${story.total_chapters} chapters`}
                         link="/filter/stories/full"
-                        className="bg-blue-500 hover:bg-blue-700 z-10"
+                        className="z-10 bg-blue-500 hover:bg-blue-700"
                     />
                 )}
             </div>

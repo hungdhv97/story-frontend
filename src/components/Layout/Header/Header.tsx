@@ -24,23 +24,25 @@ export function Header() {
 
     return (
         <header className="h-24 bg-slate-300 dark:bg-slate-700">
-            <div className="mx-auto flex h-full w-full items-center justify-between px-[10px] md:max-w-[644px] lg:max-w-[1200px] lg:space-x-0">
-                <Link
-                    href="/"
-                    className="transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110"
-                >
-                    <img
-                        src="logo.jpg"
-                        alt=""
-                        className="h-16 rounded-full shadow-lg shadow-cyan-500/50"
+            <div className="container flex h-full items-center justify-between">
+                <div className="flex items-center space-x-8">
+                    <Link
+                        href="/"
+                        className="transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110"
+                    >
+                        <img
+                            src="logo.jpg"
+                            className="h-16 rounded-full shadow-lg shadow-cyan-500/50"
+                            alt="Logo"
+                        />
+                    </Link>
+                    <MainNavigationMenu
+                        storyRouters={storyRouters}
+                        genreRouters={genreRouters}
+                        chapterRouters={chapterRouters}
                     />
-                </Link>
-                <MainNavigationMenu
-                    storyRouters={storyRouters}
-                    genreRouters={genreRouters}
-                    chapterRouters={chapterRouters}
-                />
-                <div className="relative flex space-x-2">
+                </div>
+                <div className="relative flex space-x-4">
                     <ThemeSwitcherButton />
                     <SearchInput />
                 </div>

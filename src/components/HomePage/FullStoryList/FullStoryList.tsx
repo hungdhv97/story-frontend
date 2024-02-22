@@ -18,11 +18,11 @@ export function FullStoryList() {
             {!fullStoryList ? (
                 <FullStoryListSkeleton />
             ) : (
-                <div className="grid gap-8 grid-cols-4">
+                <div className="grid grid-cols-4 gap-8">
                     {fullStoryList.slice(0, 8).map((story: IStoryResponse) => (
                         <div
                             key={story.id}
-                            className="relative min-h-[200px] rounded-2xl bg-secondary border border-teal-100 hover:border-teal-900 shadow-md"
+                            className="relative min-h-[200px] rounded-2xl border border-teal-100 bg-secondary shadow-md hover:border-teal-900"
                         >
                             <Link
                                 href={`/stories/${story.slug}`}

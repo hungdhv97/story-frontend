@@ -14,15 +14,15 @@ export function FilterTable({ storyList }: IFilterTableProps) {
             {storyList.map((story) => (
                 <div key={story.id} className="flex flex-row items-center">
                     <div
-                        className="w-1/4 bg-contain bg-top bg-no-repeat h-28"
+                        className="h-28 w-1/4 bg-contain bg-top bg-no-repeat"
                         style={{
                             backgroundImage: `url(${story.cover_photo})`,
                         }}
                     />
-                    <div className="w-2/4 flex flex-col">
+                    <div className="flex w-2/4 flex-col">
                         <div className="h-1/2">
                             <Link
-                                className="text-blue-600 hover:text-blue-800 visited:text-purple-600"
+                                className="text-blue-600 visited:text-purple-600 hover:text-blue-800"
                                 href={`/stories/${story.slug}`}
                                 passHref
                             >
@@ -32,21 +32,21 @@ export function FilterTable({ storyList }: IFilterTableProps) {
                                 <StatusButton
                                     label="Hot"
                                     link="/filter/stories/hot"
-                                    className="px-1 mx-1 border-2 hover:font-bold text-red-500 hover:text-red-500 border-red-500 hover:border-red-500 rounded-none h-1/2"
+                                    className="mx-1 h-1/2 rounded-none border-2 border-red-500 px-1 text-red-500 hover:border-red-500 hover:font-bold hover:text-red-500"
                                 />
                             )}
                             {story.is_new && (
                                 <StatusButton
                                     label="New"
                                     link="/filter/stories/new"
-                                    className="px-1 mx-1 border-2 hover:font-bold text-green-500 hover:text-green-500 border-green-500 hover:border-green-500 rounded-none h-1/2"
+                                    className="mx-1 h-1/2 rounded-none border-2 border-green-500 px-1 text-green-500 hover:border-green-500 hover:font-bold hover:text-green-500"
                                 />
                             )}
                             {story.status === 'completed' && (
                                 <StatusButton
                                     label="Full"
                                     link="/filter/stories/full"
-                                    className="px-1 mx-1 border-2 hover:font-bold text-blue-500 hover:text-blue-500 border-blue-500 hover:border-blue-500 rounded-none h-1/2"
+                                    className="mx-1 h-1/2 rounded-none border-2 border-blue-500 px-1 text-blue-500 hover:border-blue-500 hover:font-bold hover:text-blue-500"
                                 />
                             )}
                         </div>
@@ -58,7 +58,7 @@ export function FilterTable({ storyList }: IFilterTableProps) {
                     </div>
                     <div className="w-1/4">
                         <Link
-                            className="text-blue-600 hover:text-blue-800 visited:text-purple-600"
+                            className="text-blue-600 visited:text-purple-600 hover:text-blue-800"
                             href={`/stories/${story.slug}/chapters/${story.latest_chapter.id}`}
                         >
                             {story.latest_chapter.title}

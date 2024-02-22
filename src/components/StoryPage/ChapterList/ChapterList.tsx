@@ -26,7 +26,7 @@ export function ChapterList({ story }: IChapterPaginationProps) {
     return (
         <div>
             <div>Danh Sách Chương</div>
-            <div className="grid grid-rows-5 grid-flow-col">
+            <div className="grid grid-flow-col grid-rows-5">
                 {chapterShortInfoPagination.results.map(
                     (chapterShortInfo: IChapterShortInfoResponse) => (
                         <div key={chapterShortInfo.id}>

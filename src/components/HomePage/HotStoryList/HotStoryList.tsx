@@ -35,12 +35,12 @@ export function HotStoryList() {
             {!hotStoryList ? (
                 <HotStoryListSkeleton />
             ) : (
-                <div className="grid gap-8 grid-cols-5">
+                <div className="grid grid-cols-5 gap-8">
                     {filterStoryList(selectedGenre, hotStoryList).map(
                         (story: IStoryResponse) => (
                             <div
                                 key={story.id}
-                                className="relative min-h-[200px] rounded-2xl bg-secondary border border-teal-100 hover:border-teal-900 shadow-md"
+                                className="relative min-h-[200px] rounded-2xl border border-teal-100 bg-secondary shadow-md hover:border-teal-900"
                             >
                                 <HotStory
                                     title={story.title}

@@ -13,10 +13,10 @@ export function GenreList() {
             <h2 className="mt-10 scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0">
                 Thể Loại Truyện
             </h2>
-            <div className="grid gap-2 grid-cols-2 p-2 font-serif">
+            <div className="grid grid-cols-2 gap-2 p-2 font-serif">
                 {genres?.map((genre: IGenreResponse) => (
                     <Link
-                        className="text-blue-600 hover:text-blue-800 visited:text-purple-600"
+                        className="text-blue-600 visited:text-purple-600 hover:text-blue-800"
                         key={genre.id}
                         href={`/filter/genres/${genre.slug}`}
                     >

@@ -22,23 +22,21 @@ export function ThemeSwitcherButton() {
     };
 
     return (
-        <div>
-            <Button
-                variant="outline"
-                size="icon"
-                onClick={toggleTheme}
-                className="rounded-full"
-            >
-                {mounted ? (
-                    isDarkMode ? (
-                        <Sun className="h-[1.2rem] w-[1.2rem]" />
-                    ) : (
-                        <Moon className="h-[1.2rem] w-[1.2rem]" />
-                    )
+        <Button
+            variant="outline"
+            size="icon"
+            onClick={toggleTheme}
+            className="rounded-full"
+        >
+            {mounted ? (
+                isDarkMode ? (
+                    <Sun className="size-6" />
                 ) : (
-                    <LoaderIcon className="animate-spin" />
-                )}
-            </Button>
-        </div>
+                    <Moon className="size-6" />
+                )
+            ) : (
+                <LoaderIcon className="animate-spin" />
+            )}
+        </Button>
     );
 }

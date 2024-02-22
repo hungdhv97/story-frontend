@@ -4,8 +4,8 @@ import Link from 'next/link';
 export function Footer() {
     return (
         <div>
-            <div className="flex flex-col items-center justify-center p-4 border-t dark:bg-slate-700 bg-slate-300">
-                <span className="font-black text-3xl font-sans tracking-widest">
+            <div className="flex flex-col items-center justify-center border-t bg-slate-300 p-4 dark:bg-slate-700">
+                <span className="font-sans text-3xl font-black tracking-widest">
                     TruyenHH
                 </span>
                 <p className="my-2">
@@ -19,7 +19,7 @@ export function Footer() {
                         target="_blank"
                         rel="noopener noreferrer"
                     >
-                        <Github className="size-14 border-[3px] p-2 rounded-full border-foreground hover:opacity-60" />
+                        <Github className="size-14 rounded-full border-[3px] border-foreground p-2 hover:opacity-60" />
                     </Link>
                     <Link
                         href="https://facebook.com/hungdhv97"
@@ -28,7 +28,7 @@ export function Footer() {
                         target="_blank"
                         rel="noopener noreferrer"
                     >
-                        <Facebook className="size-14 border-[3px] p-2 rounded-full border-foreground hover:opacity-60" />
+                        <Facebook className="size-14 rounded-full border-[3px] border-foreground p-2 hover:opacity-60" />
                     </Link>
                 </div>
                 <p className="my-2">Copyright © 2024 HH Contributors</p>
