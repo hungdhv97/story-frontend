@@ -1,6 +1,6 @@
 import { useAtom } from 'jotai/index';
 import Link from 'next/link';
-import React from 'react';
+import React, { useState } from 'react';
 
 import { useSearchStoryList } from '@/hooks/client';
 
@@ -11,6 +11,7 @@ import { searchTextAtom } from '@/atoms';
 export function SearchInput() {
     const [searchText, setSearchText] = useAtom(searchTextAtom);
     const { data: searchStoryList } = useSearchStoryList(searchText);
+    const [isFocused, setIsFocused] = useState(false);
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setSearchText(e.target.value);
@@ -22,10 +23,12 @@ export function SearchInput() {
                 type="text"
                 value={searchText}
                 onChange={handleInputChange}
+                onBlur={() => setIsFocused(false)}
+                onFocus={() => setIsFocused(true)}
                 className="w-full border pl-4"
                 placeholder="Tìm truyện..."
             />
-            {searchStoryList && (
+            {isFocused && searchStoryList && (
                 <div className="absolute z-50 mt-1.5 w-full rounded-md border bg-popover p-2 text-popover-foreground shadow-lg ">
                     {searchStoryList.length > 0 ? (
                         searchStoryList.map((story) => (
