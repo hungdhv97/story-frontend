@@ -23,7 +23,7 @@ export function Header() {
         : [];
 
     return (
-        <header className="sticky top-0 z-20 h-24 w-full bg-slate-300 dark:bg-slate-700">
+        <header className="h-24 bg-slate-300 dark:bg-slate-700">
             <div className="mx-auto flex h-full w-full items-center justify-between px-[10px] md:max-w-[644px] lg:max-w-[1200px] lg:space-x-0">
                 <Link
                     href="/"

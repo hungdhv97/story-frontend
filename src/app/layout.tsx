@@ -20,7 +20,7 @@ export default function RootLayout({ children }: IRootLayoutProps) {
             <head />
             <body
                 className={cn(
-                    'min-h-screen bg-background font-serif text-2xl tracking-wide antialiased',
+                    'min-h-screen bg-background font-serif text-xl tracking-wide antialiased',
                     fontSans.variable,
                 )}
             >

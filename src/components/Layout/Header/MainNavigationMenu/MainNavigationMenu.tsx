@@ -45,7 +45,7 @@ export function MainNavigationMenu({
                         Danh sách
                     </NavigationMenuTrigger>
                     <NavigationMenuContent>
-                        <ul className="grid w-[200px] gap-2 p-2 md:w-[200px] md:grid-cols-1 lg:w-[200px] ">
+                        <ul className="grid w-[270px] grid-cols-1 gap-2 p-2">
                             {storyRouters.map((router) => (
                                 <ListItem
                                     key={router.title}
@@ -61,7 +61,7 @@ export function MainNavigationMenu({
                         Thể loại
                     </NavigationMenuTrigger>
                     <NavigationMenuContent>
-                        <ul className="grid w-[300px] gap-2 p-2 md:w-[300px] md:grid-cols-2 lg:w-[300px] ">
+                        <ul className="grid w-[500px] grid-cols-2 gap-2 p-2">
                             {genreRouters.map((router) => (
                                 <ListItem
                                     key={router.title}
@@ -74,10 +74,10 @@ export function MainNavigationMenu({
                 </NavigationMenuItem>
                 <NavigationMenuItem>
                     <NavigationMenuTrigger className="submenu-trigger">
-                        Phân loại theo chương
+                        Tổng số chương
                     </NavigationMenuTrigger>
                     <NavigationMenuContent>
-                        <ul className="grid w-[200px] gap-2 p-2 md:w-[200px] md:grid-cols-1 lg:w-[200px] ">
+                        <ul className="grid w-[250px] grid-cols-1 gap-2 p-2">
                             {chapterRouters.map((router) => (
                                 <ListItem
                                     key={router.title}
@@ -108,9 +108,7 @@ const ListItem = React.forwardRef<
                     )}
                     {...props}
                 >
-                    <div className="text-sm font-medium leading-none">
-                        {title}
-                    </div>
+                    <div className="leading-none">{title}</div>
                     <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
                         {children}
                     </p>
