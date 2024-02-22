@@ -32,7 +32,7 @@ export function Header() {
                     <img
                         src="logo.jpg"
                         alt=""
-                        className="h-16 rounded-full shadow-lg"
+                        className="h-16 rounded-full shadow-lg shadow-cyan-500/50"
                     />
                 </Link>
                 <MainNavigationMenu
