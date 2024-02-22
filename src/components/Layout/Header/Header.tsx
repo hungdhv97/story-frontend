@@ -42,9 +42,9 @@ export function Header() {
                         chapterRouters={chapterRouters}
                     />
                 </div>
-                <div className="relative flex space-x-4">
-                    <ThemeSwitcherButton />
+                <div className="flex items-center space-x-4">
                     <SearchInput />
+                    <ThemeSwitcherButton />
                 </div>
             </div>
         </header>

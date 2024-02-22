@@ -16,17 +16,17 @@ export function SearchInput() {
     };
 
     return (
-        <div className="sticky top-0 z-10">
+        <div className="relative w-[400px]">
             <Input
                 type="text"
                 value={searchText}
                 onChange={handleInputChange}
-                className="w-full border p-2"
-                placeholder="Search..."
+                className="w-full border pl-4"
+                placeholder="Tìm truyện..."
             />
-            <div className="absolute z-0 mt-2 w-full">
+            <div className="absolute z-50 mt-2 w-full">
                 {searchStoryList?.map((story) => (
-                    <div key={story.id} className="border-b bg-white p-2">
+                    <div key={story.id} className="border-b bg-white p-4">
                         <div className="text-green-500">{story.title}</div>
                         <div className="text-red-500">{story.author.name}</div>
                     </div>
