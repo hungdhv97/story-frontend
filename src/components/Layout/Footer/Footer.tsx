@@ -12,7 +12,7 @@ export function Footer() {
                             className="transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110"
                         >
                             <img
-                                src="logo.jpg"
+                                src="/images/logo.jpg"
                                 className="h-24 rounded-full shadow-lg shadow-cyan-500/50"
                                 alt="Logo"
                             />
