@@ -9,7 +9,7 @@ import { IRootLayoutProps } from '@/interfaces/components/props';
 
 export default function AppLayout({ children }: IRootLayoutProps) {
     return (
-        <section>
+        <section className="relative min-h-screen">
             <Header />
             {children}
             <Footer />

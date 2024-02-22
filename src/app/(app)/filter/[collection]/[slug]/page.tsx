@@ -10,7 +10,6 @@ import { Breadcrumb } from '@/components/Common/Breadcrumb/Breadcrumb';
 import { CustomPagination } from '@/components/Common/CustomPagination/CustomPagination';
 import { FilterTable } from '@/components/FilterPage/FilterTable/FilterTable';
 import { GenreList } from '@/components/HomePage/UpdatedStoryList/GenreList/GenreList';
-import { TopStoryList } from '@/components/StoryPage/TopStoryList/TopStoryList';
 
 import { storyPaginationAtom, topStoryListResponseAtom } from '@/atoms';
 
@@ -58,7 +57,7 @@ export default function FilterStoryPage({
                     </div>
                     <div className="fex w-1/3 flex-col">
                         <GenreList />
-                        <TopStoryList />
+                        {/*<TopStoryList />*/}
                     </div>
                 </div>
             </div>

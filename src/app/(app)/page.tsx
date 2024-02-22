@@ -30,12 +30,10 @@ export default function HomePage() {
         }
     }, [topStoryList, setTopStoryListResponse]);
     return (
-        <div className="flex min-h-screen flex-col">
-            <div className="container flex flex-col">
-                <HotStoryList />
-                <UpdatedStoryList />
-                <FullStoryList />
-            </div>
+        <div className="container flex flex-col">
+            <HotStoryList />
+            <UpdatedStoryList />
+            <FullStoryList />
         </div>
     );
 }
