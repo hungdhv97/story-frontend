@@ -1,6 +1,5 @@
 'use client';
 
-import { BookOpenText, Menu } from 'lucide-react';
 import Link from 'next/link';
 
 import { useGetGenreList } from '@/hooks/client';
@@ -8,7 +7,6 @@ import { useGetGenreList } from '@/hooks/client';
 import { MainNavigationMenu } from '@/components/Layout/Header/MainNavigationMenu/MainNavigationMenu';
 import { SearchInput } from '@/components/Layout/Header/SearchInput/SearchInput';
 import { ThemeSwitcherButton } from '@/components/Layout/Header/ThemeSwitcherButton/ThemeSwitcherButton';
-import { Button } from '@/components/ui/button';
 
 import { chapterRouters, storyRouters } from '@/constants';
 import { IGenreResponse } from '@/interfaces/services/responses';
@@ -25,28 +23,24 @@ export function Header() {
         : [];
 
     return (
-        <header className="dark:bg-slate-700 bg-slate-300 h-[6.25rem] sticky top-0 z-20 w-full bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
-            <div className="mx-auto flex h-full w-full items-center px-[10px] justify-between lg:space-x-0 md:max-w-[644px] lg:max-w-[1200px]">
-                <div className="flex items-center space-x-4">
-                    <Menu
-                        className="lg:hidden cursor-pointer"
-                        onClick={() => {}}
+        <header className="sticky top-0 z-20 h-24 w-full bg-slate-300 dark:bg-slate-700">
+            <div className="mx-auto flex h-full w-full items-center justify-between px-[10px] md:max-w-[644px] lg:max-w-[1200px] lg:space-x-0">
+                <Link
+                    href="/"
+                    className="transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110"
+                >
+                    <img
+                        src="logo.jpg"
+                        alt=""
+                        className="h-16 rounded-full shadow-lg"
                     />
-                    <Link href="/" className="mr-6 ml-2">
-                        <Button variant="outline">
-                            <BookOpenText size="40" />
-                            <span className="ml-2 text-2xl font-black font-sans tracking-widest">
-                                TruyenHH
-                            </span>
-                        </Button>
-                    </Link>
-                </div>
+                </Link>
                 <MainNavigationMenu
                     storyRouters={storyRouters}
                     genreRouters={genreRouters}
                     chapterRouters={chapterRouters}
                 />
-                <div className="flex space-x-2 relative">
+                <div className="relative flex space-x-2">
                     <ThemeSwitcherButton />
                     <SearchInput />
                 </div>

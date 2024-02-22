@@ -1,4 +1,4 @@
-import { Inter_Tight as FontSans } from 'next/font/google';
+import { Inter as FontSans } from 'next/font/google';
 import React from 'react';
 
 import '@/styles/globals.css';
@@ -20,7 +20,7 @@ export default function RootLayout({ children }: IRootLayoutProps) {
             <head />
             <body
                 className={cn(
-                    'min-h-screen bg-background font-serif font-bold text-2xl antialiased',
+                    'min-h-screen bg-background font-serif text-2xl tracking-wide antialiased',
                     fontSans.variable,
                 )}
             >
