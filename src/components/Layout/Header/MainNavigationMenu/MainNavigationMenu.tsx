@@ -45,7 +45,7 @@ export function MainNavigationMenu({
                         Danh sách
                     </NavigationMenuTrigger>
                     <NavigationMenuContent>
-                        <ul className="grid w-[270px] grid-cols-1 gap-2 p-2">
+                        <ul className="grid w-[270px] grid-cols-1 p-2">
                             {storyRouters.map((router) => (
                                 <ListItem
                                     key={router.title}
@@ -61,7 +61,7 @@ export function MainNavigationMenu({
                         Thể loại
                     </NavigationMenuTrigger>
                     <NavigationMenuContent>
-                        <ul className="grid w-[500px] grid-cols-2 gap-2 p-2">
+                        <ul className="grid w-[500px] grid-cols-2 p-2">
                             {genreRouters.map((router) => (
                                 <ListItem
                                     key={router.title}
@@ -77,7 +77,7 @@ export function MainNavigationMenu({
                         Tổng số chương
                     </NavigationMenuTrigger>
                     <NavigationMenuContent>
-                        <ul className="grid w-[250px] grid-cols-1 gap-2 p-2">
+                        <ul className="grid w-[250px] grid-cols-1 p-2">
                             {chapterRouters.map((router) => (
                                 <ListItem
                                     key={router.title}
