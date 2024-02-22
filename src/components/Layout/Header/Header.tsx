@@ -24,7 +24,7 @@ export function Header() {
 
     return (
         <header className="h-24 bg-slate-300 dark:bg-slate-700">
-            <div className="container flex h-full items-center justify-between">
+            <div className="container flex h-full justify-between">
                 <div className="flex items-center space-x-8">
                     <Link
                         href="/"
