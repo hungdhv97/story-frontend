@@ -29,7 +29,7 @@ export function GenreSelect() {
                         <SelectItem key="tat-ca" value="all">
                             Tất cả
                         </SelectItem>
-                        {genreList?.map((genre: IGenreResponse) => (
+                        {genreList.map((genre: IGenreResponse) => (
                             <SelectItem key={genre.id} value={genre.slug}>
                                 {genre.name}
                             </SelectItem>
