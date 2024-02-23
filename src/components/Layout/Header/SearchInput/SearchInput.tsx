@@ -37,11 +37,20 @@ export function SearchInput() {
                                 href={`/stories/${story.slug}`}
                                 className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
                             >
-                                <div className="text-green-500">
-                                    {story.title}
-                                </div>
-                                <div className="text-red-500">
-                                    {story.author.name}
+                                <div className="flex h-20 flex-row space-x-4">
+                                    <img
+                                        src={story.cover_photo}
+                                        alt={story.title}
+                                        className="rounded-md object-cover shadow-md"
+                                    />
+                                    <div className="flex flex-1 flex-col items-start justify-between">
+                                        <div className="text-lg font-bold leading-none">
+                                            {story.title}
+                                        </div>
+                                        <div className="text-base">
+                                            {story.author.name}
+                                        </div>
+                                    </div>
                                 </div>
                             </Link>
                         ))
