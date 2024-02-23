@@ -1,5 +1,4 @@
 import { useAtom } from 'jotai';
-import Link from 'next/link';
 
 import { useGetStoryList } from '@/hooks/client';
 
@@ -28,35 +27,22 @@ export function HotStoryList() {
 
     return (
         <div>
-            <div className="flex items-center justify-between">
+            <div className="flex flex-row items-center justify-between">
                 <H1 href="/filter/stories/hot">Truyện Hot</H1>
                 <GenreSelect />
             </div>
-            {!hotStoryList ? (
-                <HotStoryListSkeleton />
-            ) : (
+            {hotStoryList ? (
                 <div className="grid grid-cols-5 gap-8">
                     {filterStoryList(selectedGenre, hotStoryList).map(
                         (story: IStoryResponse) => (
-                            <div
-                                key={story.id}
-                                className="relative min-h-[200px] rounded-2xl border border-teal-100 bg-secondary shadow-md hover:border-teal-900"
-                            >
-                                <HotStory
-                                    title={story.title}
-                                    cover_photo={story.cover_photo}
-                                    full={story.status === 'completed'}
-                                    is_hot={story.is_hot}
-                                    is_new={story.is_new}
-                                />
-                                <Link
-                                    href={`/stories/${story.slug}`}
-                                    className="absolute inset-0 z-0"
-                                />
+                            <div key={story.id}>
+                                <HotStory story={story} />
                             </div>
                         ),
                     )}
                 </div>
+            ) : (
+                <HotStoryListSkeleton />
             )}
         </div>
     );
