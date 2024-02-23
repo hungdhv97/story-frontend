@@ -9,9 +9,9 @@ import { IRootLayoutProps } from '@/interfaces/components/props';
 
 export default function AppLayout({ children }: IRootLayoutProps) {
     return (
-        <section className="relative min-h-screen">
+        <section className="flex min-h-screen flex-col">
             <Header />
-            {children}
+            <div className="flex-1">{children}</div>
             <Footer />
         </section>
     );

@@ -3,9 +3,9 @@ import Link from 'next/link';
 
 export function Footer() {
     return (
-        <footer className="absolute bottom-0 h-60 w-full">
-            <div className="h-full bg-slate-300 dark:bg-slate-700">
-                <div className="container flex h-full flex-row items-center">
+        <footer>
+            <div className="bg-slate-300 dark:bg-slate-700">
+                <div className="container flex flex-row items-center">
                     <div className="flex size-full basis-1/3 items-center justify-center">
                         <Link
                             href="/"
