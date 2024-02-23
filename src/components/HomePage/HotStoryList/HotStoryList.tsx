@@ -1,4 +1,5 @@
 import { useAtom } from 'jotai';
+import Link from 'next/link';
 
 import { useGetStoryList } from '@/hooks/client';
 
@@ -28,7 +29,9 @@ export function HotStoryList() {
     return (
         <div>
             <div className="flex flex-row items-center justify-between">
-                <H1 href="/filter/stories/hot">Truyện Hot</H1>
+                <Link href="/filter/stories/hot">
+                    <H1>Truyện Hot</H1>
+                </Link>
                 <GenreSelect />
             </div>
             {hotStoryList ? (

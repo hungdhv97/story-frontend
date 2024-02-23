@@ -2,6 +2,7 @@ import Link from 'next/link';
 
 import { calculateTimeDifference } from '@/lib/time';
 
+import { H1 } from '@/components/Common/Custom/Custom';
 import {
     Table,
     TableBody,
@@ -20,9 +21,7 @@ export function ReadingChapterTable({
 }) {
     return (
         <div>
-            <h2 className="mt-10 scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0">
-                Truyện Đang Đọc
-            </h2>
+            <H1>Truyện Đang Đọc</H1>
             <Table>
                 <TableHeader>
                     <TableRow>

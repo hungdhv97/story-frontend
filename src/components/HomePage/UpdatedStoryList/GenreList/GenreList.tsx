@@ -3,6 +3,8 @@ import * as React from 'react';
 
 import { useGetGenreList } from '@/hooks/client';
 
+import { H1 } from '@/components/Common/Custom/Custom';
+
 import { IGenreResponse } from '@/interfaces/services/responses';
 
 export function GenreList() {
@@ -10,13 +12,11 @@ export function GenreList() {
     if (isLoading) return <div>Loading....</div>;
     return (
         <div>
-            <h2 className="mt-10 scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight transition-colors first:mt-0">
-                Thể Loại Truyện
-            </h2>
+            <H1>Thể Loại Truyện</H1>
             <div className="grid grid-cols-2 gap-2 p-2 font-serif">
                 {genres?.map((genre: IGenreResponse) => (
                     <Link
-                        className="text-blue-600 visited:text-purple-600 hover:text-blue-800"
+                        className="hover:text-blue-700 dark:hover:text-blue-400"
                         key={genre.id}
                         href={`/filter/genres/${genre.slug}`}
                     >

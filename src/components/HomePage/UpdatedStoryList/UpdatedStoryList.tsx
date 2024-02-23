@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { useEffect, useState } from 'react';
 
 import { H1 } from '@/components/Common/Custom/Custom';
@@ -17,21 +18,21 @@ export function UpdatedStoryList() {
     }, []);
 
     return (
-        <div>
-            <H1 href="/filter/stories/updated">Truyện Cập Nhật Chương Mới</H1>
-            <div className="flex items-stretch">
-                <div className="w-2/3">
-                    <UpdatedStoryTable />
-                </div>
-                <div className="flex w-1/3 flex-col">
-                    {history && (
-                        <div>
-                            <ReadingChapterTable readingChapters={history} />
-                        </div>
-                    )}
-                    <div className="grow">
-                        <GenreList />
+        <div className="flex items-stretch">
+            <div className="w-2/3">
+                <Link href="/filter/stories/updated">
+                    <H1>Truyện Cập Nhật Chương Mới</H1>
+                </Link>
+                <UpdatedStoryTable />
+            </div>
+            <div className="flex w-1/3 flex-col">
+                {history && (
+                    <div>
+                        <ReadingChapterTable readingChapters={history} />
                     </div>
+                )}
+                <div className="grow">
+                    <GenreList />
                 </div>
             </div>
         </div>

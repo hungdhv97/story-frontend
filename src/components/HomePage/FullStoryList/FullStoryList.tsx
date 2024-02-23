@@ -14,7 +14,7 @@ export function FullStoryList() {
     });
     return (
         <div>
-            <H1 href="/filter/stories/full">Truyện Full</H1>
+            <Link href="/filter/stories/full"><H1>Truyện Full</H1></Link>
             {!fullStoryList ? (
                 <FullStoryListSkeleton />
             ) : (
