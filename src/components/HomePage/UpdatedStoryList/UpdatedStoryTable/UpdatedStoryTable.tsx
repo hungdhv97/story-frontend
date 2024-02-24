@@ -32,57 +32,62 @@ export function UpdatedStoryTable() {
                         <TableHead className="w-1/5">Cập Nhật</TableHead>
                     </TableRow>
                 </TableHeader>
-                <TableBody>
-                    {updatedStoryList.map((story: IStoryResponse) => (
-                        <TableRow key={story.id}>
-                            <TableCell>
-                                <Link
-                                    className="hover:text-blue-700 dark:hover:text-blue-400"
-                                    href={`/stories/${story.slug}`}
-                                    passHref
-                                >
-                                    {story.title}
-                                </Link>
-                            </TableCell>
-                            <TableCell>
-                                {story.genres.map(
-                                    (genre: IGenreResponse, index: number) => (
-                                        <span key={genre.id}>
-                                            {index > 0 && ', '}
-                                            <Link
-                                                className="hover:text-blue-700 dark:hover:text-blue-400"
-                                                href={`/filter/genres/${genre.slug}`}
-                                                passHref
-                                            >
-                                                {genre.name}
-                                            </Link>
-                                        </span>
-                                    ),
-                                )}
-                            </TableCell>
-                            <TableCell>
-                                {story.latest_chapter ? (
+                <TableBody className="text-lg tracking-tighter">
+                    {updatedStoryList
+                        .slice(0, 10)
+                        .map((story: IStoryResponse) => (
+                            <TableRow key={story.id}>
+                                <TableCell>
                                     <Link
                                         className="hover:text-blue-700 dark:hover:text-blue-400"
-                                        href={`/stories/${story.slug}/chapters/${story.latest_chapter.id}`}
+                                        href={`/stories/${story.slug}`}
+                                        passHref
                                     >
-                                        {story.latest_chapter.title}
+                                        {story.title}
                                     </Link>
-                                ) : (
-                                    <LoaderIcon className="animate-spin" />
-                                )}
-                            </TableCell>
-                            <TableCell>
-                                {story.latest_chapter ? (
-                                    calculateTimeDifference(
-                                        story.latest_chapter.published_date,
-                                    )
-                                ) : (
-                                    <LoaderIcon className="animate-spin" />
-                                )}
-                            </TableCell>
-                        </TableRow>
-                    ))}
+                                </TableCell>
+                                <TableCell>
+                                    {story.genres.map(
+                                        (
+                                            genre: IGenreResponse,
+                                            index: number,
+                                        ) => (
+                                            <span key={genre.id}>
+                                                {index > 0 && ', '}
+                                                <Link
+                                                    className="hover:text-blue-700 dark:hover:text-blue-400"
+                                                    href={`/filter/genres/${genre.slug}`}
+                                                    passHref
+                                                >
+                                                    {genre.name}
+                                                </Link>
+                                            </span>
+                                        ),
+                                    )}
+                                </TableCell>
+                                <TableCell>
+                                    {story.latest_chapter ? (
+                                        <Link
+                                            className="hover:text-blue-700 dark:hover:text-blue-400"
+                                            href={`/stories/${story.slug}/chapters/${story.latest_chapter.id}`}
+                                        >
+                                            {story.latest_chapter.title}
+                                        </Link>
+                                    ) : (
+                                        <LoaderIcon className="animate-spin" />
+                                    )}
+                                </TableCell>
+                                <TableCell>
+                                    {story.latest_chapter ? (
+                                        calculateTimeDifference(
+                                            story.latest_chapter.published_date,
+                                        )
+                                    ) : (
+                                        <LoaderIcon className="animate-spin" />
+                                    )}
+                                </TableCell>
+                            </TableRow>
+                        ))}
                 </TableBody>
             </Table>
         );

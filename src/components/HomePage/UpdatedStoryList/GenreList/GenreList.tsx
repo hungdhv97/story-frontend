@@ -13,7 +13,7 @@ export function GenreList() {
     return (
         <div>
             <H1>Thể Loại Truyện</H1>
-            <div className="grid grid-cols-2 gap-2 p-2 font-serif">
+            <div className="grid grid-cols-2 gap-2 p-2">
                 {genres?.map((genre: IGenreResponse) => (
                     <Link
                         className="hover:text-blue-700 dark:hover:text-blue-400"

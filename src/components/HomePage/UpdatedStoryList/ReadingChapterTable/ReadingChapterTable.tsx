@@ -30,7 +30,7 @@ export function ReadingChapterTable({
                         <TableHead className="w-2/7">Đọc Lần Cuối</TableHead>
                     </TableRow>
                 </TableHeader>
-                <TableBody className="font-serif">
+                <TableBody className="text-lg tracking-tighter">
                     {readingChapters.map((readingChapter: IReadingChapter) => (
                         <TableRow key={readingChapter.id}>
                             <TableCell>
