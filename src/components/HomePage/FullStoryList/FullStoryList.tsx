@@ -14,24 +14,19 @@ export function FullStoryList() {
     });
     return (
         <div>
-            <Link href="/filter/stories/full"><H1>Truyện Full</H1></Link>
-            {!fullStoryList ? (
-                <FullStoryListSkeleton />
-            ) : (
-                <div className="grid grid-cols-4 gap-8">
-                    {fullStoryList.slice(0, 8).map((story: IStoryResponse) => (
-                        <div
-                            key={story.id}
-                            className="relative min-h-[200px] rounded-2xl border border-teal-100 bg-secondary shadow-md hover:border-teal-900"
-                        >
-                            <Link
-                                href={`/stories/${story.slug}`}
-                                className="absolute inset-0 z-0"
-                            />
+            <Link href="/filter/stories/full">
+                <H1>Truyện Full</H1>
+            </Link>
+            {fullStoryList ? (
+                <div className="grid grid-cols-5 gap-8">
+                    {fullStoryList.slice(0, 10).map((story: IStoryResponse) => (
+                        <div key={story.id}>
                             <FullStory story={story} />
                         </div>
                     ))}
                 </div>
+            ) : (
+                <FullStoryListSkeleton />
             )}
         </div>
     );
