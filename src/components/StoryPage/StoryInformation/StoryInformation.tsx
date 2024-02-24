@@ -1,3 +1,5 @@
+import { H1 } from '@/components/Common/Custom/Custom';
+
 import { IStoryResponse } from '@/interfaces/services/responses';
 
 interface IStoryInformationProps {
@@ -7,7 +9,7 @@ interface IStoryInformationProps {
 export function StoryInformation({ story }: IStoryInformationProps) {
     return (
         <div>
-            <div>Thông Tin Truyện</div>
+            <H1>Thông Tin Truyện</H1>
             <div className="flex">
                 <div
                     className="basis-1/3 bg-contain bg-top bg-no-repeat"
