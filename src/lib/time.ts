@@ -9,14 +9,17 @@ const formatTimeDifference = (differenceInMs: number): string => {
     const minutes = Math.floor(differenceInMs / 60000);
     const hours = Math.floor(differenceInMs / 3600000);
     const days = Math.floor(differenceInMs / (3600000 * 24));
-
-    if (minutes < 60) {
-        return `${minutes} minute${minutes > 1 ? 's' : ''} ago`;
+    if (minutes == 0) {
+        return 'Vài giây trước';
+    } else if (minutes < 60) {
+        return `${minutes} phút trước`;
     } else if (hours < 24) {
-        return `${hours} hour${hours > 1 ? 's' : ''} ago`;
+        return `${hours} giờ trước`;
     } else if (days < 7) {
-        return `${days} day${days > 1 ? 's' : ''} ago`;
+        return `${days} ngày trước`;
+    } else if (days < 30) {
+        return `1 tháng trước`;
     } else {
-        return `More than a week ago`;
+        return 'Hơn 1 tháng trước';
     }
 };

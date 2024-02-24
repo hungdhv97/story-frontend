@@ -26,8 +26,8 @@ export function ReadingChapterTable({
                 <TableHeader>
                     <TableRow>
                         <TableHead>Tiêu Đề</TableHead>
-                        <TableHead className="w-1/6">Chương Đang Đọc</TableHead>
-                        <TableHead className="w-1/6">Đọc Lần Cuối</TableHead>
+                        <TableHead className="w-1/3">Chương Đang Đọc</TableHead>
+                        <TableHead className="w-2/7">Đọc Lần Cuối</TableHead>
                     </TableRow>
                 </TableHeader>
                 <TableBody className="font-serif">
@@ -35,7 +35,7 @@ export function ReadingChapterTable({
                         <TableRow key={readingChapter.id}>
                             <TableCell>
                                 <Link
-                                    className="text-blue-600 visited:text-purple-600 hover:text-blue-800"
+                                    className="hover:text-blue-700 dark:hover:text-blue-400"
                                     href={`/stories/${readingChapter.story.slug}`}
                                     passHref
                                 >
@@ -44,7 +44,7 @@ export function ReadingChapterTable({
                             </TableCell>
                             <TableCell>
                                 <Link
-                                    className="text-blue-600 visited:text-purple-600 hover:text-blue-800"
+                                    className="hover:text-blue-700 dark:hover:text-blue-400"
                                     href={`stories/${readingChapter.story.slug}/chapters/${readingChapter.id}`}
                                 >
                                     {readingChapter.title}
