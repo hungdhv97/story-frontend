@@ -15,22 +15,23 @@ interface IStoryInformationProps {
 
 export function StoryInformation({ story }: IStoryInformationProps) {
     const [isExpanded, setIsExpanded] = useState(false);
+    const lines = story.description.split('\n');
 
-    const toggleDescription = () => {
+    const toggleExpanded = () => {
         setIsExpanded(!isExpanded);
     };
     return (
         <div>
             <H1>Thông Tin Truyện</H1>
             <div className="flex space-x-3">
-                <div className="basis-1/3">
+                <div className="basis-1/4">
                     <img
                         src={story.cover_photo}
                         alt={story.title}
                         className="w-full rounded-lg object-cover"
                     />
                 </div>
-                <div className="flex basis-2/3 flex-col space-y-3">
+                <div className="flex basis-3/4 flex-col space-y-3">
                     <div className="text-center text-3xl font-bold">
                         {story.title}
                     </div>
@@ -78,21 +79,24 @@ export function StoryInformation({ story }: IStoryInformationProps) {
                         </div>
                     )}
                     <div className="leading-7">
-                        <div className="inline font-bold">Mô tả:</div>{' '}
-                        {story.description.length > 1000 ? (
-                            <>
-                                {isExpanded
-                                    ? story.description
-                                    : `${story.description.substring(0, 1000)}...`}
-                                <button
-                                    onClick={toggleDescription}
-                                    className="ml-1 text-blue-500 hover:text-blue-600"
+                        <div className="inline font-bold">Mô tả:</div>
+                        {lines
+                            .slice(0, isExpanded ? lines.length : 5)
+                            .map((line, index) => (
+                                <div
+                                    key={index}
+                                    className="my-1 text-justify tracking-tighter"
                                 >
-                                    {isExpanded ? 'Ẩn bớt' : 'Xem thêm'}
-                                </button>
-                            </>
-                        ) : (
-                            story.description
+                                    {line}
+                                </div>
+                            ))}
+                        {lines.length > 5 && (
+                            <button
+                                onClick={toggleExpanded}
+                                className="mt-2 text-blue-500"
+                            >
+                                {isExpanded ? 'Ẩn bớt' : 'Xem thêm'}
+                            </button>
                         )}
                     </div>
                     <div>
