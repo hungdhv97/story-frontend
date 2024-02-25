@@ -2,6 +2,7 @@
 
 import { useAtom } from 'jotai';
 
+import { H2 } from '@/components/Common/Custom/Custom';
 import { TopStoryTabList } from '@/components/StoryPage/TopStoryList/TopStoryTabList/TopStoryTabList';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 
@@ -11,7 +12,7 @@ export function TopStoryList() {
     const [topStoriesResponse] = useAtom(topStoryListResponseAtom);
     return (
         <div>
-            <div className="mb-3 text-2xl font-bold">Top 10</div>
+            <H2>Top 10</H2>
             <Tabs defaultValue="week" className="w-[400px]">
                 <TabsList>
                     <TabsTrigger value="week">Tuần</TabsTrigger>

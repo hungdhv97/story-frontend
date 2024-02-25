@@ -17,4 +17,15 @@ const H1: FC<IH1Props> = ({ children, className }) => (
     </div>
 );
 
-export { H1 };
+const H2: FC<IH1Props> = ({ children, className }) => (
+    <div
+        className={clsx(
+            'my-2 inline-block scroll-m-20 py-1 text-2xl font-extrabold tracking-tight lg:text-3xl',
+            className,
+        )}
+    >
+        {children}
+    </div>
+);
+
+export { H1, H2 };

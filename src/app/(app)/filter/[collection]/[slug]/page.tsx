@@ -7,9 +7,11 @@ import { useGetStoryPagination, useGetTopStoryList } from '@/hooks/client';
 import { useStoryListFilterConfig } from '@/hooks/custom';
 
 import { Breadcrumb } from '@/components/Common/Breadcrumb/Breadcrumb';
+import { H1 } from '@/components/Common/Custom/Custom';
 import { CustomPagination } from '@/components/Common/CustomPagination/CustomPagination';
 import { FilterTable } from '@/components/FilterPage/FilterTable/FilterTable';
 import { GenreList } from '@/components/HomePage/UpdatedStoryList/GenreList/GenreList';
+import { TopStoryList } from '@/components/StoryPage/TopStoryList/TopStoryList';
 
 import { storyPaginationAtom, topStoryListResponseAtom } from '@/atoms';
 
@@ -44,9 +46,9 @@ export default function FilterStoryPage({
         return (
             <div className="container">
                 <Breadcrumb paths={paths} />
-                <div className="flex flex-row">
+                <div className="flex flex-row space-x-3">
                     <div className="w-2/3">
-                        <div>{storyListFilterConfig.paths[0].title}</div>
+                        <H1>{storyListFilterConfig.paths[0].title}</H1>
                         <FilterTable storyList={storyPagination.results} />
                         <CustomPagination
                             totalPages={
@@ -55,9 +57,9 @@ export default function FilterStoryPage({
                             paginationAtom={storyPaginationAtom}
                         />
                     </div>
-                    <div className="fex w-1/3 flex-col">
+                    <div className="flex w-1/3 flex-col">
                         <GenreList />
-                        {/*<TopStoryList />*/}
+                        <TopStoryList />
                     </div>
                 </div>
             </div>

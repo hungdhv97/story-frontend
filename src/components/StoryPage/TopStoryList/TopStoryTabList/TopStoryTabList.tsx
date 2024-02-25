@@ -14,7 +14,7 @@ export function TopStoryTabList({ stories }: ITopStoryTabListProps) {
         <div className="flex flex-col">
             {stories.map((story, index) => (
                 <div key={story.id}>
-                    <div className="flex h-12 flex-row items-center space-x-1">
+                    <div className="flex h-12 flex-row items-center space-x-2">
                         <div
                             className={clsx(
                                 'flex size-10 items-center justify-center rounded-full',
