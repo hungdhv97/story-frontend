@@ -29,11 +29,9 @@ export function ChapterList({ story }: IChapterPaginationProps) {
             <div className="grid grid-flow-col grid-cols-2 grid-rows-5">
                 {chapterShortInfoPagination.results.map(
                     (chapterShortInfo: IChapterShortInfoResponse) => (
-                        <div
-                            key={chapterShortInfo.id}
-                            className="text-blue-600 hover:text-blue-800 dark:text-blue-200 dark:hover:text-blue-400"
-                        >
+                        <div key={chapterShortInfo.id}>
                             <Link
+                                className="inline-block text-blue-600 hover:text-blue-800 dark:text-blue-200 dark:hover:text-blue-400"
                                 href={`/stories/${story.slug}/chapters/${chapterShortInfo.id}`}
                             >
                                 {chapterShortInfo.title}

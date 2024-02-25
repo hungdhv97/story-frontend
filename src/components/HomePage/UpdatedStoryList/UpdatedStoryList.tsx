@@ -21,7 +21,9 @@ export function UpdatedStoryList() {
         <div className="flex items-stretch">
             <div className="w-2/3">
                 <Link href="/filter/stories/updated">
-                    <H1>Truyện Cập Nhật Chương Mới</H1>
+                    <H1 className="hover:text-cyan-900 dark:hover:text-cyan-400">
+                        Truyện Cập Nhật Chương Mới
+                    </H1>
                 </Link>
                 <UpdatedStoryTable />
             </div>

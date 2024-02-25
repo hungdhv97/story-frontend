@@ -30,7 +30,9 @@ export function HotStoryList() {
         <div>
             <div className="flex flex-row items-center justify-between">
                 <Link href="/filter/stories/hot">
-                    <H1>Truyện Hot</H1>
+                    <H1 className="hover:text-cyan-900 dark:hover:text-cyan-400">
+                        Truyện Hot
+                    </H1>
                 </Link>
                 <GenreSelect />
             </div>

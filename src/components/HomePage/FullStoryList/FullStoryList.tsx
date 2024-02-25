@@ -15,7 +15,9 @@ export function FullStoryList() {
     return (
         <div>
             <Link href="/filter/stories/full">
-                <H1>Truyện Full</H1>
+                <H1 className="hover:text-cyan-900 dark:hover:text-cyan-400">
+                    Truyện Full
+                </H1>
             </Link>
             {fullStoryList ? (
                 <div className="grid grid-cols-5 gap-8">
