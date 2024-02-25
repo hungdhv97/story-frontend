@@ -8,6 +8,7 @@ import { useGetChapter, useGetStory } from '@/hooks/client';
 
 import { ChapterNavigation } from '@/components/ChapterPage/ChapterNavigation/ChapterNavigation';
 import { Breadcrumb } from '@/components/Common/Breadcrumb/Breadcrumb';
+import { H2 } from '@/components/Common/Custom/Custom';
 
 import { selectedChapterIdAtom, selectedStorySlugAtom } from '@/atoms';
 
@@ -48,9 +49,19 @@ export default function ChapterPage({
         <div className="container">
             <Breadcrumb paths={paths} />
             <div className="container flex flex-col">
-                <div className="text-center">{chapter.title}</div>
+                <H2 className="text-center">{chapter.title}</H2>
                 <ChapterNavigation />
-                <div>{chapter.content}</div>
+                <div className="text-justify text-2xl">
+                    {chapter.content.split('\n').map((line, index, array) => (
+                        <span key={index}>
+                            {line}
+                            {index < array.length - 1 && (
+                                <div className="my-3" />
+                            )}
+                        </span>
+                    ))}
+                </div>
+                <ChapterNavigation />
             </div>
         </div>
     );
