@@ -38,7 +38,7 @@ export function CustomPagination({
     };
 
     return (
-        <div className="flex items-center justify-center gap-2">
+        <div className="mt-3 flex items-center justify-center gap-2">
             <Button
                 onClick={() => goToPage(1)}
                 disabled={pagination.page === 1}
@@ -55,7 +55,7 @@ export function CustomPagination({
                     onChange={handleInputChange}
                     className="w-12 text-center [&::-webkit-inner-spin-button]:appearance-none"
                 />
-                <span className="ml-2 whitespace-nowrap"> / {totalPages}</span>
+                <span className="m-2 whitespace-nowrap"> / {totalPages}</span>
             </form>
             <Button
                 onClick={nextPage}

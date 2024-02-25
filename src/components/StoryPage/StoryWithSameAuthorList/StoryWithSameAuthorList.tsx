@@ -17,8 +17,10 @@ export function StoryWithSameAuthorList({
     if (storyWithSameAuthorList) {
         if (storyWithSameAuthorList.length > 1) {
             return (
-                <div>
-                    <div>Truyện Cùng Tác Giả</div>
+                <div className="mb-3">
+                    <div className="mb-3 text-2xl font-bold">
+                        Truyện Cùng Tác Giả
+                    </div>
                     <div>
                         {storyWithSameAuthorList
                             .filter(
@@ -28,6 +30,7 @@ export function StoryWithSameAuthorList({
                             .map((storyWithSameAuthor: IStoryResponse) => (
                                 <div key={storyWithSameAuthor.id}>
                                     <Link
+                                        className="text-blue-600 hover:text-blue-800 dark:text-blue-200 dark:hover:text-blue-400"
                                         href={`/stories/${storyWithSameAuthor.slug}`}
                                     >
                                         {storyWithSameAuthor.title}

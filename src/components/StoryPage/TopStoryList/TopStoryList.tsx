@@ -11,7 +11,7 @@ export function TopStoryList() {
     const [topStoriesResponse] = useAtom(topStoryListResponseAtom);
     return (
         <div>
-            <div>Truyện Đang Hot</div>
+            <div className="mb-3 text-2xl font-bold">Top 10</div>
             <Tabs defaultValue="week" className="w-[400px]">
                 <TabsList>
                     <TabsTrigger value="week">Tuần</TabsTrigger>
