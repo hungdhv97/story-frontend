@@ -30,4 +30,6 @@ jobs:
           port: 22
           script: |
             cd ${{ secrets.DEPLOY_DIR }}
-            npm install
+            npm i
+            npm build
+            serve -p 3000 build/
