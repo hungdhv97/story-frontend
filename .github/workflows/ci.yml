@@ -31,5 +31,5 @@ jobs:
           script: |
             cd ${{ secrets.DEPLOY_DIR }}
             npm i
-            npm build
-            serve -p 3000 build/
+            npm run build
+            npm run start
