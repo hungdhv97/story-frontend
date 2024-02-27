@@ -16,30 +16,25 @@ import {
     ITopStoryListResponse,
 } from '@/interfaces/services/responses';
 
+const API_HOST = process.env.NEXT_PUBLIC_API_HOST;
+
 export const useGetGenreList = () => {
-    return useSWR<IGenreResponse[]>(
-        'http://18.141.25.103:8000/api/genres/',
-        getData,
-    );
+    return useSWR<IGenreResponse[]>(`${API_HOST}/api/genres/`, getData);
 };
 
 export const useGetGenre = (genreSlug: string, shouldFetch: boolean) => {
-    const url = shouldFetch
-        ? `http://18.141.25.103:8000/api/genres/${genreSlug}/`
-        : null;
+    const url = shouldFetch ? `${API_HOST}/api/genres/${genreSlug}/` : null;
     return useSWR<IGenreResponse>(url, getData);
 };
 
 export const useGetAuthor = (authorId: number, shouldFetch: boolean) => {
-    const url = shouldFetch
-        ? `http://18.141.25.103:8000/api/authors/${authorId}/`
-        : null;
+    const url = shouldFetch ? `${API_HOST}/api/authors/${authorId}/` : null;
     return useSWR<IAuthorResponse>(url, getData);
 };
 
 export const useGetChapter = (chapterId: string) => {
     return useSWR<IChapterResponse>(
-        `http://18.141.25.103:8000/api/chapters/${chapterId}/`,
+        `${API_HOST}/api/chapters/${chapterId}/`,
         getData,
     );
 };
@@ -59,28 +54,28 @@ export const useGetChapterShortInfoPagination = ({
 }: IUseGetChapterShortInfoPaginationParams) => {
     const { pagination } = usePagination(paginationAtom);
     return useSWR<IChapterShortInfoPaginationResponse>(
-        `http://18.141.25.103:8000/api/stories/${storySlug}/chapters/short-info/?limit=${pagination.limit}&page=${pagination.page}`,
+        `${API_HOST}/api/stories/${storySlug}/chapters/short-info/?limit=${pagination.limit}&page=${pagination.page}`,
         getData,
     );
 };
 
 export const useGetChapterShortInfoList = (storySlug: string) => {
     return useSWR<IChapterShortInfoResponse[]>(
-        `http://18.141.25.103:8000/api/stories/${storySlug}/chapters/short-info/`,
+        `${API_HOST}/api/stories/${storySlug}/chapters/short-info/`,
         getData,
     );
 };
 
 export const useGetStory = (storySlug: string) => {
     return useSWR<IStoryResponse>(
-        `http://18.141.25.103:8000/api/stories/${storySlug}/`,
+        `${API_HOST}/api/stories/${storySlug}/`,
         getData,
     );
 };
 
 export const useGetTopStoryList = () => {
     return useSWR<ITopStoryListResponse>(
-        'http://18.141.25.103:8000/api/top/stories/',
+        `${API_HOST}/api/top/stories/`,
         getData,
     );
 };
@@ -104,7 +99,7 @@ export const useGetStoryList = ({
     totalChaptersFrom,
     totalChaptersTo,
 }: IUseGetStoryListParams) => {
-    let url = `http://18.141.25.103:8000/api/stories/?`;
+    let url = `${API_HOST}/api/stories/?`;
 
     if (authorId) url += `author_id=${authorId}&`;
     if (genreSlug) url += `genre_slug=${genreSlug}&`;
@@ -145,7 +140,7 @@ export const useGetStoryPagination = ({
     totalChaptersTo,
 }: IUseGetStoryPaginationParams) => {
     const { pagination } = usePagination(paginationAtom);
-    let url = `http://18.141.25.103:8000/api/stories/?limit=${pagination.limit}&page=${pagination.page}&`;
+    let url = `${API_HOST}/api/stories/?limit=${pagination.limit}&page=${pagination.page}&`;
 
     if (authorId) url += `author_id=${authorId}&`;
     if (genreSlug) url += `genre_slug=${genreSlug}&`;
@@ -165,7 +160,7 @@ export const useSearchStoryList = (text: string) => {
 
     const url =
         debouncedText.trim() !== ''
-            ? `http://18.141.25.103:8000/api/search/?text=${debouncedText}`
+            ? `${API_HOST}/api/search/?text=${debouncedText}`
             : null;
 
     return useSWR<IStoryResponse[]>(url, getData);
