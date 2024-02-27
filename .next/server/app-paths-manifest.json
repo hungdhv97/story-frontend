@@ -1,7 +1,7 @@
 {
   "/_not-found": "app/_not-found.js",
-  "/(app)/page": "app/(app)/page.js",
   "/(app)/filter/[collection]/[slug]/page": "app/(app)/filter/[collection]/[slug]/page.js",
+  "/(app)/page": "app/(app)/page.js",
   "/(app)/stories/[storySlug]/chapters/[chapterId]/page": "app/(app)/stories/[storySlug]/chapters/[chapterId]/page.js",
   "/(app)/stories/[storySlug]/page": "app/(app)/stories/[storySlug]/page.js"
 }

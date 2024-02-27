@@ -1,4 +1,4 @@
-// File: /home/sotatek/study/story-frontend/src/app/(app)/stories/[storySlug]/page.tsx
+// File: /home/hungthai/WebstormProjects/story-frontend/src/app/(app)/stories/[storySlug]/page.tsx
 import * as entry from '../../../../../../src/app/(app)/stories/[storySlug]/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 
