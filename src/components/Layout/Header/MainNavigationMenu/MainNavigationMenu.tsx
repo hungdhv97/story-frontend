@@ -1,5 +1,6 @@
 'use client';
 
+import { usePathname } from 'next/navigation';
 import * as React from 'react';
 
 import { cn } from '@/lib/utils';
@@ -37,6 +38,8 @@ export function MainNavigationMenu({
     genreRouters,
     chapterRouters,
 }: IMainNavigationMenuProps) {
+    const pathname = usePathname();
+    console.log(pathname);
     return (
         <NavigationMenu onValueChange={onNavChange}>
             <NavigationMenuList>
@@ -50,6 +53,7 @@ export function MainNavigationMenu({
                                 <ListItem
                                     key={router.title}
                                     title={router.title}
+                                    isSelected={router.href == pathname}
                                     href={router.href}
                                 ></ListItem>
                             ))}
@@ -67,6 +71,7 @@ export function MainNavigationMenu({
                                     key={router.title}
                                     title={router.title}
                                     href={router.href}
+                                    isSelected={router.href == pathname}
                                 ></ListItem>
                             ))}
                         </ul>
@@ -83,6 +88,7 @@ export function MainNavigationMenu({
                                     key={router.title}
                                     title={router.title}
                                     href={router.href}
+                                    isSelected={router.href == pathname}
                                 ></ListItem>
                             ))}
                         </ul>
@@ -95,8 +101,8 @@ export function MainNavigationMenu({
 
 const ListItem = React.forwardRef<
     React.ElementRef<'a'>,
-    React.ComponentPropsWithoutRef<'a'>
->(({ className, title, children, ...props }, ref) => {
+    React.ComponentPropsWithoutRef<'a'> & { isSelected: boolean }
+>(({ className, title, isSelected, children, ...props }, ref) => {
     return (
         <li>
             <NavigationMenuLink asChild>
@@ -104,6 +110,9 @@ const ListItem = React.forwardRef<
                     ref={ref}
                     className={cn(
                         'block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground',
+                        {
+                            'bg-emerald-200 dark:bg-emerald-800': isSelected,
+                        },
                         className,
                     )}
                     {...props}
