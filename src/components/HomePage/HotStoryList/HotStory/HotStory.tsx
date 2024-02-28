@@ -3,6 +3,17 @@ import Link from 'next/link';
 import { IStoryResponse } from '@/interfaces/services/responses';
 
 export function HotStory({ story }: { story: IStoryResponse }) {
+    const getTitle = (title: string) => {
+        const words = title.split(' ');
+        if (words.length > 10) {
+            const firstOpenParenthesisIndex = title.indexOf('(');
+            if (firstOpenParenthesisIndex !== -1) {
+                return title.slice(0, firstOpenParenthesisIndex).trim();
+            }
+        }
+        return title;
+    };
+
     return (
         <div className="block rounded-lg shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]">
             <div className="group relative w-full">
@@ -12,9 +23,9 @@ export function HotStory({ story }: { story: IStoryResponse }) {
                         alt={story.title}
                         className="w-full rounded-lg object-cover"
                     />
-                    <div className="absolute bottom-0 w-full rounded-b-lg bg-neutral-700/50 p-4 backdrop-blur dark:bg-neutral-50/50">
-                        <div className="text-lg font-bold leading-none tracking-tighter text-neutral-50 dark:text-neutral-800">
-                            {story.title}
+                    <div className="absolute bottom-0 flex h-14 w-full items-center rounded-b-lg bg-neutral-700/50 backdrop-blur dark:bg-neutral-50/50">
+                        <div className="px-4 text-lg font-bold leading-none tracking-tighter text-neutral-50 dark:text-neutral-800">
+                            {getTitle(story.title)}
                         </div>
                         {story.status == 'completed' && (
                             <div className="absolute -right-5 -top-6 skew-y-6 overflow-visible bg-green-500 px-1 py-0.5 text-white shadow-lg">
