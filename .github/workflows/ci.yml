@@ -12,6 +12,20 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
+      - name: Run backend
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.REMOTE_HOST }}
+          username: ${{ secrets.REMOTE_USER }}
+          key: ${{ secrets.EC2_SSH_KEY }}
+          port: 22
+          script: |
+            if ! lsof -i:8000; then
+              cd ${{ secrets.BACKEND_DEPLOY_DIR }}
+              source venv/bin/activate
+              python manage.py runserver 0.0.0.0:8000 &
+            fi
+
       - name: Deploy to EC2
         uses: easingthemes/ssh-deploy@main
         env:
@@ -19,4 +33,18 @@ jobs:
           SOURCE: "."
           REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
           REMOTE_USER: ${{ secrets.REMOTE_USER }}
-          TARGET: ${{ secrets.DEPLOY_DIR }}
+          TARGET: ${{ secrets.FRONTEND_DEPLOY_DIR }}
+
+      - name: Run frontend
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.REMOTE_HOST }}
+          username: ${{ secrets.REMOTE_USER }}
+          key: ${{ secrets.EC2_SSH_KEY }}
+          port: 22
+          script: |
+            cd ${{ secrets.FRONTEND_DEPLOY_DIR }}
+            rm -rf .next
+            unzip .next.zip
+            sudo kill -9 $(sudo lsof -t -i:3000)
+            npm run start &
