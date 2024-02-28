@@ -23,7 +23,7 @@ jobs:
             if ! lsof -i:8000; then
               cd ${{ secrets.BACKEND_DEPLOY_DIR }}
               source venv/bin/activate
-              python manage.py runserver 0.0.0.0:8000 &
+              screen -dm bash -c "python manage.py runserver 0.0.0.0:8000"
             fi
 
       - name: Deploy to EC2
@@ -47,4 +47,4 @@ jobs:
             rm -rf .next
             unzip .next.zip
             sudo kill -9 $(sudo lsof -t -i:3000)
-            npm run start &
+            screen -dm bash -c "npm run start"
