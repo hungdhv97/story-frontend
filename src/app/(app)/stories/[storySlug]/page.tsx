@@ -25,7 +25,7 @@ export default function StoryPage({
     return (
         <div className="container">
             <Breadcrumb paths={paths} />
-            <div className="flex">
+            <div className="flex space-x-4">
                 <div className="basis-2/3">
                     <StoryInformation story={story} />
                     <ChapterList story={story} />

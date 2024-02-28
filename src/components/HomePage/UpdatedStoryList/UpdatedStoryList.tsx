@@ -18,8 +18,8 @@ export function UpdatedStoryList() {
     }, []);
 
     return (
-        <div className="flex items-stretch">
-            <div className="w-2/3">
+        <div className="flex space-x-4">
+            <div className="basis-2/3">
                 <Link href="/filter/stories/updated">
                     <H1 className="hover:text-cyan-900 dark:hover:text-cyan-400">
                         Truyện Cập Nhật Chương Mới
@@ -27,7 +27,7 @@ export function UpdatedStoryList() {
                 </Link>
                 <UpdatedStoryTable />
             </div>
-            <div className="flex w-1/3 flex-col">
+            <div className="flex basis-1/3 flex-col">
                 {history && (
                     <div>
                         <ReadingChapterTable readingChapters={history} />

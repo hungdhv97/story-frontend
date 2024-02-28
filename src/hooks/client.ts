@@ -32,7 +32,7 @@ export const useGetAuthor = (authorId: number, shouldFetch: boolean) => {
     return useSWR<IAuthorResponse>(url, getData);
 };
 
-export const useGetChapter = (chapterId: string) => {
+export const useGetChapter = (chapterId: number) => {
     return useSWR<IChapterResponse>(
         `${API_HOST}/api/chapters/${chapterId}/`,
         getData,

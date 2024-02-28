@@ -17,7 +17,7 @@ export const chapterPaginationAtom = createPaginationAtom({
     limit: 10,
 });
 export const genreListResponseAtom = atom<IGenreResponse[]>([]);
-export const selectedChapterIdAtom = atom<string>('');
+export const selectedChapterIdAtom = atom<number>(0);
 export const selectedGenreAtom = atom('all');
 export const selectedStorySlugAtom = atom<string>('');
 export const storyPaginationAtom = createPaginationAtom({
