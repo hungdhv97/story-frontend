@@ -29,9 +29,9 @@ export function StoryInformation({ story }: IStoryInformationProps) {
                     <Image
                         src={story.cover_photo}
                         alt={story.title}
-                        className="rounded-lg"
-                        layout="fill"
-                        style={{ objectFit: 'cover' }}
+                        className="w-full rounded-lg"
+                        width={200}
+                        height={300}
                     />
                 </div>
                 <div className="flex basis-3/4 flex-col space-y-3">
