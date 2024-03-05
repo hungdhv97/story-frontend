@@ -43,6 +43,10 @@ export function SearchInput() {
                                         src={story.cover_photo}
                                         alt={story.title}
                                         className="w-auto rounded-md shadow-md"
+                                        placeholder="blur"
+                                        quality={100}
+                                        fill
+                                        sizes="100vw"
                                         width={75}
                                         height={100}
                                     />

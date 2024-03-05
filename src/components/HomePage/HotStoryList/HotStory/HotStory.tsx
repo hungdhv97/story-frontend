@@ -14,6 +14,8 @@ export function HotStory({ story }: { story: IStoryResponse }) {
                         src={story.cover_photo}
                         alt={story.title}
                         className="w-full rounded-lg"
+                        placeholder="blur"
+                        sizes="100vw"
                         width={200}
                         height={200}
                     />
