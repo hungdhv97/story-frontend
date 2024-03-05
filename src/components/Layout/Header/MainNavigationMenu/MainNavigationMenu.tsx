@@ -39,7 +39,6 @@ export function MainNavigationMenu({
     chapterRouters,
 }: IMainNavigationMenuProps) {
     const pathname = usePathname();
-    console.log(pathname);
     return (
         <NavigationMenu onValueChange={onNavChange}>
             <NavigationMenuList>

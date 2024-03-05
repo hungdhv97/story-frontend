@@ -39,7 +39,12 @@ export default function ChapterPage({
     useEffect(() => {
         setSelectedChapterId(parseInt(params.chapterId));
         setSelectedStorySlug(params.storySlug);
-    }, []);
+    }, [
+        params.chapterId,
+        params.storySlug,
+        setSelectedChapterId,
+        setSelectedStorySlug,
+    ]);
 
     if (chapter && story) {
         const paths = [
