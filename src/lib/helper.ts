@@ -6,3 +6,14 @@ export function convertNumberToStringWithDot(number: number) {
         .format(number)
         .replace(/,/g, '.');
 }
+
+export const getTitle = (title: string) => {
+    const words = title.split(' ');
+    if (words.length > 10) {
+        const firstOpenParenthesisIndex = title.indexOf('(');
+        if (firstOpenParenthesisIndex !== -1) {
+            return title.slice(0, firstOpenParenthesisIndex).trim();
+        }
+    }
+    return title;
+};

@@ -1,6 +1,8 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
+import { getTitle } from '@/lib/helper';
+
 import { IStoryResponse } from '@/interfaces/services/responses';
 
 export function FullStory({ story }: { story: IStoryResponse }) {
@@ -15,9 +17,9 @@ export function FullStory({ story }: { story: IStoryResponse }) {
                         width={200}
                         height={200}
                     />
-                    <div className="absolute bottom-0 w-full rounded-b-lg bg-neutral-700/50 p-4 backdrop-blur dark:bg-neutral-50/50">
-                        <div className="text-lg font-bold leading-none tracking-tighter text-neutral-50 dark:text-neutral-800">
-                            {story.title}
+                    <div className="absolute bottom-0 flex h-14 w-full items-center rounded-b-lg bg-neutral-700/50 backdrop-blur dark:bg-neutral-50/50">
+                        <div className="px-4 text-lg font-bold leading-none tracking-tighter text-neutral-50 dark:text-neutral-800">
+                            {getTitle(story.title)}
                         </div>
                         {story.status == 'completed' && (
                             <div className="absolute -right-5 -top-6 skew-y-6 overflow-visible bg-blue-500 px-1 py-0.5 text-white shadow-lg">

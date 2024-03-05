@@ -1,20 +1,11 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
+import { getTitle } from '@/lib/helper';
+
 import { IStoryResponse } from '@/interfaces/services/responses';
 
 export function HotStory({ story }: { story: IStoryResponse }) {
-    const getTitle = (title: string) => {
-        const words = title.split(' ');
-        if (words.length > 10) {
-            const firstOpenParenthesisIndex = title.indexOf('(');
-            if (firstOpenParenthesisIndex !== -1) {
-                return title.slice(0, firstOpenParenthesisIndex).trim();
-            }
-        }
-        return title;
-    };
-
     return (
         <div className="block rounded-lg shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]">
             <div className="group relative w-full">
