@@ -1,4 +1,5 @@
 import { clsx } from 'clsx';
+import Image from 'next/image';
 import Link from 'next/link';
 import React, { useState } from 'react';
 
@@ -25,10 +26,12 @@ export function StoryInformation({ story }: IStoryInformationProps) {
             <H1>Thông Tin Truyện</H1>
             <div className="flex space-x-3">
                 <div className="basis-1/4">
-                    <img
+                    <Image
                         src={story.cover_photo}
                         alt={story.title}
-                        className="w-full rounded-lg object-cover"
+                        className="rounded-lg"
+                        layout="fill"
+                        style={{ objectFit: 'cover' }}
                     />
                 </div>
                 <div className="flex basis-3/4 flex-col space-y-3">

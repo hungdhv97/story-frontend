@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import Link from 'next/link';
 
 import { useGetGenreList } from '@/hooks/client';
@@ -30,10 +31,12 @@ export function Header() {
                         href="/"
                         className="transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110"
                     >
-                        <img
+                        <Image
                             src="/images/logo.jpg"
-                            className="h-16 rounded-full shadow-lg shadow-cyan-500/50"
                             alt="Logo"
+                            width={140}
+                            height={100}
+                            className="rounded-full shadow-lg shadow-cyan-500/50"
                         />
                     </Link>
                     <MainNavigationMenu

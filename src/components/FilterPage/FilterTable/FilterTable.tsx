@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 
@@ -15,12 +16,14 @@ export function FilterTable({ storyList }: IFilterTableProps) {
             {storyList.map((story) => (
                 <div
                     key={story.id}
-                    className="flex h-28 flex-row items-center space-x-3"
+                    className="flex flex-row items-center space-x-3"
                 >
-                    <img
+                    <Image
                         src={story.cover_photo}
                         alt={story.title}
-                        className="h-28 rounded-md object-cover"
+                        width={100}
+                        height={100}
+                        className="rounded-md"
                     />
                     <div className="flex h-full w-2/4 flex-col justify-between py-5">
                         <div>

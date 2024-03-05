@@ -1,4 +1,5 @@
 import { useAtom } from 'jotai/index';
+import Image from 'next/image';
 import Link from 'next/link';
 import React, { useState } from 'react';
 
@@ -38,10 +39,12 @@ export function SearchInput() {
                                 className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
                             >
                                 <div className="flex h-20 flex-row space-x-4">
-                                    <img
+                                    <Image
                                         src={story.cover_photo}
                                         alt={story.title}
-                                        className="rounded-md object-cover shadow-md"
+                                        className="w-auto rounded-md shadow-md"
+                                        width={75}
+                                        height={100}
                                     />
                                     <div className="flex flex-1 flex-col items-start justify-between">
                                         <div className="text-lg font-bold leading-none">

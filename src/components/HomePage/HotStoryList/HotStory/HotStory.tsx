@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 
 import { IStoryResponse } from '@/interfaces/services/responses';
@@ -18,10 +19,12 @@ export function HotStory({ story }: { story: IStoryResponse }) {
         <div className="block rounded-lg shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]">
             <div className="group relative w-full">
                 <div className="group-hover:opacity-80">
-                    <img
+                    <Image
                         src={story.cover_photo}
                         alt={story.title}
-                        className="w-full rounded-lg object-cover"
+                        className="w-full rounded-lg"
+                        width={200}
+                        height={200}
                     />
                     <div className="absolute bottom-0 flex h-14 w-full items-center rounded-b-lg bg-neutral-700/50 backdrop-blur dark:bg-neutral-50/50">
                         <div className="px-4 text-lg font-bold leading-none tracking-tighter text-neutral-50 dark:text-neutral-800">
