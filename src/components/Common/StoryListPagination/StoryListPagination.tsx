@@ -8,15 +8,15 @@ import { Input } from '@/components/ui/input';
 
 import { IPagination } from '@/interfaces/common';
 
-interface ICustomPaginationProps {
+interface IStoryListPaginationProps {
     paginationAtom: PrimitiveAtom<IPagination>;
     totalPages: number;
 }
 
-export function CustomPagination({
+export function StoryListPagination({
     totalPages,
     paginationAtom,
-}: ICustomPaginationProps) {
+}: IStoryListPaginationProps) {
     const { pagination, nextPage, prevPage, goToPage } =
         usePagination(paginationAtom);
     const [inputPage, setInputPage] = useState(pagination.page);
@@ -53,7 +53,7 @@ export function CustomPagination({
                     type="number"
                     value={inputPage}
                     onChange={handleInputChange}
-                    className="w-12 text-center [&::-webkit-inner-spin-button]:appearance-none"
+                    className="w-16 text-center [&::-webkit-inner-spin-button]:appearance-none"
                 />
                 <span className="m-2 whitespace-nowrap"> / {totalPages}</span>
             </form>

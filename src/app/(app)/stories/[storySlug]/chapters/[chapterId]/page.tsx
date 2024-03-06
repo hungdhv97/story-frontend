@@ -10,7 +10,7 @@ import {
     useGetStory,
 } from '@/hooks/client';
 
-import { ChapterPagination } from '@/components/ChapterPage/ChapterPagination/ChapterPagination';
+import { ChapterListPagination } from '@/components/ChapterPage/ChapterListPagination/ChapterListPagination';
 import { Breadcrumb } from '@/components/Common/Breadcrumb/Breadcrumb';
 import { H2 } from '@/components/Common/Custom/Custom';
 
@@ -61,7 +61,7 @@ export default function ChapterPage({
                 <div className="container flex flex-col">
                     <H2 className="text-center">{chapter.title}</H2>
                     {chapterStoryInfoList && (
-                        <ChapterPagination
+                        <ChapterListPagination
                             chapterStoryInfoList={chapterStoryInfoList}
                         />
                     )}
@@ -78,7 +78,7 @@ export default function ChapterPage({
                             ))}
                     </div>
                     {chapterStoryInfoList && (
-                        <ChapterPagination
+                        <ChapterListPagination
                             chapterStoryInfoList={chapterStoryInfoList}
                         />
                     )}

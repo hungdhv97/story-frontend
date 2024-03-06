@@ -36,19 +36,16 @@ export function SearchInput() {
                             <Link
                                 key={story.id}
                                 href={`/stories/${story.slug}`}
-                                className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                                className="block select-none space-y-1 rounded-md p-2 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
                             >
-                                <div className="flex h-20 flex-row space-x-4">
+                                <div className="flex flex-row space-x-4">
                                     <Image
                                         src={story.cover_photo}
                                         alt={story.title}
-                                        className="w-auto rounded-md shadow-md"
-                                        placeholder="blur"
-                                        quality={100}
-                                        fill
+                                        className="rounded-md shadow-md"
                                         sizes="100vw"
-                                        width={75}
-                                        height={100}
+                                        width={50}
+                                        height={75}
                                     />
                                     <div className="flex flex-1 flex-col items-start justify-between">
                                         <div className="text-lg font-bold leading-none">

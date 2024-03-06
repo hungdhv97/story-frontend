@@ -8,7 +8,7 @@ import { useStoryListFilterConfig } from '@/hooks/custom';
 
 import { Breadcrumb } from '@/components/Common/Breadcrumb/Breadcrumb';
 import { H1 } from '@/components/Common/Custom/Custom';
-import { CustomPagination } from '@/components/Common/CustomPagination/CustomPagination';
+import { StoryListPagination } from '@/components/Common/StoryListPagination/StoryListPagination';
 import { FilterTable } from '@/components/FilterPage/FilterTable/FilterTable';
 import { GenreList } from '@/components/HomePage/UpdatedStoryList/GenreList/GenreList';
 import { TopStoryList } from '@/components/StoryPage/TopStoryList/TopStoryList';
@@ -50,7 +50,7 @@ export default function FilterStoryPage({
                     <div className="w-2/3">
                         <H1>{storyListFilterConfig.paths[0].title}</H1>
                         <FilterTable storyList={storyPagination.results} />
-                        <CustomPagination
+                        <StoryListPagination
                             totalPages={
                                 storyPagination.meta.pagination.total_pages
                             }

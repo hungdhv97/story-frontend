@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 import { useGetChapterShortInfoPagination } from '@/hooks/client';
 
-import { CustomPagination } from '@/components/Common/CustomPagination/CustomPagination';
+import { StoryListPagination } from '@/components/Common/StoryListPagination/StoryListPagination';
 
 import { chapterPaginationAtom } from '@/atoms';
 import {
@@ -40,7 +40,7 @@ export function ChapterList({ story }: IChapterPaginationProps) {
                     ),
                 )}
             </div>
-            <CustomPagination
+            <StoryListPagination
                 totalPages={
                     chapterShortInfoPagination.meta.pagination.total_pages
                 }

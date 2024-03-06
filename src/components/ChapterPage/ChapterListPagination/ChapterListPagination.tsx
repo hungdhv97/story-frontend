@@ -7,7 +7,7 @@ import { Button } from '@/components/ui/button';
 import { selectedChapterIdAtom, selectedStorySlugAtom } from '@/atoms';
 import { IChapterShortInfoResponse } from '@/interfaces/services/responses';
 
-export function ChapterPagination({
+export function ChapterListPagination({
     chapterStoryInfoList,
 }: {
     chapterStoryInfoList: IChapterShortInfoResponse[];

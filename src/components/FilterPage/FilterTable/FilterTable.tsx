@@ -22,7 +22,7 @@ export function FilterTable({ storyList }: IFilterTableProps) {
                         src={story.cover_photo}
                         alt={story.title}
                         width={100}
-                        height={100}
+                        height={150}
                         className="rounded-md"
                     />
                     <div className="flex h-full w-2/4 flex-col justify-between py-5">

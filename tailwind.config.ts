@@ -80,6 +80,9 @@ const config = {
                 'accordion-up': 'accordion-up 0.2s ease-out',
                 shine: 'shine 1s',
             },
+            aspectRatio: {
+                '2/3': '2 / 3',
+            },
         },
     },
     plugins: [require('tailwindcss-animate')],

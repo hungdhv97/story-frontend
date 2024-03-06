@@ -2,9 +2,12 @@ import { Skeleton } from '@/components/ui/skeleton';
 
 export function FullStoryListSkeleton() {
     return (
-        <div className="grid grid-cols-4 gap-8">
-            {Array.from({ length: 8 }).map((_, index) => (
-                <Skeleton key={index} className="min-h-[350px] rounded-2xl" />
+        <div className="grid grid-cols-5 gap-8">
+            {Array.from({ length: 10 }).map((_, index) => (
+                <Skeleton
+                    key={index}
+                    className="aspect-[2/3] w-full rounded-lg"
+                />
             ))}
         </div>
     );
