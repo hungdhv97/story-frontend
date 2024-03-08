@@ -20,11 +20,10 @@ jobs:
           key: ${{ secrets.EC2_SSH_KEY }}
           port: 22
           script: |
-            if ! lsof -i:8000; then
-              cd ${{ secrets.BACKEND_DEPLOY_DIR }}
-              source venv/bin/activate
-              screen -dm bash -c "python manage.py runserver 0.0.0.0:8000"
-            fi
+            sudo kill -9 $(sudo lsof -t -i:8000)
+            cd ${{ secrets.BACKEND_DEPLOY_DIR }}
+            source venv/bin/activate
+            screen -dm bash -c "python manage.py runserver 0.0.0.0:8000"
 
       - name: Deploy to EC2
         uses: easingthemes/ssh-deploy@main
@@ -46,7 +45,5 @@ jobs:
             cd ${{ secrets.FRONTEND_DEPLOY_DIR }}
             rm -rf .next
             unzip .next.zip
-            if lsof -t -i:3000; then
-              sudo kill -9 $(sudo lsof -t -i:3000)
-            fi
+            sudo kill -9 $(sudo lsof -t -i:3000)
             screen -dm bash -c "npm run start"
